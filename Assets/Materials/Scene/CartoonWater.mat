@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CartoonWater
+  m_Shader: {fileID: -6465566751694194690, guid: 350fef6ec45159b478744cef859a94e0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - FoamOffset_: 0.68
+    - Gloss_: 1.3
+    - Metalic_: 0.1
+    - NormalSrengh_: 0
+    - NormalStrengh_: 0.5
+    - RippleDissolve_: 4.2
+    - RippleScale_: 20
+    - RippleSpeed_: 0.75
+    - Transparency_: 5
+    m_Colors:
+    - BaseColor_: {r: 0.09182981, g: 0.34165108, b: 0.6320754, a: 1}
+    - FoamColor_: {r: 0.26666665, g: 0.83984435, b: 1, a: 1}
+    - RippleColor_: {r: 0.3339622, g: 1, b: 0.8959984, a: 0}
+    - RippleSpeed_: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
