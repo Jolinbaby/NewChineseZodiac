@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: base
-  m_Shader: {fileID: 4800000, guid: 1fbc789d845c20248a9a743f50307d9e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 350fef6ec45159b478744cef859a94e0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -94,6 +94,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - FoamOffset_: -5
+    - Gloss_: 0
+    - Metalic_: 0
+    - NormalStrengh_: 2
+    - RippleDissolve_: 3.8
+    - RippleScale_: 10
+    - RippleSpeed_: 1
+    - Transparency_: 0.2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -122,6 +130,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - BaseColor_: {r: 0.2137415, g: 0.6424851, b: 0.745283, a: 0}
+    - FoamColor_: {r: 1, g: 1, b: 1, a: 0}
+    - RippleColor_: {r: 0, g: 0.4417239, b: 0.6603774, a: 0}
     - _BaseColor: {r: 0.38625845, g: 0.85053986, b: 0.9433962, a: 1}
     - _CausticColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
