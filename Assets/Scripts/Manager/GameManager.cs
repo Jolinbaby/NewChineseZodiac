@@ -40,13 +40,24 @@ public class GameManager : MonoBehaviour
 
     //保存物品的信息
     public ItemInfo[] items;
+    //保存每个物体
+    public static GameObject[] boxes;
     //当前生成的物品的索引值
     int createItemIndex;
 
+    public static void DestroyItem(int id)
+    {
+        if (boxes[id - 1].gameObject != null)
+        {
+            Destroy(boxes[id - 1].gameObject);
+        }
+
+    }
     // 将物品生成的各个信息保存下来 0520
     public void SaveItemInfo(MsgEnterBattle msg)
     {
         items = new ItemInfo[msg.items.Length];
+        boxes = new GameObject[msg.items.Length];
         for (int i = 0; i < msg.items.Length; i++) //把相关的物品信息放入场景中
         {
             items[i] = msg.items[i];
@@ -119,8 +130,8 @@ public class GameManager : MonoBehaviour
         kind = items[createItemIndex].kind;
 
         // 显示在场景中
-        guessBox = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z),Quaternion.identity);
-        guessBox.GetComponent<ItemBox>().InitInfo(kind);
+        boxes[createItemIndex] = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z), Quaternion.identity);
+        boxes[createItemIndex].GetComponent<ItemBox>().InitInfo(kind, id);
         totalBoxNum++;
         curBoxNum++;
         createItemIndex++;

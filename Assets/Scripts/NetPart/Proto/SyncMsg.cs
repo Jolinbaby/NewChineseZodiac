@@ -55,3 +55,9 @@ public class MsgHit : MsgBase
     public int hp = 0;          //被击中动物血量
     public int damage = 0;		//受到的伤害
 }
+
+public class MsgPickup : MsgBase
+{
+    public MsgPickup() { protoName = "MsgPickup"; }
+    public int itemid; //似乎只要发送物品的id就可以
+}

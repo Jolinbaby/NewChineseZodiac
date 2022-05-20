@@ -14,16 +14,19 @@ public class ItemBox : MonoBehaviour
 
     private GameObject keyUI;
 
+    public int itemId;
+
     void Start()
     {
         
     }
 
-    public void InitInfo(int kind)
+    public void InitInfo(int kind,int id)
     {
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
+        itemId = id;
         switch (typeNumber)
         {
             case 1:
@@ -89,7 +92,8 @@ public class ItemBox : MonoBehaviour
 
     public void DestorySelf()
     {
-        Debug.Log("道具类型为"+itemType);
+        Debug.Log("道具类型为" + itemType);
+        Debug.Log("道具id为" + itemId);
         // 若道具栏未满
         if (FindItemUI())
         {
@@ -97,6 +101,10 @@ public class ItemBox : MonoBehaviour
             DisplayInItemBar();
             Destroy(gameObject);
         }
+        //向服务端发送报文,表示一下当前捡到了哪个物品
+        MsgPickup msg = new MsgPickup();
+        msg.itemid = itemId;
+        NetManager.Send(msg);
     }
 
     // 检查道具栏是否已满，选择下一个panel
