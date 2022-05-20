@@ -36,5 +36,5 @@ Material:
     - AlphaThreshold: 0.1
     - DitherCount: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.9496899, b: 0.82452834, a: 0}
+    - _Color: {r: 0.6509434, g: 0.5735944, b: 0.38319686, a: 0.62352943}
   m_BuildTextureStacks: []

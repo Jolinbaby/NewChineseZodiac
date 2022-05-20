@@ -39,12 +39,12 @@ public class LoginPanel : BasePanel
         NetManager.AddEventListener(NetManager.NetEvent.ConnectSucc, OnConnectSucc);
         NetManager.AddEventListener(NetManager.NetEvent.ConnectFail, OnConnectFail);
         //连接服务器
-        NetManager.Connect("127.0.0.1", 8888); //这个是服务器的公网地址以及对应的端口号
+        //NetManager.Connect("127.0.0.1", 8888); //这个是服务器的公网地址以及对应的端口号
 
         //172.20.10.2
         //NetManager.Connect("172.20.10.2", 8888); //这个是服务器的公网地址以及对应的端口号
-
-        //NetManager.Connect("47.111.176.71", 8888); //这个是服务器的公网地址以及对应的端口号
+        
+        NetManager.Connect("47.111.176.71", 8888); //这个是服务器的公网地址以及对应的端口号
     }
 
     //关闭
