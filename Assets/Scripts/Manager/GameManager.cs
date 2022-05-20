@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    // 将物品生成的各个信息保存下来 0520
+    // 将物品生成的各个信息保存下来 05201758
     public void SaveItemInfo(MsgEnterBattle msg)
     {
         items = new ItemInfo[msg.items.Length];
