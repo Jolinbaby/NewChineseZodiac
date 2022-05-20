@@ -131,6 +131,7 @@ public class SyncAnimal : BaseAnimal
             Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
             bullet.transform.position = pos;
             bullet.transform.eulerAngles = rot;
+
         }
         else if (mFireid == "BombAttack")
         {
