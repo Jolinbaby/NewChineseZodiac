@@ -6,18 +6,12 @@ public class playerTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Puzzle"))
-        {
-            Debug.Log("碰到了拼图");
-            var transition = other.GetComponent<Transition>();
-            transition?.TransitionToScene(true);
-        }
 
         if (other.CompareTag("TreasureBox"))
         {
             Debug.Log("碰到了宝箱");
             Destroy(other); // 销毁物体
-            GameManager.Instance.GameOver(true);
+            GameManager.GameOver(true);
         }
 
         if (other.CompareTag("Key"))

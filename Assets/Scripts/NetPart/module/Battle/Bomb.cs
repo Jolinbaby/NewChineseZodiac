@@ -91,7 +91,8 @@ public class Bomb : MonoBehaviour
                 
                 SendMsgHit(animal, syncAnimal);
                 Debug.Log("∆‰À˚ÕÊº“—£‘Œ£°");
-                 nearby.gameObject.GetComponent<Animator>().SetTrigger("BeBomb");
+                if(GameMain.isOnline == false)
+                    nearby.gameObject.GetComponent<Animator>().SetTrigger("BeBomb");
                 
              }
          }

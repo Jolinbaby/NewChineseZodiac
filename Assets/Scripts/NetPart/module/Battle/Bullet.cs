@@ -51,7 +51,8 @@ public class Bullet : MonoBehaviour
         if (hitanimal != null)
         {
             SendMsgHit(animal, hitanimal);
-            collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
+            if(GameMain.isOnline == false)
+                collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
         }
         //ÏÔÊ¾±¬Õ¨Ð§¹û
         GameObject explode = ResManager.LoadPrefab("WFX_Explosion");

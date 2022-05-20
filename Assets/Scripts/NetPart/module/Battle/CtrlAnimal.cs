@@ -31,6 +31,9 @@ public class CtrlAnimal : BaseAnimal
 
     private Animator anim;
     public bool isGetKey;
+
+    private bool isKeyMDown = false;
+
     private void Awake()
     {
         //getting reference for components on the Player
@@ -105,9 +108,31 @@ public class CtrlAnimal : BaseAnimal
         //开炮
         FireUpdate();
         FireBombUpdate();
+        //显示地图
+        MaxMapUpdate();
 
         //是否拿到钥匙
         GetKeyUpdate();
+    }
+
+    private void MaxMapUpdate()
+    {
+        GameObject UI_Map = GameObject.Find("UI_Map");
+        GameObject maxmap = UI_Map.transform.Find("maxmap").gameObject;
+        GameObject minmap = UI_Map.transform.Find("minimap").gameObject;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            maxmap.SetActive(true);
+            minmap.SetActive(false);
+            isKeyMDown = true;
+        }
+        
+        if (Input.GetKeyUp(KeyCode.M) && isKeyMDown)
+        {
+            maxmap.SetActive(false);
+            minmap.SetActive(true);
+            isKeyMDown = false;
+        }
     }
 
     //移动控制

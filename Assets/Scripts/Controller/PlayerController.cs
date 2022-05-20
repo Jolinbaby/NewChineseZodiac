@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        throwPos = gameObject.transform;
         anim = GetComponent<Animator>();
         Debug.Log("throwpos:" + throwPos.position);
     }

@@ -5,36 +5,23 @@ using UnityEngine;
 public class GameMain : MonoBehaviour
 {
     //网络功能启动这里
-    //public static string id = "";
+    public static string id = "";
+    public static bool isOnline;
 
-    //单机功能启动这里
-    public static string id = "y";
 
-    // Use this for initialization
     void Start()
     {
         //网络功能启动这里
         //网络监听
-        //NetManager.AddEventListener(NetManager.NetEvent.Close, OnConnectClose);
-        //NetManager.AddMsgListener("MsgKick", OnMsgKick);
-        ////初始化
-        //PanelManager.Init();
-        //BattleManager.Init();
-        ////打开登陆面板
-        //PanelManager.Open<LoginPanel>();
-
-        //单机功能启动这里
-        AnimalInfo animalInfo = new AnimalInfo();
-        animalInfo.id = "y";
-        animalInfo.camp = 2;//不同camp不同动物
-        animalInfo.x = -4.636f;
-        animalInfo.y =20.241f;
-        animalInfo.z = 10.2672f;
-        BattleManager.GenerateAnimal(animalInfo);
+        NetManager.AddEventListener(NetManager.NetEvent.Close, OnConnectClose);
+        NetManager.AddMsgListener("MsgKick", OnMsgKick);
+        //初始化
+        PanelManager.Init();
+        BattleManager.Init();
+        //打开登陆面板
+        PanelManager.Open<OnlineorNotPanel>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         NetManager.Update();

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     [Header("GameObject")]
     public GameObject keyObjectPrefab;
@@ -38,10 +38,22 @@ public class GameManager : Singleton<GameManager>
     public static float timeBegin = 0;
     private Coroutine coroutine;//定义一个协程变量来获取协程的启动与关闭
 
-    protected override void Awake()
+    //保存物品的信息
+    public ItemInfo[] items;
+    //当前生成的物品的索引值
+    int createItemIndex;
+
+    // 将物品生成的各个信息保存下来 0520
+    public void SaveItemInfo(MsgEnterBattle msg)
     {
-        base.Awake();
+        items = new ItemInfo[msg.items.Length];
+        for (int i = 0; i < msg.items.Length; i++) //把相关的物品信息放入场景中
+        {
+            items[i] = msg.items[i];
+        }
+        StartGame(); //开始游戏,生成宝箱
     }
+
 
     private void InitGame()
     {
@@ -52,9 +64,11 @@ public class GameManager : Singleton<GameManager>
         RandomBoxSpawn(maxboxNum);
     }
 
-    private void Start()
+    private void StartGame()
     {
+        //guessBoxPrefab=
         // gameOverUI.SetActive(false);
+        createItemIndex = 0;
         InitGame();
         totalBoxNum = maxboxNum;
         curBoxNum = maxboxNum;
@@ -69,7 +83,6 @@ public class GameManager : Singleton<GameManager>
     {
         coroutine = StartCoroutine(Generate());
     }
-
     //定义一个负责关闭协程的方法
     private void StopRun()
     {
@@ -96,12 +109,21 @@ public class GameManager : Singleton<GameManager>
         //Debug.Log("自动生成道具箱");
         // 获取随机位置x,z
         float x, z;
-        x = Random.Range(minX, maxX); //-5f和(float)-5效果一样
-        z = Random.Range(minZ, maxZ);
+        int id; //物品的id号,在被玩家捡起之后有逻辑判断
+        int kind;
+        //x = Random.Range(minX, maxX); //-5f和(float)-5效果一样
+        //z = Random.Range(minZ, maxZ);
+        x = items[createItemIndex].x;
+        z = items[createItemIndex].z;
+        id = items[createItemIndex].id;
+        kind = items[createItemIndex].kind;
+
         // 显示在场景中
-        guessBox = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z), Quaternion.identity);
+        guessBox = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z),Quaternion.identity);
+        guessBox.GetComponent<ItemBox>().InitInfo(kind);
         totalBoxNum++;
         curBoxNum++;
+        createItemIndex++;
     }
 
     //创建协程，命名Generate，并定义内容
@@ -170,7 +192,7 @@ public class GameManager : Singleton<GameManager>
         Application.Quit(); // 退出游戏
     }
 
-    public void GameOver(bool win)
+    static public void GameOver(bool win)
     {
         if (win)
         {

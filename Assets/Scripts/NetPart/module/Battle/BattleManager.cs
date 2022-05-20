@@ -63,7 +63,7 @@ public class BattleManager
         animals.Clear();
     }
 
-    
+
     //开始战斗
     public static void EnterBattle(MsgEnterBattle msg)
     {
@@ -71,11 +71,7 @@ public class BattleManager
         BattleManager.Reset();
         //关闭界面
         PanelManager.Close("RoomPanel");//可以放到房间系统的监听中
-
-
-        //PanelManager.Open<MinimapPanel>();
-
-        //PanelManager.Close("ResultPanel");
+        GameObject.FindObjectOfType<GameManager>().SaveItemInfo(msg);
         //产生动物
         for (int i = 0; i < msg.animals.Length; i++)
         {
@@ -153,7 +149,10 @@ public class BattleManager
         //    CameraFollow cf = animalObj.GetComponentInChildren<CharacterController>().gameObject.AddComponent<CameraFollow>();
         //}
 
-
+        BaseAnimal baseAnimal = animal.GetComponent<BaseAnimal>();
+        baseAnimal.camp = animalInfo.camp;
+        baseAnimal.id = animalInfo.id;
+        //Debug.Log("baseAnimal.id" + baseAnimal.id);
 
 
         //pos rotation

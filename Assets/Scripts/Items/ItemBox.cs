@@ -16,8 +16,14 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public void InitInfo(int kind)
+    {
         // 生成时，随机确定自己的类别
-        int typeNumber = Random.Range(1, 4);  //取1-3
+        //int typeNumber = Random.Range(1, 4); //取1-3
+        int typeNumber = kind;
         switch (typeNumber)
         {
             case 1:
@@ -29,20 +35,25 @@ public class ItemBox : MonoBehaviour
             case 3:
                 itemType = ItemType.Landmine;
                 break;
+            case 4:
+                ItemManager.hasKey = true;
+                itemType = ItemType.Key;
+                break;
         }
         // 如果还没有生成钥匙过，那么有10%的几率是钥匙
-        if (!ItemManager.hasKey)
-        {
-            // 有10%的概率生成钥匙
-            int r = Random.Range(0, 10);
-            if (r == 5)
-            {
-                addKey();
-                Debug.Log("生成钥匙！位置在" + transform.position);
-            }
-        }
+        //if (!ItemManager.hasKey)
+        //{
+        // // 有10%的概率生成钥匙
+        // int r = Random.Range(0, 10);
+        // if (r == 5)
+        // {
+        // addKey();
+        // Debug.Log("生成钥匙！位置在" + transform.position);
+        // }
+        //}
         FindLand();
     }
+
     public void addKey()
     {
         itemType = ItemType.Key;

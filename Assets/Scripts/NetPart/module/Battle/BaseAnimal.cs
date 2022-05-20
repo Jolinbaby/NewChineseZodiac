@@ -143,16 +143,16 @@ public class BaseAnimal : MonoBehaviour
         //œ‘ æ∑Ÿ…’–ßπ˚
         if (Fireid== "QAttack")
         {
-            GameObject obj = ResManager.LoadPrefab("WFX_Explosion");
-            GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
-            explosion.transform.SetParent(transform);
+            //GameObject obj = ResManager.LoadPrefab("WFX_Explosion");
+            //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
+            //explosion.transform.SetParent(transform);
             gameObject.GetComponent<Animator>().SetTrigger("Dizzy");
         }
         else if (Fireid == "BombAttack")
         {
-            GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
-            GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
-            explosion.transform.SetParent(transform);
+            //GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
+            //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
+            //explosion.transform.SetParent(transform);
             gameObject.GetComponent<Animator>().SetTrigger("BeBomb");
         }
 
