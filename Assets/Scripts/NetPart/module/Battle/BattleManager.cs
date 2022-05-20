@@ -20,6 +20,7 @@ public class BattleManager
         NetManager.AddMsgListener("MsgFire", OnMsgFire);
         NetManager.AddMsgListener("MsgHit", OnMsgHit);
         NetManager.AddMsgListener("MsgKey", OnMsgKey);
+        NetManager.AddMsgListener("MsgPickup", OnMsgPickup);
         //NetManager.AddMsgListener("MsgAnimation", OnMsgAnimation);
     }
 
@@ -307,5 +308,13 @@ public class BattleManager
         //ItemManager.isAnimalGetKey = true;
 
         Debug.Log(msg.id+"拿到钥匙啦");
+    }
+
+    //新增一个函数
+    public static void OnMsgPickup(MsgBase msgBase)
+    {
+        MsgPickup msg = (MsgPickup)msgBase;
+        int id = msg.itemid;
+        GameManager.DestroyItem(id);
     }
 }
