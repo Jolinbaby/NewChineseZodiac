@@ -22,6 +22,11 @@ public class BaseAnimal : MonoBehaviour
     //上一次发射炮弹的时间
     public float lastFireTime = 0;
 
+    //保护罩Cd时间
+    public float ShieldCd = 3f;
+    //上一次保护罩的时间
+    public float lastShieldTime = 0;
+
     //物理
     public Rigidbody rigidBody;
     //生命值
@@ -119,6 +124,8 @@ public class BaseAnimal : MonoBehaviour
         shieldProp.animal = this;
         //位置
         shieldProp.transform.position = transform.position;
+        shieldProp.transform.transform.parent = this.transform;
+
         shieldProp.transform.rotation = transform.rotation;
         //更新时间
         lastFireTime = Time.time;
