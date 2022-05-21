@@ -23,7 +23,7 @@ public class BaseAnimal : MonoBehaviour
     public float lastFireTime = 0;
 
     //保护罩Cd时间
-    public float ShieldCd = 3f;
+    public float ShieldCd = 1f;
     //上一次保护罩的时间
     public float lastShieldTime = 0;
 
@@ -128,7 +128,7 @@ public class BaseAnimal : MonoBehaviour
 
         shieldProp.transform.rotation = transform.rotation;
         //更新时间
-        lastFireTime = Time.time;
+        lastShieldTime = Time.time;
         return shieldProp;
     }
 

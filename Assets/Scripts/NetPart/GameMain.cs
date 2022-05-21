@@ -20,6 +20,7 @@ public class GameMain : MonoBehaviour
         BattleManager.Init();
         //´ò¿ªµÇÂ½Ãæ°å
         PanelManager.Open<OnlineorNotPanel>();
+        PanelManager.Open<EscPanel>();
     }
 
     void Update()

@@ -248,7 +248,7 @@ public class CtrlAnimal : BaseAnimal
         //    return;
         //}
        
-        if (Time.time - lastFireTime < fireCd)
+        if (Time.time - lastShieldTime < ShieldCd)
         {
             return;
         }
