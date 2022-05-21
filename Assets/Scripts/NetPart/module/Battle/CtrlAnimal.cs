@@ -241,24 +241,33 @@ public class CtrlAnimal : BaseAnimal
         {
             return;
         }
-        //cd是否判断
+        //测试
+        //if (!Input.GetKey(KeyCode.E))
+        //{
+        //    return;
+        //}
+       
         if (Time.time - lastFireTime < fireCd)
         {
             return;
         }
         ShieldProp shieldProp = SpawnShield();
-
         //发送同步协议
 
-
-
-
-
+        MsgFire msg = new MsgFire();
+        msg.x = shieldProp.transform.position.x;
+        msg.y = shieldProp.transform.position.y;
+        msg.z = shieldProp.transform.position.z;
+        msg.ex = shieldProp.transform.eulerAngles.x;
+        msg.ey = shieldProp.transform.eulerAngles.y;
+        msg.ez = shieldProp.transform.eulerAngles.z;
+        msg.Fireid = "Shield";
+        NetManager.Send(msg);
 
         ItemManager.isShield = false;
     }
         //发送同步信息
-        public void SyncUpdate()
+    public void SyncUpdate()
     {
         //时间间隔判断
         if (Time.time - lastSendSyncTime < syncInterval)

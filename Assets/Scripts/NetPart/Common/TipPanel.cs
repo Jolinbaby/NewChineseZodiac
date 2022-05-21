@@ -40,6 +40,11 @@ public class TipPanel : BasePanel
     //当按下确定按钮
     public void OnOkClick()
     {
+        if (text.text == "被踢下线")
+        {
+            NetManager.Close();
+            PanelManager.Open<OnlineorNotPanel>();
+        }
         Close();
     }
 }

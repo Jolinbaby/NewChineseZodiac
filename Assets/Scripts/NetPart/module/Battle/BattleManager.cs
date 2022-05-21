@@ -72,6 +72,7 @@ public class BattleManager
         BattleManager.Reset();
         //关闭界面
         PanelManager.Close("RoomPanel");//可以放到房间系统的监听中
+        PanelManager.Close("TipPanel");
         GameObject.FindObjectOfType<GameManager>().SaveItemInfo(msg);
         //产生动物
         for (int i = 0; i < msg.animals.Length; i++)

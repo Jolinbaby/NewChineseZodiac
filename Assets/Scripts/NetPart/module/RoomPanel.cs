@@ -165,7 +165,7 @@ public class RoomPanel : BasePanel
         //开战失败
         else
         {
-            PanelManager.Open<TipPanel>("开战失败！只有队长可以开始战斗!");
+            PanelManager.Open<TipPanel>("开战失败！至少都需要2名玩家才能开战， 且只有房主可以开始战斗！");
         }
     }
 }
