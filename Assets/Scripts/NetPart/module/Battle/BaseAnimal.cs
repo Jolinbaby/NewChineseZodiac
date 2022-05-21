@@ -109,6 +109,22 @@ public class BaseAnimal : MonoBehaviour
         return bomb;
     }
 
+    //生成保护罩
+    public ShieldProp SpawnShield()
+    {
+        Debug.Log("SpawnShield!!!!!!!!!!!!!!!!!!!!");
+        GameObject shieldObj = new GameObject("shield");
+        ShieldProp shieldProp = shieldObj.AddComponent<ShieldProp>();
+        shieldProp.Init();
+        shieldProp.animal = this;
+        //位置
+        shieldProp.transform.position = transform.position;
+        shieldProp.transform.rotation = transform.rotation;
+        //更新时间
+        lastFireTime = Time.time;
+        return shieldProp;
+    }
+
     ////是否死亡
     //public bool IsDie()
     //{

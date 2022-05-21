@@ -6,7 +6,11 @@ using UnityEngine.UI;
 static class ItemManager
 {
     private static Image itemIcon;
+
     public static bool isThrowBomb;
+    public static bool isThrowInk;
+    public static bool isShield;
+
     public static bool isAnimalGetKey;
     // 是否已经有钥匙生成
     public static bool hasKey;
@@ -112,6 +116,14 @@ static class ItemManager
                 //GameObject bombPrefab = Resources.Load("Prefabs/Items/Bomb", typeof(GameObject)) as GameObject;
                 //var bomb = MonoBehaviour.Instantiate(bombPrefab, throwPos.position, Quaternion.identity);
                 isThrowBomb = true;
+                break;
+            case "ink":
+                Debug.Log("丢墨汁");
+                isThrowInk = true;
+                break;
+            case "shield":
+                Debug.Log("护盾");
+                isShield = true;
                 break;
         }
     }

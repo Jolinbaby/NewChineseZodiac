@@ -13,19 +13,30 @@ public class ShieldProp : MonoBehaviour
     public BaseAnimal animal;
     //护盾模型
     private GameObject shield;
+    //护盾material
+    private Material shieldMaterial;
+    //护盾是否存在
+    [HideInInspector]
+    public bool isExist = false;
+    //碰撞体trigger
+    private Collider collider;//效果未写
+    //生成位置
+    private PlayerNodePosition nodePosition;
 
     public void Init()
     {
-        // 加载预制体
-        GameObject shieldRes = ResManager.LoadPrefab("Shield");
-        shield = (GameObject)Instantiate(shieldRes);
-        Vector3 Spawnpos = new Vector3(0, 0, 0);
-        shield.transform.parent = this.transform;
-        shield.transform.localPosition = Spawnpos;
-        shield.transform.localEulerAngles = Vector3.zero;
-        Debug.Log("生成护盾！！！！！！！！！！！！！！！！！！！！！！");
+        isExist = true;
+        // 碰撞
+        collider = GetComponent<Collider>();
         // 溶解效果初始化
         curDissolve = 0;
+        // shader
+        shieldMaterial = gameObject.GetComponent<MeshRenderer>().material;
+        shieldMaterial.SetFloat("_Disolve", curDissolve);//dissolve真不是我写错的！我不背锅！不过懒得改了！
+        // 生成位置
+        nodePosition = animal.GetComponent<PlayerNodePosition>();
+        nodePosition.bubblePos.SetActive(true);
+        Debug.Log("生成护盾！！！！！！！！！！！！！！！！！！！！！！");
     }
 
     public void getAnimalType()
@@ -38,12 +49,39 @@ public class ShieldProp : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (isExist)
+        {
+            startShield();//产生护盾
+        }
+        if (!isExist)
+        {
+            endShield();//护盾效果消失
+        }
+    }
+
+    private void startShield()
     {
         if (curDissolve <= 1)
         {
             curDissolve += DissolveSpeed * Time.deltaTime;
+            shieldMaterial.SetFloat("_Disolve", curDissolve);
         }
+    }
+
+    private void endShield()
+    {
+        if (curDissolve >= 0)
+        {
+            curDissolve -= DissolveSpeed * Time.deltaTime;
+            shieldMaterial.SetFloat("_Disolve", curDissolve);
+        }
+    }
+
+    //发送护盾协议
+    void SendMsgProtect(BaseAnimal animal)
+    {
+
     }
 }
