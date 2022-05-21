@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemBox : MonoBehaviour
 {
 
-    public enum ItemType { Key, Bomb, Ink, Landmine };
+    public enum ItemType { Key, Bomb, Ink, Shield };
 
     public ItemType itemType;
 
@@ -18,7 +18,7 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        
+        InitInfo(3, 0);
     }
 
     public void InitInfo(int kind,int id)
@@ -36,7 +36,7 @@ public class ItemBox : MonoBehaviour
                 itemType = ItemType.Ink;
                 break;
             case 3:
-                itemType = ItemType.Landmine;
+                itemType = ItemType.Shield;
                 break;
             case 4:
                 ItemManager.hasKey = true;
@@ -151,13 +151,13 @@ public class ItemBox : MonoBehaviour
                 Debug.Log("是墨汁！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
                 Debug.Log(imgPath);
                 break;
-            case ItemType.Landmine:
+            case ItemType.Shield:
                 // 找到文件路径，赋予Panel
                 //string imgPath = Application.dataPath + "Images/ItemsIcon/" + "bomb.png
-                imgPath = "Images/ItemsIcon/" + "landmine";
+                imgPath = "Images/ItemsIcon/" + "shield";
                 itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
                 itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
-                Debug.Log("是地雷！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                Debug.Log("是护盾！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
                 Debug.Log(imgPath);
                 break;
         }

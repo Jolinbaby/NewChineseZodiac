@@ -108,6 +108,8 @@ public class CtrlAnimal : BaseAnimal
         //开炮
         FireUpdate();
         FireBombUpdate();
+        //护盾
+        ShieldUpdate();
         //显示地图
         MaxMapUpdate();
 
@@ -232,8 +234,31 @@ public class CtrlAnimal : BaseAnimal
         ItemManager.isThrowBomb = false;
     }
 
-    //发送同步信息
-    public void SyncUpdate()
+    public void ShieldUpdate()
+    {
+        //按键判断
+        if (ItemManager.isShield == false)
+        {
+            return;
+        }
+        //cd是否判断
+        if (Time.time - lastFireTime < fireCd)
+        {
+            return;
+        }
+        ShieldProp shieldProp = SpawnShield();
+
+        //发送同步协议
+
+
+
+
+
+
+        ItemManager.isShield = false;
+    }
+        //发送同步信息
+        public void SyncUpdate()
     {
         //时间间隔判断
         if (Time.time - lastSendSyncTime < syncInterval)
