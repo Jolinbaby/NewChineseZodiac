@@ -100,11 +100,11 @@ public class ItemBox : MonoBehaviour
             SoundManager.Instance.OnPickUpAudio();
             DisplayInItemBar();
             Destroy(gameObject);
+            //向服务端发送报文,表示一下当前捡到了哪个物品
+            MsgPickup msg = new MsgPickup();
+            msg.itemid = itemId;
+            NetManager.Send(msg);
         }
-        //向服务端发送报文,表示一下当前捡到了哪个物品
-        MsgPickup msg = new MsgPickup();
-        msg.itemid = itemId;
-        NetManager.Send(msg);
     }
 
     // 检查道具栏是否已满，选择下一个panel
