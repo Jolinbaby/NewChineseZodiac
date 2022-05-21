@@ -97,7 +97,7 @@ public class Bomb : MonoBehaviour
              }
          }
         //ÏÔÊ¾±¬Õ¨Ð§¹û
-        GameObject explode = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
+        GameObject explode = ResManager.LoadPrefab("Bomb_Particle");
         //if (hitanimal != null) 
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("BeBomb");//
 

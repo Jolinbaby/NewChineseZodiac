@@ -151,6 +151,14 @@ public class SyncAnimal : BaseAnimal
             shieldProp.transform.position = pos;
             shieldProp.transform.eulerAngles = rot;
         }
-
+        else if (mFireid == "InkAttack")
+        {
+            Ink ink = FireInk();
+            //¸üÐÂ×ø±ê
+            Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
+            Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
+            ink.transform.position = pos;
+            ink.transform.eulerAngles = rot;
+        }
     }
 }

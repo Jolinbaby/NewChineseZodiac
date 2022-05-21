@@ -108,6 +108,7 @@ public class CtrlAnimal : BaseAnimal
         //开炮
         FireUpdate();
         FireBombUpdate();
+        FireInkUpdate();
         //护盾
         ShieldUpdate();
         //显示地图
@@ -266,7 +267,47 @@ public class CtrlAnimal : BaseAnimal
 
         ItemManager.isShield = false;
     }
-        //发送同步信息
+
+    public void FireInkUpdate()
+    {
+        //已经死亡
+        //if (IsDie())
+        //{
+        //    return;
+        //}
+        //if (isdizzy())
+        //{
+        //    return;
+        //}
+        //按键判断
+        if (ItemManager.isThrowInk == false)
+        {
+            return;
+        }
+        //cd是否判断
+        if (Time.time - lastFireTime < fireCd)
+        {
+            return;
+        }
+
+        Debug.Log(id + "************************************");
+        Ink ink = FireInk();
+
+        //发送同步协议
+        MsgFire msg = new MsgFire();
+        msg.x = ink.transform.position.x;
+        msg.y = ink.transform.position.y;
+        msg.z = ink.transform.position.z;
+        msg.ex = ink.transform.eulerAngles.x;
+        msg.ey = ink.transform.eulerAngles.y;
+        msg.ez = ink.transform.eulerAngles.z;
+        msg.Fireid = "InkAttack";
+        NetManager.Send(msg);
+
+        ItemManager.isThrowInk = false;
+    }
+
+    //发送同步信息
     public void SyncUpdate()
     {
         //时间间隔判断

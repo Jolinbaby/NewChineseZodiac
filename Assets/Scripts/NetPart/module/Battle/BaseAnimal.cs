@@ -132,6 +132,33 @@ public class BaseAnimal : MonoBehaviour
         return shieldProp;
     }
 
+    public Ink FireInk()
+    {
+        //已经死亡
+        //if (isdie())
+        //{
+        //    return;
+        //}
+        //已经dizzy
+        //if (isdizzy())
+        //{
+        //    return null;
+        //}
+        //产生炮弹
+        GameObject inkObj = new GameObject("ink");
+        //bulletObj.layer = LayerMask.NameToLayer("Bullet");
+        Ink ink = inkObj.AddComponent<Ink>();
+        ink.Init();
+        ink.animal = this;
+        //位置
+        ink.transform.position = transform.position;
+        ink.transform.rotation = transform.rotation;
+        //更新时间
+        lastFireTime = Time.time;
+        Debug.Log("InkFIred");
+        return ink;
+    }
+
     ////是否死亡
     //public bool IsDie()
     //{
@@ -178,7 +205,15 @@ public class BaseAnimal : MonoBehaviour
             //explosion.transform.SetParent(transform);
             gameObject.GetComponent<Animator>().SetTrigger("BeBomb");
         }
-
+        else if (Fireid == "InkAttack")
+        {
+            /*            GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
+                        GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
+                        explosion.transform.SetParent(transform);*/
+            Debug.Log("set trigger");
+            GameObject.Find("UI_Ink/Image").GetComponent<Animator>().SetTrigger("BeInk");
+            //gameObject.GetComponent<Animator>().SetTrigger("BeInk");
+        }
     }
 
 
