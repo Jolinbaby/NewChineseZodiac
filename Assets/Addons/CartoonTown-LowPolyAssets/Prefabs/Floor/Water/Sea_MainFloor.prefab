@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 477568}
   - component: {fileID: 3397748}
   - component: {fileID: 2383644}
-  - component: {fileID: 9192023256823752749}
-  m_Layer: 0
+  - component: {fileID: 26222632077227632}
+  m_Layer: 4
   m_Name: Sea_MainFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9192023256823752749
+--- !u!65 &26222632077227632
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
