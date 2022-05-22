@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 498820}
   - component: {fileID: 3387210}
   - component: {fileID: 2387344}
-  - component: {fileID: 3731321466579568596}
   m_Layer: 3
   m_Name: GrassStems
   m_TagString: Untagged
@@ -83,16 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3731321466579568596
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109580}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9923013, y: 1.629538, z: 1.6893523}
-  m_Center: {x: 0.021972716, y: 0.7419187, z: -0.17771176}

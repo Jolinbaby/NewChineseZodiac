@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410990}
-  - component: {fileID: 2168901783429450966}
+  - component: {fileID: 7260517862024781454}
   m_Layer: 0
   m_Name: Tree_Bubbles_Blue
   m_TagString: Untagged
@@ -197,8 +197,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2168901783429450966
-BoxCollider:
+--- !u!64 &7260517862024781454
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -207,6 +207,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.59304, y: 3.9651465, z: 2.5116434}
-  m_Center: {x: -0.017442226, y: 1.9593208, z: -0.011628687}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

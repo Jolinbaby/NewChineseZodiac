@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 451562}
   - component: {fileID: 3331162}
   - component: {fileID: 2399386}
-  - component: {fileID: 8787159215370381161}
+  - component: {fileID: 995658389439479038}
   m_Layer: 0
   m_Name: StonesX2
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8787159215370381161
-BoxCollider:
+--- !u!64 &995658389439479038
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.1353972, y: 1.2778842, z: 2.8309193}
-  m_Center: {x: 0.023359895, y: 0.49322128, z: 0.01796174}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ca8e8414f1c0f491b993c64b45488878, type: 3}

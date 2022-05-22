@@ -419,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 446636}
-  - component: {fileID: 8245591488928842882}
+  - component: {fileID: 5698911150544699646}
   m_Layer: 0
   m_Name: Misc_Shop_1_Bright
   m_TagString: Untagged
@@ -447,8 +447,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8245591488928842882
-BoxCollider:
+--- !u!64 &5698911150544699646
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -457,9 +457,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.3446712, y: 6.1860247, z: 4.9654827}
-  m_Center: {x: -0.01019907, y: 3.0713887, z: -0.5251126}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &198802
 GameObject:
   m_ObjectHideFlags: 0

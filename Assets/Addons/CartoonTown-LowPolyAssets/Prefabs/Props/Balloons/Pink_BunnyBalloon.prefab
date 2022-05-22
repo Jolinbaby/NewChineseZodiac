@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 437106}
   - component: {fileID: 3367518}
   - component: {fileID: 2304412}
-  - component: {fileID: 7683472599699204109}
+  - component: {fileID: 2050618054276696856}
   m_Layer: 0
   m_Name: Pink_BunnyBalloon
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7683472599699204109
-BoxCollider:
+--- !u!64 &2050618054276696856
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8411849, y: 4.060488, z: 0.7688415}
-  m_Center: {x: 0.0026693046, y: 2.0306256, z: 0.0035116822}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 545d37d543f0e4761aab4dfe8ba1c27c, type: 3}

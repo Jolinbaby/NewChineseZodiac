@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 472752}
-  - component: {fileID: 2636116894402947265}
+  - component: {fileID: 6724566046304870591}
   m_Layer: 0
   m_Name: TrainStation
   m_TagString: Untagged
@@ -33,8 +33,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2636116894402947265
-BoxCollider:
+--- !u!64 &6724566046304870591
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43,9 +43,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.0341296, y: 2.7291822, z: 4.0169992}
-  m_Center: {x: -0.00000023841858, y: 1.3570867, z: -0.8009492}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &132238
 GameObject:
   m_ObjectHideFlags: 0

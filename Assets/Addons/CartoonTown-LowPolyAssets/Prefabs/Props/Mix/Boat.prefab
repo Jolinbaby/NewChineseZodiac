@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3354050}
   - component: {fileID: 2319380}
   - component: {fileID: 9563624}
-  - component: {fileID: 5977042871272627989}
+  - component: {fileID: 8754179826709099332}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -103,8 +103,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &5977042871272627989
-BoxCollider:
+--- !u!64 &8754179826709099332
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,6 +113,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7059553, y: 2.912707, z: 3.9797134}
-  m_Center: {x: -0.2501465, y: 1.4120089, z: -0.117185414}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f56eea6d15c494e54ac1b03c652ffbc2, type: 3}

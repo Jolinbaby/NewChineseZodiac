@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 417052}
   - component: {fileID: 3305430}
   - component: {fileID: 2349048}
-  - component: {fileID: 1824276995473468802}
+  - component: {fileID: 402601674495568427}
   m_Layer: 0
   m_Name: HotAirBalloon_Pink
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1824276995473468802
-BoxCollider:
+--- !u!64 &402601674495568427
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.435402, y: 10.524973, z: 6.435402}
-  m_Center: {x: -0.137874, y: 5.2682085, z: -0.00000023841858}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 27e8bdb76862344559faa7f81101fd7f, type: 3}

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 448798}
   - component: {fileID: 3345404}
   - component: {fileID: 2367574}
-  - component: {fileID: 1454122501135145664}
   m_Layer: 0
   m_Name: LightChain
   m_TagString: Untagged
@@ -83,16 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1454122501135145664
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171726}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 0.9396999, z: 0.29645756}
-  m_Center: {x: 0, y: 0.46240908, z: -0.016323328}

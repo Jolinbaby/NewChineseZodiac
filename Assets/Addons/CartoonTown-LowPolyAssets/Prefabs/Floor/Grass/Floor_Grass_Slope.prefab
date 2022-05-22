@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 475070}
   - component: {fileID: 3341656}
   - component: {fileID: 2384510}
-  - component: {fileID: 7496093870593714711}
+  - component: {fileID: 1567396556481673094}
   m_Layer: 3
   m_Name: Floor_Grass_Slope
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7496093870593714711
-BoxCollider:
+--- !u!64 &1567396556481673094
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6, y: 2, z: 6}
-  m_Center: {x: 0, y: 0.9999999, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6eaf9a55b673945d1950e9de01c813f0, type: 3}

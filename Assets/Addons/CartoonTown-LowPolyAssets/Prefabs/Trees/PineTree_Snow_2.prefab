@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 488560}
   - component: {fileID: 3389214}
   - component: {fileID: 2307804}
-  - component: {fileID: 7172334286139797421}
+  - component: {fileID: 8234529167099438210}
   m_Layer: 0
   m_Name: PineTree_Snow_2
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7172334286139797421
-BoxCollider:
+--- !u!64 &8234529167099438210
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6477962, y: 4.7995596, z: 2.6477957}
-  m_Center: {x: -0.000000059604645, y: 2.3993173, z: -0.000000059604645}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 58e55c08b9620470fb4a1c8a8532a7a2, type: 3}
