@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3380824}
   - component: {fileID: 2380268}
   - component: {fileID: 12071741045533311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sand_Slope_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

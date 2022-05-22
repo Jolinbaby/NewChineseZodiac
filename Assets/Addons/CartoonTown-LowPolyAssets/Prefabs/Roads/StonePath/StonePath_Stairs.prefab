@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3385374}
   - component: {fileID: 2393524}
   - component: {fileID: 7355157896026163858}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StonePath_Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

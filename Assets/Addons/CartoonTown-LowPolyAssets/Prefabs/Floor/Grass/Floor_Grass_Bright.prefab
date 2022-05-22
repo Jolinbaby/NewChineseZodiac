@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3394380}
   - component: {fileID: 2394950}
   - component: {fileID: 4091291545957285078}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor_Grass_Bright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
