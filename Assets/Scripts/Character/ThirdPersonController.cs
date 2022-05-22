@@ -98,6 +98,7 @@ namespace PlayerControl
         private CharacterController _controller;
         private PlayerInputs _input;
         private GameObject _mainCamera;
+        private GameObject _sprintSmoke;
 
         private const float _threshold = 0.01f;
 
@@ -120,7 +121,7 @@ namespace PlayerControl
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<PlayerInputs>();
             _playerInput = GetComponent<PlayerInput>();
-
+            _sprintSmoke = this.transform.Find("Player_run_VFX").gameObject;
             AssignAnimationIDs();
 
             // reset our timeouts on start
@@ -226,6 +227,12 @@ namespace PlayerControl
 
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+
+            //generate smoke
+            if (_input.sprint) 
+                _sprintSmoke.SetActive(true);
+            else
+                _sprintSmoke.SetActive(false);
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
