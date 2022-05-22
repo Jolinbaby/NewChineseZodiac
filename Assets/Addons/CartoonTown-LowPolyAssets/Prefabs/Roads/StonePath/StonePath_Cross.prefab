@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3337762}
   - component: {fileID: 2374582}
   - component: {fileID: 4614212613671161390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StonePath_Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}

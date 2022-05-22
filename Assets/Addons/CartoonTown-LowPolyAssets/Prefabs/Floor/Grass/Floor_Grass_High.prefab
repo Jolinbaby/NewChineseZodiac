@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3362212}
   - component: {fileID: 2367676}
   - component: {fileID: 1600257653491104000}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor_Grass_High
   m_TagString: Untagged
   m_Icon: {fileID: 0}
