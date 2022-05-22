@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 406088}
   - component: {fileID: 3301378}
   - component: {fileID: 2327020}
-  - component: {fileID: 6679362382293425183}
+  - component: {fileID: 7886207360076775691}
   m_Layer: 0
   m_Name: Fruit_Cart_Shop
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6679362382293425183
-BoxCollider:
+--- !u!64 &7886207360076775691
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.724174, y: 2.2906046, z: 1.7347211}
-  m_Center: {x: 0, y: 1.1421337, z: 0.03304988}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0c0339463e9e54d50841558563853a17, type: 3}

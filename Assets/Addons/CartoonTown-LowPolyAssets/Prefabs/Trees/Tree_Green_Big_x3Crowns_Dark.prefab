@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 429534}
   - component: {fileID: 3352722}
   - component: {fileID: 2371152}
-  - component: {fileID: 6333295670044768526}
+  - component: {fileID: 7793048140344338240}
   m_Layer: 0
   m_Name: Tree_Green_Big_x3Crowns_Dark
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6333295670044768526
-BoxCollider:
+--- !u!64 &7793048140344338240
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.4937072, y: 6.351455, z: 1.7900237}
-  m_Center: {x: 0.004571438, y: 3.1731985, z: -0.018627703}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: fab8237e7a21c4e8eb343d54dac98085, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 460740}
   - component: {fileID: 3367952}
   - component: {fileID: 2310918}
-  - component: {fileID: 8007455463229411398}
+  - component: {fileID: 594922651257946016}
   m_Layer: 0
   m_Name: Floor_Grass_Pond
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8007455463229411398
-BoxCollider:
+--- !u!64 &594922651257946016
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.999999, y: 5.091708, z: 5.999999}
-  m_Center: {x: 0, y: 2.545854, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f8156fd2fc65a420aab06365edb0dc1d, type: 3}

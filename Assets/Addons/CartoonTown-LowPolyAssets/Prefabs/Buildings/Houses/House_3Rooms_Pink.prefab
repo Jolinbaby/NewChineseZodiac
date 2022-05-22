@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 456718}
   - component: {fileID: 3390276}
   - component: {fileID: 2353136}
-  - component: {fileID: 3089705950291888188}
+  - component: {fileID: 5542534786854628226}
   m_Layer: 0
   m_Name: House_3Rooms_Pink
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3089705950291888188
-BoxCollider:
+--- !u!64 &5542534786854628226
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.155428, y: 4.6946316, z: 4.8319}
-  m_Center: {x: 0.031805873, y: 2.3471632, z: -0.09279084}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7885b6f9110774119b656ed502d89813, type: 3}

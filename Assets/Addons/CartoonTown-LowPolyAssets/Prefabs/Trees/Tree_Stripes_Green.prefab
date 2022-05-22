@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 465242}
   - component: {fileID: 3384378}
   - component: {fileID: 2372228}
-  - component: {fileID: 1790331167835836194}
+  - component: {fileID: 5784211352398974138}
   m_Layer: 0
   m_Name: Tree_Stripes_Green
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1790331167835836194
-BoxCollider:
+--- !u!64 &5784211352398974138
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2861896, y: 4.9643083, z: 2.4038422}
-  m_Center: {x: 0.00014775991, y: 2.4821541, z: -0.00000011920929}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c69af2769c96a4faf8e31a38f878696d, type: 3}

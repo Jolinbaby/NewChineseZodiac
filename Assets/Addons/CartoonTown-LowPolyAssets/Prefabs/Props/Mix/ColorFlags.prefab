@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 434926}
   - component: {fileID: 3302346}
   - component: {fileID: 2324382}
-  - component: {fileID: 6308517264202178102}
+  - component: {fileID: 5464333008116342916}
   m_Layer: 0
   m_Name: ColorFlags
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6308517264202178102
-BoxCollider:
+--- !u!64 &5464333008116342916
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 11.055817, y: 1.5442166, z: 0.23671944}
-  m_Center: {x: -0.031249762, y: 3.565935, z: -0.00000018626451}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 22a545373122a4d299404bad52e20b9a, type: 3}

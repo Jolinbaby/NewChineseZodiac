@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447522}
-  - component: {fileID: 8046347324851264112}
+  - component: {fileID: 779268867090636044}
   m_Layer: 0
   m_Name: Candy_Shop
   m_TagString: Untagged
@@ -118,8 +118,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8046347324851264112
-BoxCollider:
+--- !u!64 &779268867090636044
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,9 +128,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.8760014, y: 5.8246756, z: 5.3755703}
-  m_Center: {x: 0.03849554, y: 2.8871064, z: 0.84046745}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &137382
 GameObject:
   m_ObjectHideFlags: 0

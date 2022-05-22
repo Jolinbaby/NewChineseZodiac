@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 427328}
   - component: {fileID: 3302350}
   - component: {fileID: 2391512}
-  - component: {fileID: 3481330761258525303}
   m_Layer: 0
   m_Name: Flower_1x_PurpleLight
   m_TagString: Untagged
@@ -83,16 +82,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3481330761258525303
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.71015215, y: 0.92254573, z: 0.51782316}
-  m_Center: {x: 0.022868857, y: 0.4320245, z: 0.005991161}

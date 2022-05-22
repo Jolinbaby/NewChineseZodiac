@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 447624}
   - component: {fileID: 3354454}
   - component: {fileID: 2359458}
-  - component: {fileID: 2383611229582788079}
+  - component: {fileID: 7738094759814219850}
   m_Layer: 3
   m_Name: Sand_Corner
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2383611229582788079
-BoxCollider:
+--- !u!64 &7738094759814219850
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6, y: 1.8000002, z: 6}
-  m_Center: {x: 0, y: 0.9, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: e24ffc53a6afb40d4af81609ef12c5c6, type: 3}

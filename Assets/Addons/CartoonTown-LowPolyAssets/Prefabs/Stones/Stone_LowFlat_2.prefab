@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 451030}
   - component: {fileID: 3304806}
   - component: {fileID: 2382612}
-  - component: {fileID: 2909314908290340104}
+  - component: {fileID: 3788480081461329114}
   m_Layer: 0
   m_Name: Stone_LowFlat_2
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2909314908290340104
-BoxCollider:
+--- !u!64 &3788480081461329114
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.67792594, y: 0.05908791, z: 0.7356852}
-  m_Center: {x: 0.0071951747, y: 0.027299631, z: -0.041581675}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 2d81466b5d2844cc19e9b6b8236a4703, type: 3}
