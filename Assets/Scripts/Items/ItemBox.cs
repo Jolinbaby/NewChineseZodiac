@@ -18,7 +18,7 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        InitInfo(4, 1);
+        //InitInfo(4, 1);
     }
 
     public void InitInfo(int kind,int id)
@@ -26,7 +26,7 @@ public class ItemBox : MonoBehaviour
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
-        typeNumber = 5;//测试加速buff
+        //typeNumber = 5;//测试加速buff
         itemId = id;
         switch (typeNumber)
         {

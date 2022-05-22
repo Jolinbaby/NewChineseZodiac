@@ -31,7 +31,7 @@ public class OnlineorNotPanel : BasePanel
         ////单机功能启动这里
         AnimalInfo animalInfo = new AnimalInfo();
         animalInfo.id = "y";
-        animalInfo.camp = 2;//不同camp不同动物
+        animalInfo.camp =3;//不同camp不同动物
         animalInfo.x = -4.636f;
         animalInfo.y = 20.241f;
         animalInfo.z = 10.2672f;

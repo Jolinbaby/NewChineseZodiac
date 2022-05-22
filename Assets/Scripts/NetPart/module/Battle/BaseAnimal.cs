@@ -300,6 +300,8 @@ public class BaseAnimal : MonoBehaviour
     }
     public void  ToThrowKey()
     {
+        //GameObject originKey=
+
         //²úÉúÔ¿³×
         GameObject theKey = ResManager.LoadPrefab("Key");
         Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);

@@ -34,6 +34,8 @@ public class CtrlAnimal : BaseAnimal
 
     private bool isKeyMDown = false;
 
+    private bool isKeyCDown = false;
+
     private void Awake()
     {
         //getting reference for components on the Player
@@ -115,12 +117,27 @@ public class CtrlAnimal : BaseAnimal
         SpeedUpUpdate();
         //显示地图
         MaxMapUpdate();
-
+        //是否按下C键角色展示界面
+        ShowCharacterUpdate();
         //-------------------------------------------
         //是否拿到钥匙
         //GetKeyUpdate();
     }
-
+    private void ShowCharacterUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (!isKeyCDown)
+            {
+                PanelManager.Open<ShowCharacterPanel>();
+            }
+            else
+            {
+                PanelManager.Close("ShowCharacterPanel");
+            }
+            isKeyCDown = !isKeyCDown;
+        }
+    }
     private void MaxMapUpdate()
     {
         GameObject UI_Map = GameObject.Find("UI_Map");
