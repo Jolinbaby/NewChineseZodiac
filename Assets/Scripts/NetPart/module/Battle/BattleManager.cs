@@ -283,7 +283,14 @@ public class BattleManager
         }
         //bool isDie = animal.IsDie();
         //被击中
-        animal.Attacked(msg.damage,mFireid);
+
+        if(msg.Fireid=="InkAttack")
+        {
+            if(msg.targetId == GameMain.id)
+                animal.Attacked(msg.damage, mFireid);
+        }
+        else 
+            animal.Attacked(msg.damage,mFireid);
         //击杀提示
         //if (!isDie && animal.IsDie() && msg.id == GameMain.id)
         //{

@@ -65,6 +65,7 @@ public class Ink : MonoBehaviour
 
             }
         }
+
         //ÏÔÊ¾±¬Õ¨Ð§¹û
         GameObject explode = ResManager.LoadPrefab("Ink_Particle");
         //if (hitanimal != null) 

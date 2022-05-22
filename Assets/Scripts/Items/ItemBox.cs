@@ -18,7 +18,7 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        InitInfo(3, 0);
+        //InitInfo(2, 1);
     }
 
     public void InitInfo(int kind,int id)

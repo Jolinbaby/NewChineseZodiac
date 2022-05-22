@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public static GameObject[] boxes;
     //当前生成的物品的索引值
     int createItemIndex;
+    int maxCreateSize;
 
     public static void DestroyItem(int id)
     {
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         items = new ItemInfo[msg.items.Length];
         boxes = new GameObject[msg.items.Length];
+        maxCreateSize = msg.items.Length;
         for (int i = 0; i < msg.items.Length; i++) //把相关的物品信息放入场景中
         {
             items[i] = msg.items[i];
@@ -81,8 +83,8 @@ public class GameManager : MonoBehaviour
         // gameOverUI.SetActive(false);
         createItemIndex = 0;
         InitGame();
-        totalBoxNum = maxboxNum;
-        curBoxNum = maxboxNum;
+        //totalBoxNum = maxboxNum;
+        //curBoxNum = maxboxNum;
         // 从第0s开始，每隔10s生成一波道具箱
         //InvokeRepeating("SpawnBox", 0, intervalTime);
         StartRun(); //在游戏一开始就启动
@@ -132,8 +134,8 @@ public class GameManager : MonoBehaviour
         // 显示在场景中
         boxes[createItemIndex] = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z), Quaternion.identity);
         boxes[createItemIndex].GetComponent<ItemBox>().InitInfo(kind, id);
-        totalBoxNum++;
-        curBoxNum++;
+        //totalBoxNum++;
+        //curBoxNum++;
         createItemIndex++;
     }
 
@@ -144,16 +146,24 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             // 保持场景中道具个数最多为20
-            if (curBoxNum <= maxboxNum)
+            //if (curBoxNum <= maxboxNum)
+            //{
+            //    RandomSingleBoxSpawn();
+            //    if (totalBoxNum > 200)
+            //    {
+            //        StopRun();
+            //    }
+            //}
+            if(createItemIndex<maxCreateSize)
             {
                 RandomSingleBoxSpawn();
-                if (totalBoxNum > 200)
-                {
-                    StopRun();
-                }
             }
-            //yield return new WaitForEndOfFrame();
-            //yield return new WaitForSeconds(2f);
+            else
+            {
+                StopRun();
+            }
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(2f);
         }
             //Debug.Log("当前道具个数：" + curBoxNum);
             // 

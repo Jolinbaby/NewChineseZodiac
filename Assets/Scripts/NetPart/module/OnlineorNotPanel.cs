@@ -36,6 +36,23 @@ public class OnlineorNotPanel : BasePanel
         animalInfo.y = 20.241f;
         animalInfo.z = 10.2672f;
         BattleManager.GenerateAnimal(animalInfo);
+
+
+        //用于测试 生成几个其他玩家
+        //AnimalInfo animalInfo2 = new AnimalInfo();
+        //animalInfo2.id = "y2";
+        //animalInfo2.camp = 5;//不同camp不同动物
+        //                     //animalInfo2.x = -28.37626f;
+        //                     //animalInfo2.y = 1.264288f;
+        //                     //animalInfo2.z = 15.03f;
+        //animalInfo2.x = -4.636f;
+        //animalInfo2.y = 20.241f;
+        //animalInfo2.z = 10.2672f;
+        //BattleManager.GenerateAnimal(animalInfo2);
+
+
+
+
         Close();
     }
     //点击按钮之后

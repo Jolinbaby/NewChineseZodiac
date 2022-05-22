@@ -270,6 +270,11 @@ public class CtrlAnimal : BaseAnimal
 
     public void FireInkUpdate()
     {
+        //≤‚ ‘
+        //if (!Input.GetKey(KeyCode.E))
+        //{
+        //    return;
+        //}
         //“—æ≠À¿Õˆ
         //if (IsDie())
         //{
