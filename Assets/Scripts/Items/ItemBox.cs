@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemBox : MonoBehaviour
 {
 
-    public enum ItemType { Key, Bomb, Ink, Shield };
+    public enum ItemType { Key, Bomb, Ink, Shield, SpeedUp, JumpUp, Super };
 
     public ItemType itemType;
 
@@ -26,7 +26,7 @@ public class ItemBox : MonoBehaviour
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
-        //typeNumber = 1;
+        typeNumber = 5;//测试加速buff
         itemId = id;
         switch (typeNumber)
         {
@@ -43,6 +43,16 @@ public class ItemBox : MonoBehaviour
                 ItemManager.hasKey = true;
                 itemType = ItemType.Key;
                 break;
+            case 5:
+                itemType = ItemType.SpeedUp;
+                break;
+            case 6:
+                itemType = ItemType.JumpUp;
+                break;
+            case 7:
+                itemType = ItemType.Super;
+                break;
+
         }
         // 如果还没有生成钥匙过，那么有10%的几率是钥匙
         //if (!ItemManager.hasKey)
@@ -159,6 +169,33 @@ public class ItemBox : MonoBehaviour
                 itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
                 itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
                 Debug.Log("是护盾！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                Debug.Log(imgPath);
+                break;
+            case ItemType.SpeedUp:
+                // 找到文件路径，赋予Panel
+                //string imgPath = Application.dataPath + "Images/ItemsIcon/" + "bomb.png
+                imgPath = "Images/ItemsIcon/" + "baozi";
+                itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+                itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
+                Debug.Log("是包子（移动速度++）！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                Debug.Log(imgPath);
+                break;
+            case ItemType.JumpUp:
+                // 找到文件路径，赋予Panel
+                //string imgPath = Application.dataPath + "Images/ItemsIcon/" + "bomb.png
+                imgPath = "Images/ItemsIcon/" + "mooncake";
+                itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+                itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
+                Debug.Log("是月饼（跳跃高度++）！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                Debug.Log(imgPath);
+                break;
+            case ItemType.Super:
+                // 找到文件路径，赋予Panel
+                //string imgPath = Application.dataPath + "Images/ItemsIcon/" + "bomb.png
+                imgPath = "Images/ItemsIcon/" + "star";
+                itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+                itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
+                Debug.Log("是无敌！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
                 Debug.Log(imgPath);
                 break;
         }

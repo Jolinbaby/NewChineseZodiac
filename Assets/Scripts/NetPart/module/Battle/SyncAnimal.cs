@@ -160,5 +160,32 @@ public class SyncAnimal : BaseAnimal
             ink.transform.position = pos;
             ink.transform.eulerAngles = rot;
         }
+        else if (mFireid == "SpeedUp")
+        {
+            SpeedUpBuff speedUpBuff = StartSpeedUp();
+            //更新坐标
+            Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
+            Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
+            speedUpBuff.transform.position = pos;
+            speedUpBuff.transform.eulerAngles = rot;
+        }
+        else if (mFireid == "JumpUp")
+        {
+            JumpUpBuff jumpUpBuff = StartJumpUp();
+            //更新坐标
+            Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
+            Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
+            jumpUpBuff.transform.position = pos;
+            jumpUpBuff.transform.eulerAngles = rot;
+        }
+        else if (mFireid == "Super")
+        {
+            SuperBuff superBuff = StartSuper();
+            //更新坐标
+            Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
+            Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
+            superBuff.transform.position = pos;
+            superBuff.transform.eulerAngles = rot;
+        }
     }
 }

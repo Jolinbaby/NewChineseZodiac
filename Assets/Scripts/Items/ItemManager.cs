@@ -10,6 +10,9 @@ static class ItemManager
     public static bool isThrowBomb;
     public static bool isThrowInk;
     public static bool isShield;
+    public static bool isSpeedUp;
+    public static bool isJumpUp;
+    public static bool isSuper;
 
     public static bool isAnimalGetKey;
     // 是否已经有钥匙生成
@@ -124,6 +127,18 @@ static class ItemManager
             case "shield":
                 Debug.Log("护盾");
                 isShield = true;
+                break;
+            case "baozi":
+                Debug.Log("加速");
+                isSpeedUp = true;
+                break;
+            case "mooncake":
+                Debug.Log("跳高");
+                isJumpUp = true;
+                break;
+            case "star":
+                Debug.Log("无敌");
+                isSuper = true;
                 break;
         }
     }

@@ -111,6 +111,8 @@ public class CtrlAnimal : BaseAnimal
         FireInkUpdate();
         //护盾
         ShieldUpdate();
+        //加速buff
+        SpeedUpUpdate();
         //显示地图
         MaxMapUpdate();
 
@@ -266,6 +268,94 @@ public class CtrlAnimal : BaseAnimal
         NetManager.Send(msg);
 
         ItemManager.isShield = false;
+    }
+
+    public void SpeedUpUpdate()
+    {
+        //按键判断
+        if (ItemManager.isSpeedUp == false)
+        {
+            return;
+        }
+        //cd是否判断
+        //if (Time.time - lastFireTime < fireCd)
+        //{
+        //    return;
+        //}
+        SpeedUpBuff speedUpBuff = StartSpeedUp();
+        //发送同步协议
+
+        MsgFire msg = new MsgFire();
+        msg.x = speedUpBuff.transform.position.x;
+        msg.y = speedUpBuff.transform.position.y;
+        msg.z = speedUpBuff.transform.position.z;
+        msg.ex = speedUpBuff.transform.eulerAngles.x;
+        msg.ey = speedUpBuff.transform.eulerAngles.y;
+        msg.ez = speedUpBuff.transform.eulerAngles.z;
+        msg.Fireid = "SpeedUp";
+        NetManager.Send(msg);
+
+        ItemManager.isSpeedUp = false;
+
+    }
+
+    public void JumpUpUpdate()
+    {
+        //按键判断
+        if (ItemManager.isJumpUp == false)
+        {
+            return;
+        }
+        //cd是否判断
+        //if (Time.time - lastFireTime < fireCd)
+        //{
+        //    return;
+        //}
+        JumpUpBuff jumpUpBuff = StartJumpUp();
+        //发送同步协议
+
+        MsgFire msg = new MsgFire();
+        msg.x = jumpUpBuff.transform.position.x;
+        msg.y = jumpUpBuff.transform.position.y;
+        msg.z = jumpUpBuff.transform.position.z;
+        msg.ex = jumpUpBuff.transform.eulerAngles.x;
+        msg.ey = jumpUpBuff.transform.eulerAngles.y;
+        msg.ez = jumpUpBuff.transform.eulerAngles.z;
+        msg.Fireid = "JumpUp";
+        NetManager.Send(msg);
+
+        ItemManager.isJumpUp = false;
+
+    }
+
+
+    public void SuperUpdate()
+    {
+        //按键判断
+        if (ItemManager.isSuper == false)
+        {
+            return;
+        }
+        //cd是否判断
+        //if (Time.time - lastFireTime < fireCd)
+        //{
+        //    return;
+        //}
+        SuperBuff superBuff = StartSuper();
+        //发送同步协议
+
+        MsgFire msg = new MsgFire();
+        msg.x = superBuff.transform.position.x;
+        msg.y = superBuff.transform.position.y;
+        msg.z = superBuff.transform.position.z;
+        msg.ex = superBuff.transform.eulerAngles.x;
+        msg.ey = superBuff.transform.eulerAngles.y;
+        msg.ez = superBuff.transform.eulerAngles.z;
+        msg.Fireid = "Super";
+        NetManager.Send(msg);
+
+        ItemManager.isSuper = false;
+
     }
 
     public void FireInkUpdate()

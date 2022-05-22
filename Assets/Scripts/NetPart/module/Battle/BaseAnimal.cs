@@ -159,6 +159,54 @@ public class BaseAnimal : MonoBehaviour
         return ink;
     }
 
+    public SpeedUpBuff StartSpeedUp()
+    {
+        Debug.Log("开始加速啦!!!!!!!!!!!!!!!!!!!!");
+        GameObject speedupObj = new GameObject("speedup");
+        SpeedUpBuff speedUpBuff = speedupObj.AddComponent<SpeedUpBuff>();
+        speedUpBuff.Init();
+        speedUpBuff.animal = this;
+        //位置
+        speedUpBuff.transform.position = transform.position;
+        speedUpBuff.transform.transform.parent = this.transform;
+        speedUpBuff.transform.rotation = transform.rotation;
+        //更新时间
+        lastShieldTime = Time.time;
+        return speedUpBuff;
+    }
+
+    public JumpUpBuff StartJumpUp()
+    {
+        Debug.Log("开始跳跃高度增加啦!!!!!!!!!!!!!!!!!!!!");
+        GameObject jumpUpObj = new GameObject("jumpup");
+        JumpUpBuff jumpUpBuff = jumpUpObj.AddComponent<JumpUpBuff>();
+        jumpUpBuff.Init();
+        jumpUpBuff.animal = this;
+        //位置
+        jumpUpBuff.transform.position = transform.position;
+        jumpUpBuff.transform.transform.parent = this.transform;
+        jumpUpBuff.transform.rotation = transform.rotation;
+        //更新时间
+        lastShieldTime = Time.time;
+        return jumpUpBuff;
+    }
+
+    public SuperBuff StartSuper()
+    {
+        Debug.Log("无敌啦!!!!!!!!!!!!!!!!!!!!");
+        GameObject superObj = new GameObject("super");
+        SuperBuff superBuff = superObj.AddComponent<SuperBuff>();
+        superBuff.Init();
+        superBuff.animal = this;
+        //位置
+        superBuff.transform.position = transform.position;
+        superBuff.transform.transform.parent = this.transform;
+        superBuff.transform.rotation = transform.rotation;
+        //更新时间
+        lastShieldTime = Time.time;
+        return superBuff;
+    }
+
     ////是否死亡
     //public bool IsDie()
     //{
