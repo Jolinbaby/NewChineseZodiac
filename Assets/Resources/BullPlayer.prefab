@@ -318,9 +318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2147483647
   canPush: 1
-  strength: 5
+  strength: 0.5
 --- !u!1 &3074485319947372240
 GameObject:
   m_ObjectHideFlags: 0

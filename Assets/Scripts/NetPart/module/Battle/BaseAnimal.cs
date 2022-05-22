@@ -36,6 +36,10 @@ public class BaseAnimal : MonoBehaviour
     //ÕóÓª
     public int camp = 0;
 
+    //---------------------------------
+    public bool isGetKey;
+    public GameObject FireposObj;
+    public GameObject GetKeyEff;
     // Use this for initialization
     public void Start()
     {
@@ -245,6 +249,13 @@ public class BaseAnimal : MonoBehaviour
             //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
             //explosion.transform.SetParent(transform);
             gameObject.GetComponent<Animator>().SetTrigger("Dizzy");
+
+            //¼ÙÉè»÷Âä,Ô¿³×»÷·É--------------------------
+            if(isGetKey==true)
+            {
+                isGetKey = false;
+                KeyFall();
+            }
         }
         else if (Fireid == "BombAttack")
         {
@@ -264,7 +275,53 @@ public class BaseAnimal : MonoBehaviour
         }
     }
 
+    public void ShowKey()
+    {
+        //-------------------------------
+        //WFXMR_FlameThrower Big
+        isGetKey = true;
 
+        GameObject theKey = ResManager.LoadPrefab("Key");
+        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        FireposObj = Instantiate(theKey, transform.position + Firepos, transform.rotation);
+        FireposObj.transform.SetParent(transform);
+
+        GameObject obj = ResManager.LoadPrefab("WFXMR_FlameThrower Big");
+         GetKeyEff = Instantiate(obj, transform.position, transform.rotation);
+        GetKeyEff.transform.SetParent(transform); 
+    }
+
+
+    public void KeyFall()
+    {
+        Destroy(FireposObj);
+        Destroy(GetKeyEff);
+        ToThrowKey();
+    }
+    public void  ToThrowKey()
+    {
+        //²úÉúÔ¿³×
+        GameObject theKey = ResManager.LoadPrefab("Key");
+        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        GameObject chuxiankey= Instantiate(theKey, transform.position + Firepos, transform.rotation);
+        KeyScripts keyScript = chuxiankey.AddComponent<KeyScripts>();
+        //keyScript.Init();
+        //BoxCollider boxCollider = theKey.gameObject.AddComponent<BoxCollider>();
+        //GameObject keyObj = new GameObject("lostKey");
+        //BoxCollider boxCollider = keyObj.AddComponent<BoxCollider>();
+        //boxCollider.center = new Vector3(0.3f, 2.7f, -4.3f);
+        //boxCollider.size = new Vector3(4f, 6f, 1f);
+
+        ////keyObj.AddComponent<BoxCollider>();
+        //KeyScripts thekey = keyObj.AddComponent<KeyScripts>();
+
+        //thekey.Init();
+        //thekey.animal = this;
+        ////Î»ÖÃ
+        //thekey.transform.position = transform.position;
+        //thekey.transform.rotation = transform.rotation;
+
+    }
     // Update is called once per frame
     public void Update()
     {

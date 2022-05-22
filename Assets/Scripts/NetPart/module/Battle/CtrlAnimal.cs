@@ -30,7 +30,7 @@ public class CtrlAnimal : BaseAnimal
     int sendJump = 0;
 
     private Animator anim;
-    public bool isGetKey;
+    //public bool isGetKey;
 
     private bool isKeyMDown = false;
 
@@ -116,8 +116,9 @@ public class CtrlAnimal : BaseAnimal
         //显示地图
         MaxMapUpdate();
 
+        //-------------------------------------------
         //是否拿到钥匙
-        GetKeyUpdate();
+        //GetKeyUpdate();
     }
 
     private void MaxMapUpdate()

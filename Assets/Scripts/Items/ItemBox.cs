@@ -18,7 +18,7 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        //InitInfo(2, 1);
+        InitInfo(4, 1);
     }
 
     public void InitInfo(int kind,int id)
@@ -109,7 +109,8 @@ public class ItemBox : MonoBehaviour
         if (FindItemUI())
         {
             SoundManager.Instance.OnPickUpAudio();
-            DisplayInItemBar();
+            if(itemType!= ItemType.Bomb)//-----------------------------
+                DisplayInItemBar();
             Destroy(gameObject);
             //向服务端发送报文,表示一下当前捡到了哪个物品
             MsgPickup msg = new MsgPickup();

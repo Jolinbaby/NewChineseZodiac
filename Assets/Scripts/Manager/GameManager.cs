@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("随机道具箱")]
     public int maxboxNum = 100;
+    //public int maxboxNum = 5;
     public float intervalTime = 2f;
     public static int curBoxNum;    // 当前场景内道具箱个数
     private static int totalBoxNum;// 从游戏开始到当前生成的道具总数

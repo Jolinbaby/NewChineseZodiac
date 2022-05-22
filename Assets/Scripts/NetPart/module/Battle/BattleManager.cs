@@ -302,16 +302,30 @@ public class BattleManager
         MsgKey msg = (MsgKey)msgBase;
         //不同步自己
         //if (msg.id == GameMain.id)
+        if (msg.id == GameMain.id)//自己拿到了钥匙
+        {
+            PanelManager.Open<TipPanel>("恭喜你拿到钥匙！打开宝箱就是胜利!");
+            //return;
+        }
+        else
+        {
+            PanelManager.Open<TipPanel>("钥匙已被其他玩家拿到！抢夺战开始！");
+        }
+
+        //if (animal == null)
         //{
         //    return;
         //}
+
         //查找动物
+        BaseAnimal animal = (BaseAnimal)GetAnimal(msg.id);
         //SyncAnimal animal = (SyncAnimal)GetAnimal(msg.id);
         //if (animal == null)
         //{
         //    return;
         //}
         //显示动物得到钥匙 光柱
+        animal.ShowKey();
         //animal.ShowKey(msg);
         //ItemManager.isAnimalGetKey = true;
 

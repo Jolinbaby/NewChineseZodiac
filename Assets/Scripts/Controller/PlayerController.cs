@@ -111,11 +111,26 @@ public class PlayerController : MonoBehaviour
             if (itemBox.isKey())
             {
                 Debug.Log("捡到钥匙啦!!!!!!!!!!!!!!!!!");
+
+                //-------------------------------------------
+                Debug.Log("拿到了钥匙");
+                //CtrlAnimal ctrlAnimal = gameObject.GetComponent<CtrlAnimal>();
+                //ctrlAnimal.isGetKey = true;
+                BaseAnimal baseAnimal = gameObject.GetComponent<BaseAnimal>();
+                baseAnimal.isGetKey = true;
+                ItemManager.isAnimalGetKey= true;
+                MsgKey msg = new MsgKey();
+                //msg.id = this.id;
+                NetManager.Send(msg);
+                
+
                 ItemManager.hasPlayerTakeKey = true;
                 takeKey = true;
                 //keyObject = Instantiate(keyObjectPrefab, keyPos.position, Quaternion.identity);
-                keyPos.SetActive(true);
-                itemBox.DisplayInKeyPanel();
+                //keyPos.SetActive(true);
+                //itemBox.DisplayInKeyPanel();
+                //-------------------------------------------
+                //Destroy(itemBox);
             }
             // 场景中道具数-1
             GameManager.curBoxNum -= 1;
