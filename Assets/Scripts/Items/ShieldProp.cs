@@ -67,15 +67,15 @@ public class ShieldProp : MonoBehaviour
         //Debug.Log("生成护盾！！！！！！！！！！！！！！！！！！！！！！");
     }
 
-    public void getAnimalType()
-    {
-        switch (animal.camp)
-        {
-            case 1:
-                shield.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
-                break;
-        }
-    }
+    //public void getAnimalType()
+    //{
+    //    switch (animal.camp)
+    //    {
+    //        case 1:
+    //            shield.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+    //            break;
+    //    }
+    //}
 
     void Update()
     {
@@ -107,9 +107,9 @@ public class ShieldProp : MonoBehaviour
     //    }
     //}
 
-    //发送护盾协议
-    void SendMsgProtect(BaseAnimal animal)
-    {
+    ////发送护盾协议
+    //void SendMsgProtect(BaseAnimal animal)
+    //{
 
-    }
+    //}
 }
