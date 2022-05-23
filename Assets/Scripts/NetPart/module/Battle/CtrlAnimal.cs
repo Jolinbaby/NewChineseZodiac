@@ -143,10 +143,13 @@ public class CtrlAnimal : BaseAnimal
         GameObject UI_Map = GameObject.Find("UI_Map");
         GameObject maxmap = UI_Map.transform.Find("maxmap").gameObject;
         GameObject minmap = UI_Map.transform.Find("minimap").gameObject;
+        GameObject UI_item = GameObject.Find("UI_ItemBar");
+        GameObject itemBar = UI_item.transform.Find("ItemBar").gameObject;
         if (Input.GetKeyDown(KeyCode.M))
         {
             maxmap.SetActive(true);
             minmap.SetActive(false);
+            itemBar.SetActive(false);
             isKeyMDown = true;
         }
         
@@ -154,6 +157,7 @@ public class CtrlAnimal : BaseAnimal
         {
             maxmap.SetActive(false);
             minmap.SetActive(true);
+            itemBar.SetActive(true);
             isKeyMDown = false;
         }
     }
