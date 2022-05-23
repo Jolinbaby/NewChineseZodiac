@@ -33,12 +33,23 @@ public class TPtrigger : MonoBehaviour
         }
     }
 
+    //void OnTriggerEnter(Collider collider)
+    //{
+    //    isinwell = true;
+    //    print(collider.gameObject.name + ":" + Time.time);
+    //    Transport(collider.gameObject);
+    //}
     void OnTriggerEnter(Collider collider)
     {
         isinwell = true;
         print(collider.gameObject.name + ":" + Time.time);
-        Transport(collider.gameObject);
+        if (collider.gameObject.GetComponent<CtrlAnimal>())
+        {
+            Transport(collider.gameObject);
+        }
+
     }
+
     private void OnTriggerExit(Collider other)
     {
         isinwell = false;
@@ -46,7 +57,7 @@ public class TPtrigger : MonoBehaviour
 
     private void Transport(GameObject player)
     {
-        System.Random r = new System.Random();
+        System.Random r = new System.Random(10);
         int idx = 0;
         while (isinwell)
         {
