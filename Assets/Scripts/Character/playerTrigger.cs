@@ -9,10 +9,18 @@ public class playerTrigger : MonoBehaviour
 
         if (other.CompareTag("TreasureBox"))
         {
-            Debug.Log("碰到了宝箱");
-            Destroy(other); // 销毁物体
-            GameManager.GameOver(true);
+
+            CtrlAnimal ctrlAnimal = gameObject.GetComponent<CtrlAnimal>();
+            if(ctrlAnimal.isGetKey==true)
+            {
+                Debug.Log("碰到了宝箱");
+                Destroy(other); // 销毁物体
+                MsgWin msg = new MsgWin();
+                NetManager.Send(msg);
+                GameManager.GameOver(true);
+            }
         }
+
 
         if (other.CompareTag("Key"))
         {

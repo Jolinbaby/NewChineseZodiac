@@ -128,7 +128,10 @@ public class KeyScripts : MonoBehaviour
        
         return;
     }
-
+    public void destroySelfKey()
+    {
+        Destroy(gameObject);
+    }
     //private void OnCollisionEnter(Collision other)
     //{
     //    GameObject collObj = other.gameObject;

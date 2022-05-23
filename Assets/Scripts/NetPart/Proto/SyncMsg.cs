@@ -22,6 +22,14 @@ public class MsgKey : MsgBase
     //服务端补充
     public string id = "";		//哪个动物
 }
+//同步胜利信息：谁胜利了
+public class MsgWin : MsgBase
+{
+    public MsgWin() { protoName = "MsgWin"; }
+
+    //服务端补充
+    public string id = "";      //哪个动物
+}
 //开火
 public class MsgFire : MsgBase
 {

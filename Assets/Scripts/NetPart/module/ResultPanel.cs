@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ResultPanel : BasePanel
@@ -53,10 +54,17 @@ public class ResultPanel : BasePanel
 	//当按下确定按钮
 	public void OnOkClick()
 	{
-		PanelManager.Open<RoomPanel>();
+		//PanelManager.Open<RoomPanel>();
 		//PanelManager.Open<RoomListPanel>();
 		//MsgLeaveRoom msg = new MsgLeaveRoom();
+		//SceneManager.LoadScene("mainMap");
+		NetManager.Close();
+		//ceneManager.LoadScene("mainMap")
+		//SceneManager.LoadScene(0);
+		PanelManager.Open<OnlineorNotPanel>();
 		//NetManager.Send(msg);
+
+		
 		Close();
 	}
 }

@@ -299,6 +299,16 @@ public class BattleManager
     }
     public static void OnMsgKey(MsgBase msgBase)
     {
+        GameObject otherKey2 = GameObject.Find("pPlane3");
+        //if (otherKey2 == null) Debug.Log("NOKEY***********************");
+        if (otherKey2 != null)
+        {
+            //Debug.Log("fINDopPlane3**********************");
+            KeyScripts otherKeysc = otherKey2.GetComponentInParent<KeyScripts>();
+            //KeyScripts keyScripts = otherKey2.GetComponent<KeyScripts>();
+            otherKeysc.destroySelfKey();
+
+        }
         MsgKey msg = (MsgKey)msgBase;
         //不同步自己
         //if (msg.id == GameMain.id)
