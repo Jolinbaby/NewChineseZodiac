@@ -109,7 +109,7 @@ public class ItemBox : MonoBehaviour
         if (FindItemUI())
         {
             SoundManager.Instance.OnPickUpAudio();
-            if(itemType!= ItemType.Bomb)//-----------------------------
+            //if(itemType!= ItemType.Bomb)//-----------------------------
                 DisplayInItemBar();
             Destroy(gameObject);
             //向服务端发送报文,表示一下当前捡到了哪个物品

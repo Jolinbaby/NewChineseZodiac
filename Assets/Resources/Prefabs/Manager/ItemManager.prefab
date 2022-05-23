@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4289670761078502079}
-  - component: {fileID: 4289670761078502078}
   m_Layer: 0
   m_Name: ItemManager
   m_TagString: Untagged
@@ -31,17 +30,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4289670761078502078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4289670761078502073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36c6bbb966ac814f8706ca654684562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockPrefab: {fileID: 8135149342647824761, guid: bbf473a8a4206ac4aac5320f01a1aeac, type: 3}
-  bombPrefab: {fileID: 3857163339507935433, guid: 9b6e26c44f9524e42899e94306620ac7, type: 3}

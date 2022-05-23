@@ -168,8 +168,9 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("开始加速啦!!!!!!!!!!!!!!!!!!!!");
         GameObject speedupObj = new GameObject("speedup");
         SpeedUpBuff speedUpBuff = speedupObj.AddComponent<SpeedUpBuff>();
-        speedUpBuff.Init();
+        
         speedUpBuff.animal = this;
+        speedUpBuff.Init();
         //位置
         speedUpBuff.transform.position = transform.position;
         speedUpBuff.transform.transform.parent = this.transform;
@@ -184,8 +185,9 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("开始跳跃高度增加啦!!!!!!!!!!!!!!!!!!!!");
         GameObject jumpUpObj = new GameObject("jumpup");
         JumpUpBuff jumpUpBuff = jumpUpObj.AddComponent<JumpUpBuff>();
-        jumpUpBuff.Init();
         jumpUpBuff.animal = this;
+        jumpUpBuff.Init();
+        
         //位置
         jumpUpBuff.transform.position = transform.position;
         jumpUpBuff.transform.transform.parent = this.transform;

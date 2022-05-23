@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         kind = items[createItemIndex].kind;
 
         // 显示在场景中
-        boxes[createItemIndex] = Instantiate(guessBoxPrefab, new Vector3(x, 10f, z), Quaternion.identity);
+        boxes[createItemIndex] = Instantiate(guessBoxPrefab, new Vector3(x, 24f, z), Quaternion.identity);
         boxes[createItemIndex].GetComponent<ItemBox>().InitInfo(kind, id);
         //totalBoxNum++;
         //curBoxNum++;

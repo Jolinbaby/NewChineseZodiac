@@ -21,7 +21,7 @@ namespace PlayerControl
 
 		public void OnMove(InputValue value)
 		{
-			Debug.Log("收到移动输入");
+			//Debug.Log("收到移动输入");
 			MoveInput(value.Get<Vector2>());
 		}
 
@@ -45,7 +45,7 @@ namespace PlayerControl
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			Debug.Log("移动了");
+			//Debug.Log("移动了");
 			move = newMoveDirection;
 		}
 
