@@ -7,7 +7,8 @@ public class ShowCharacterPanel : BasePanel
 {
     private List<Button> btnList;
     private List<string> nameList;
-
+    //关闭按钮
+    private Button closeBtn;
     private GameObject currentAnimal;
     //初始化
     public override void OnInit()
@@ -37,6 +38,10 @@ public class ShowCharacterPanel : BasePanel
                 LoadAnimal(btn);
             });
         }
+
+        closeBtn = skin.transform.Find("CloseBtn").GetComponent<Button>();
+        closeBtn.onClick.AddListener(OnCloseClick);
+
         var container = GameObject.Find("AnimalModelContainter");
         var animal = container.transform.Find("SnakeCharacter");
         animal.gameObject.SetActive(true);
@@ -86,5 +91,10 @@ public class ShowCharacterPanel : BasePanel
             textRoot.gameObject.SetActive(false);
         }
         currentAnimal = container.transform.Find("SnakeCharacter").gameObject;
+    }
+    public void OnCloseClick()
+    {
+        
+        Close();
     }
 }

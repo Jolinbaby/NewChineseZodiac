@@ -54,7 +54,7 @@ public class RoomPanel : BasePanel
         //协议监听
         NetManager.RemoveMsgListener("MsgGetRoomInfo", OnMsgGetRoomInfo);
         NetManager.RemoveMsgListener("MsgLeaveRoom", OnMsgLeaveRoom);
-        NetManager.RemoveMsgListener("MsgStartBattle", OnMsgStartBattle);
+        //NetManager.RemoveMsgListener("MsgStartBattle", OnMsgStartBattle);
     }
 
     //收到玩家列表协议

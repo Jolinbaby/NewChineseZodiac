@@ -8,6 +8,8 @@ public class OnlineorNotPanel : BasePanel
     private Button SingleButton;
     //联机按钮
     private Button OnlineButton;
+    //展示角色按钮
+    private Button CharacterShowButton;
     //初始化
     public override void OnInit()
     {
@@ -20,8 +22,10 @@ public class OnlineorNotPanel : BasePanel
         //寻找组件
         SingleButton = skin.transform.Find("Single").GetComponent<Button>();
         OnlineButton = skin.transform.Find("Online").GetComponent<Button>();
+        CharacterShowButton = skin.transform.Find("CharacterShowButton").GetComponent<Button>();
         SingleButton.onClick.AddListener(OnSingleClick);
         OnlineButton.onClick.AddListener(OnOnlineClick);
+        CharacterShowButton.onClick.AddListener(OnCharacterShowButtonClick);
     }
     //点击按钮之后W
     public void OnSingleClick()
@@ -62,5 +66,9 @@ public class OnlineorNotPanel : BasePanel
         //打开登陆面板
         PanelManager.Open<LoginPanel>();
         Close();
+    }
+    public void OnCharacterShowButtonClick()
+    {
+        PanelManager.Open<ShowCharacterPanel>();
     }
 }
