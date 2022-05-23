@@ -277,6 +277,11 @@ public class BaseAnimal : MonoBehaviour
             //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
             //explosion.transform.SetParent(transform);
             gameObject.GetComponent<Animator>().SetTrigger("BeBomb");
+            if (isGetKey == true)
+            {
+                isGetKey = false;
+                KeyFall();
+            }
         }
         else if (Fireid == "InkAttack")
         {

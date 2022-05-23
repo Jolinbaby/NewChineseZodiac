@@ -137,7 +137,27 @@ public class CtrlAnimal : BaseAnimal
             }
             isKeyCDown = !isKeyCDown;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PanelManager.Close("TipPanel");
+        }
     }
+    //private void ShowCharacterUpdate()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.C))
+    //    {
+    //        if (!isKeyCDown)
+    //        {
+    //            PanelManager.Open<ShowCharacterPanel>();
+    //        }
+    //        else
+    //        {
+    //            PanelManager.Close("ShowCharacterPanel");
+    //        }
+    //        isKeyCDown = !isKeyCDown;
+    //    }
+    //}
     private void MaxMapUpdate()
     {
         GameObject UI_Map = GameObject.Find("UI_Map");
