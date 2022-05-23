@@ -45,6 +45,8 @@ public class BaseAnimal : MonoBehaviour
     // Use this for initialization
 
     public bool isShieldProtect;
+    public bool isSuperState;
+
     public void Start()
     {
 
@@ -224,6 +226,22 @@ public class BaseAnimal : MonoBehaviour
         return superBuff;
     }
 
+    public Banana SpawnBanana()
+    {
+        Debug.Log("香蕉皮啦!!!!!!!!!!!!!!!!!!!!");
+        GameObject bananaObj = new GameObject("banana");
+        Banana banana = bananaObj.AddComponent<Banana>();
+        banana.Init();
+        banana.animal = this;
+        //位置
+        banana.transform.position = transform.position;
+        banana.transform.transform.parent = this.transform;
+        banana.transform.rotation = transform.rotation;
+        //更新时间
+        lastShieldTime = Time.time;
+        return banana;
+    }
+
     ////是否死亡
     //public bool IsDie()
     //{
@@ -253,6 +271,11 @@ public class BaseAnimal : MonoBehaviour
         //    explosion.transform.SetParent(transform);
         //}
 
+        /* 无敌状态，不受任何道具影响*/
+        if (isSuperState)
+        {
+            return;
+        }
         /* QAttack    BombAttack */
         //眩晕
         //显示焚烧效果
@@ -314,6 +337,19 @@ public class BaseAnimal : MonoBehaviour
                         explosion.transform.SetParent(transform);*/
             Debug.Log("set trigger");
             GameObject.Find("UI_Ink/Image").GetComponent<Animator>().SetTrigger("BeInk");
+            //gameObject.GetComponent<Animator>().SetTrigger("BeInk");
+        }
+        else if (Fireid == "BananaAttack")
+        {
+            //new!05231645
+            if (isShieldProtect)
+            {
+                isShieldProtect = false;
+                shieldProp.Breakshield();
+                return;
+            }
+            Debug.Log("set trigger");
+            gameObject.GetComponent<Animator>().SetTrigger("BeBanana");
             //gameObject.GetComponent<Animator>().SetTrigger("BeInk");
         }
     }

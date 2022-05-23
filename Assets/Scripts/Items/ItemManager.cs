@@ -13,6 +13,7 @@ static class ItemManager
     public static bool isSpeedUp;
     public static bool isJumpUp;
     public static bool isSuper;
+    public static bool isThrowBanana;
 
     public static bool isAnimalGetKey;
     // 是否已经有钥匙生成

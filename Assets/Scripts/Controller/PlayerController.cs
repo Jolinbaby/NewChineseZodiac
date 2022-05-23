@@ -36,8 +36,12 @@ public class PlayerController : MonoBehaviour
         AnimatorStateInfo stateinfo = anim.GetCurrentAnimatorStateInfo(0);
         if (stateinfo.IsName("Death"))
         {
+            // 只有眩晕状态是从正常状态切换回来的时候，才会播放
+            if (isDizzy == false)
+            {
+                SoundManager.Instance.OnDizzyAudio();
+            }
             isDizzy = true;
-            SoundManager.Instance.OnDizzyAudio();
             LoseKey();
         }
         else

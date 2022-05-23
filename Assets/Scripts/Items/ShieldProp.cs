@@ -7,7 +7,7 @@ public class ShieldProp : MonoBehaviour
     [SerializeField]
     private float curDissolve;//0-1
     [SerializeField]
-    private float DissolveSpeed = 0.001f;//0-1
+    private float DissolveSpeed = 0.003f;//0-1
 
     //使用者
     public BaseAnimal animal;
@@ -50,7 +50,7 @@ public class ShieldProp : MonoBehaviour
         shieldMaterial.SetFloat("_Disolve", curDissolve);
         DissolveSpeed = 1f;
         isExist = true;
-
+        animal.isShieldProtect = true;
         //Destroy(this.gameObject, 3f);
 
         //startShield();//产生护盾
@@ -129,6 +129,7 @@ public class ShieldProp : MonoBehaviour
         else
         {
             isBreaking = false;
+            animal.isShieldProtect = false;
             Destroy(this.gameObject);
         }
     }

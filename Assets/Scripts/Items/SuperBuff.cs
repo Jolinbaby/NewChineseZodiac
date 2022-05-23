@@ -20,6 +20,7 @@ public class SuperBuff : MonoBehaviour
     {
         Debug.Log("结束无敌状态");
         isSuper = false;
+        animal.isSuperState = false;
         //摧毁自身
         Destroy(superObj);
     }
@@ -29,6 +30,7 @@ public class SuperBuff : MonoBehaviour
         Debug.Log("进入无敌状态");
         superTime = 5.0f;
         isSuper = true;
+        animal.isSuperState = true;
 
         GameObject skinRes = ResManager.LoadPrefab("BullBuffPos");
         superObj = (GameObject)Instantiate(skinRes);

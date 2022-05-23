@@ -115,6 +115,11 @@ public class CtrlAnimal : BaseAnimal
         ShieldUpdate();
         //加速buff
         SpeedUpUpdate();
+        //跳高
+        JumpUpUpdate();
+        //香蕉皮
+        BananaUpdate();
+
         //显示地图
         MaxMapUpdate();
         //是否按下C键角色展示界面
@@ -444,6 +449,37 @@ public class CtrlAnimal : BaseAnimal
 
         ItemManager.isThrowInk = false;
     }
+
+    public void BananaUpdate()
+    {
+        //按键判断
+        if (ItemManager.isThrowBanana == false)
+        {
+            return;
+        }
+        //cd是否判断
+        if (Time.time - lastFireTime < fireCd)
+        {
+            return;
+        }
+
+        Debug.Log(id + "************************************");
+        Banana banana = SpawnBanana();
+
+        //发送同步协议
+        MsgFire msg = new MsgFire();
+        msg.x = banana.transform.position.x;
+        msg.y = banana.transform.position.y;
+        msg.z = banana.transform.position.z;
+        msg.ex = banana.transform.eulerAngles.x;
+        msg.ey = banana.transform.eulerAngles.y;
+        msg.ez = banana.transform.eulerAngles.z;
+        msg.Fireid = "BananaAttack";
+        NetManager.Send(msg);
+
+        ItemManager.isThrowBanana = false;
+    }
+
 
     //发送同步信息
     public void SyncUpdate()
