@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         audioSource.clip = gameBGM_1;
         audioSource.Play();
         ItemManager.hasKey = false;
-        RandomBoxSpawn(maxboxNum);
+        RandomBoxSpawn(maxCreateSize / 2);
     }
 
     private void StartGame()
@@ -135,6 +135,15 @@ public class GameManager : MonoBehaviour
         // 显示在场景中
         boxes[createItemIndex] = Instantiate(guessBoxPrefab, new Vector3(x, 24f, z), Quaternion.identity);
         boxes[createItemIndex].GetComponent<ItemBox>().InitInfo(kind, id);
+
+        if (kind == 4)//测试,如果这个是钥匙!
+        {
+            Debug.Log("generate key!!!!");
+            GameObject skinRes = ResManager.LoadPrefab("getKey_Particle");
+            GameObject getKeyParticle = (GameObject)Instantiate(skinRes);
+            getKeyParticle.transform.position = new Vector3(x, 0f, z);
+            //getKeyParticle.transform.parent = this.gameObject.transform;
+        }
         //totalBoxNum++;
         //curBoxNum++;
         createItemIndex++;

@@ -41,6 +41,8 @@ public class BaseAnimal : MonoBehaviour
     public GameObject FireposObj;
     public GameObject GetKeyEff;
     // Use this for initialization
+
+    public bool isShieldProtect;
     public void Start()
     {
 
@@ -247,6 +249,11 @@ public class BaseAnimal : MonoBehaviour
         //œ‘ æ∑Ÿ…’–ßπ˚
         if (Fireid== "QAttack")
         {
+            //new!05231645
+            if (isShieldProtect)
+            {
+                return;
+            }
             //GameObject obj = ResManager.LoadPrefab("WFX_Explosion");
             //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
             //explosion.transform.SetParent(transform);
@@ -261,6 +268,11 @@ public class BaseAnimal : MonoBehaviour
         }
         else if (Fireid == "BombAttack")
         {
+            //new!05231645
+            if (isShieldProtect)
+            {
+                return;
+            }
             //GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
             //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
             //explosion.transform.SetParent(transform);
@@ -268,6 +280,11 @@ public class BaseAnimal : MonoBehaviour
         }
         else if (Fireid == "InkAttack")
         {
+            //new!05231645
+            if (isShieldProtect)
+            {
+                return;
+            }
             /*            GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
                         GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
                         explosion.transform.SetParent(transform);*/
