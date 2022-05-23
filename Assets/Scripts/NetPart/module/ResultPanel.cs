@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -58,13 +59,20 @@ public class ResultPanel : BasePanel
 		//PanelManager.Open<RoomListPanel>();
 		//MsgLeaveRoom msg = new MsgLeaveRoom();
 		//SceneManager.LoadScene("mainMap");
-		NetManager.Close();
+		//NetManager.Close();
 		//ceneManager.LoadScene("mainMap")
 		//SceneManager.LoadScene(0);
-		PanelManager.Open<OnlineorNotPanel>();
+		//PanelManager.Open<OnlineorNotPanel>();
 		//NetManager.Send(msg);
 
-		
+		NetManager.Close();
+		//        //退出游戏
+		//        //预处理
+#if UNITY_EDITOR    //在编辑器模式下
+		EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
 		Close();
 	}
 }
