@@ -23,6 +23,7 @@ public class ShieldProp : MonoBehaviour
     //生成位置
     private PlayerNodePosition nodePosition;
 
+    private bool isBreaking=false;
    
     public void Init()
     {
@@ -50,8 +51,10 @@ public class ShieldProp : MonoBehaviour
         DissolveSpeed = 1f;
         isExist = true;
 
+        //Destroy(this.gameObject, 3f);
+
         //startShield();//产生护盾
-        
+        Invoke("Breakshield", 5f);
 
         //isExist = true;
         //// 碰撞
@@ -77,11 +80,24 @@ public class ShieldProp : MonoBehaviour
     //    }
     //}
 
+
+    public void Breakshield()
+    {
+        isExist = false;
+        Debug.Log("breakShield");
+        isBreaking = true;
+        curDissolve = -0.1f;
+    }
+
     void Update()
     {
         if (isExist)
         {
             startShield();//产生护盾
+        }
+        if(isBreaking)
+        {
+            endShield();
         }
         //if (!isExist)
         //{
@@ -96,16 +112,26 @@ public class ShieldProp : MonoBehaviour
             curDissolve -= DissolveSpeed * Time.deltaTime;
             shieldMaterial.SetFloat("_Disolve", curDissolve);
         }
+        else
+        {
+            isExist = false;
+        }
+        //isExist = false;
     }
 
-    //private void endShield()
-    //{
-    //    if (curDissolve >= 0)
-    //    {
-    //        curDissolve -= DissolveSpeed * Time.deltaTime;
-    //        shieldMaterial.SetFloat("_Disolve", curDissolve);
-    //    }
-    //}
+    private void endShield()
+    {
+        if (curDissolve <= 1)
+        {
+            curDissolve += DissolveSpeed * Time.deltaTime;
+            shieldMaterial.SetFloat("_Disolve", curDissolve);
+        }
+        else
+        {
+            isBreaking = false;
+            Destroy(this.gameObject);
+        }
+    }
 
     ////发送护盾协议
     //void SendMsgProtect(BaseAnimal animal)

@@ -40,6 +40,8 @@ public class BaseAnimal : MonoBehaviour
     public bool isGetKey;
     public GameObject FireposObj;
     public GameObject GetKeyEff;
+
+    public ShieldProp shieldProp;
     // Use this for initialization
 
     public bool isShieldProtect;
@@ -125,17 +127,24 @@ public class BaseAnimal : MonoBehaviour
     {
         Debug.Log("SpawnShield!!!!!!!!!!!!!!!!!!!!");
         GameObject shieldObj = new GameObject("shield");
-        ShieldProp shieldProp = shieldObj.AddComponent<ShieldProp>();
+        shieldProp = shieldObj.AddComponent<ShieldProp>();
         shieldProp.Init();
         shieldProp.animal = this;
         //位置
         shieldProp.transform.position = transform.position;
         shieldProp.transform.transform.parent = this.transform;
 
+        isShieldProtect = true;
         shieldProp.transform.rotation = transform.rotation;
         //更新时间
         lastShieldTime = Time.time;
+        Invoke("DestroyShield", 5f);
         return shieldProp;
+    }
+
+    public void DestroyShield()
+    {
+        isShieldProtect = false;
     }
 
     public Ink FireInk()
@@ -271,7 +280,15 @@ public class BaseAnimal : MonoBehaviour
             //new!05231645
             if (isShieldProtect)
             {
+                isShieldProtect = false;
+                shieldProp.Breakshield();
                 return;
+            }
+            //假设击落,钥匙击飞--------------------------
+            if (isGetKey == true)
+            {
+                isGetKey = false;
+                KeyFall();
             }
             //GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");
             //GameObject explosion = Instantiate(obj, transform.position, transform.rotation);
@@ -283,6 +300,8 @@ public class BaseAnimal : MonoBehaviour
             //new!05231645
             if (isShieldProtect)
             {
+                isShieldProtect = false;
+                shieldProp.Breakshield();
                 return;
             }
             /*            GameObject obj = ResManager.LoadPrefab("WFX_ExplosiveSmoke Big Alt");

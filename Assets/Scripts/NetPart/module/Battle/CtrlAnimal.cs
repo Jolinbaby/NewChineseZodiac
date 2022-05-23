@@ -137,6 +137,11 @@ public class CtrlAnimal : BaseAnimal
             }
             isKeyCDown = !isKeyCDown;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PanelManager.Close("TipPanel");
+        }
     }
     private void MaxMapUpdate()
     {

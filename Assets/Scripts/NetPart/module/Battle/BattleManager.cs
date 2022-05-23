@@ -159,6 +159,9 @@ public class BattleManager
 
         //pos rotation
         Vector3 pos = new Vector3(animalInfo.x, animalInfo.y, animalInfo.z);
+        Debug.Log(pos.x);
+        Debug.Log(pos.y);
+        Debug.Log(pos.z);
         Vector3 rot = new Vector3(animalInfo.ex, animalInfo.ey, animalInfo.ez);
         animal.transform.position = pos;
         animal.transform.eulerAngles = rot;
