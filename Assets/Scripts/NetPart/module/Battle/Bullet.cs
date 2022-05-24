@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
                 collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
         }
         //ÏÔÊ¾±¬Õ¨Ð§¹û
-        GameObject explode = ResManager.LoadPrefab("WFX_Explosion");
+        GameObject explode = ResManager.LoadPrefab("BulletFatExplosionFire");
         //if (hitanimal != null) 
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
 

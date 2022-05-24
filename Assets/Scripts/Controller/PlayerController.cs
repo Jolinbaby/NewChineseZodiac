@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public void GetCurrentState()
     {
         AnimatorStateInfo stateinfo = anim.GetCurrentAnimatorStateInfo(0);
-        if (stateinfo.IsName("Death"))
+        if (stateinfo.IsName("Death")|| stateinfo.IsName("Death Long")|| stateinfo.IsName("Spin"))
         {
             // 只有眩晕状态是从正常状态切换回来的时候，才会播放
             if (isDizzy == false)
