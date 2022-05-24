@@ -302,7 +302,7 @@ public class BattleManager
     }
     public static void OnMsgKey(MsgBase msgBase)
     {
-        GameObject otherKey2 = GameObject.Find("pPlane3");
+        GameObject otherKey2 = GameObject.Find("Keymodel");
         //if (otherKey2 == null) Debug.Log("NOKEY***********************");
         if (otherKey2 != null)
         {
