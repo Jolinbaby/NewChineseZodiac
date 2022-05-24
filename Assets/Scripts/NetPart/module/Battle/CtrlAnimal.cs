@@ -44,7 +44,16 @@ public class CtrlAnimal : BaseAnimal
         anim = gameObject.GetComponent<Animator>();
         
     }
-
+    private void getoutofworldUpdate()
+    {
+        //{ 47.8f,61f,-94f,0f, 0f, 0f},//出生点1
+        if(transform.position.y<-63f|| transform.position.z>128.9f || transform.position.z < -151.0f || transform.position.x<-116f|| transform.position.x > 126f)
+        {
+            Vector3 birpos = new Vector3(47.8f, 61f, -94f);
+            gameObject.transform.position = birpos;
+        }
+        
+    }
     //private void MoveUpdate()
     //{
     //    HandleMovement();
@@ -127,6 +136,7 @@ public class CtrlAnimal : BaseAnimal
         //-------------------------------------------
         //是否拿到钥匙
         //GetKeyUpdate();
+        getoutofworldUpdate();
     }
     private void ShowCharacterUpdate()
     {
