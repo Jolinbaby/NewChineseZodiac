@@ -132,7 +132,7 @@ namespace PlayerControl
             _input = GetComponent<PlayerInputs>();
             _playerInput = GetComponent<PlayerInput>();
             _sprintSmoke = this.transform.Find("Player_run_VFX").gameObject;
-            
+
             VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();
             Debug.Log(VgourBar);
             AssignAnimationIDs();
@@ -218,6 +218,9 @@ namespace PlayerControl
 
         private void Move()
         {
+            AnimatorStateInfo animatorInfo;
+            animatorInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            if (animatorInfo.IsName("Death")|| animatorInfo.IsName("Death Long")|| animatorInfo.IsName("Spin")) return;
             //change the idle animation
             if (_idleTimeoutDelta >= 0.0f)
             {
@@ -246,14 +249,14 @@ namespace PlayerControl
             {
                 targetSpeed = MoveSpeed;
                 _sprintSmoke.SetActive(false);
-               
+
                 //CD结束随时可以冲刺
                 if (_sprintTimeoutDelta <= 0.0f)
                 {
                     _sprintTimeDelta = SprintTime;
                     VgourBar.fillAmount = 1;
-                } 
-               //在等待CD
+                }
+                //在等待CD
                 else if (_sprintTimeoutDelta >= 0.0f)
                 {
                     _sprintTimeoutDelta -= Time.deltaTime;
@@ -261,9 +264,9 @@ namespace PlayerControl
                 }
             }
             //玩家按下冲刺键
-            else 
+            else
             {
-                
+
                 //正在冲刺中且还有冲刺时间
                 if (_sprintTimeDelta >= 0.0f)
                 {
@@ -284,7 +287,7 @@ namespace PlayerControl
                     _sprintTimeoutDelta = SprintTimeout;
                 }
             }
-           
+
 
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
@@ -341,10 +344,15 @@ namespace PlayerControl
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
+
         }
 
         private void JumpAndGravity()
         {
+            AnimatorStateInfo animatorInfo;
+            animatorInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            if (animatorInfo.IsName("Death") || animatorInfo.IsName("Death Long") || animatorInfo.IsName("Spin")) return;
+
             if (Grounded)
             {
 
