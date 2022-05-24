@@ -12,25 +12,26 @@ public class Banana : MonoBehaviour
     //效果时长
     public float effectTime;
     //判断是否踩到
-    public bool isSpeedUp;
+    //public bool isSpeedUp;
     //减速大小
     public float cutSpeed;
     //效果是否开启
     public bool flag;
     //是否掉在地上
     public bool isGrounded;
+    //只要判断一次就好
+    public int time;
 
     public void Init()
     {
         flag = false;
-
+        time = 0;
         GameObject skinRes = ResManager.LoadPrefab("Banana");
         bananaObj = (GameObject)Instantiate(skinRes);
-        bananaObj.transform.Find("BuffSpeedUP").gameObject.GetComponent<ParticleSystem>().Play();
         bananaObj.transform.parent = this.transform;
         bananaObj.transform.localPosition = Vector3.zero;
 
-        Debug.Log("Init加速");
+        Debug.Log("Init香蕉皮");
         Invoke("StartEffect", 3f);
     }
     public void StartEffect()
@@ -40,20 +41,24 @@ public class Banana : MonoBehaviour
 
     void Update()
     {
-        // 下落
-        if (IsOnGround())
+        if (time == 0)
         {
-            transform.position -= transform.up * 2f * Time.deltaTime;
+            isGrounded = IsOnGround();
+            // 下落
+            if (!IsOnGround())
+            {
+                Debug.Log("香蕉皮在下落！!!!!!!!!!!!!!!!!!!!!!!!!!");
+                transform.position -= transform.up * 2f * Time.deltaTime;
+            }
         }
     }
 
     private bool IsOnGround()
     {
-        LayerMask groundLayer = 1 << 3;
-        CapsuleCollider capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        float radius = capsuleCollider.radius;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), radius, groundLayer))
+        LayerMask groundLayer = LayerMask.GetMask("Default") | LayerMask.GetMask("Ground");
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.47f, groundLayer))
         {
+            time++;
             return true;
         }
         else
