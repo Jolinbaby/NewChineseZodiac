@@ -367,11 +367,11 @@ public class BaseAnimal : MonoBehaviour
         isGetKey = true;
 
         GameObject theKey = ResManager.LoadPrefab("Key");
-        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
         FireposObj = Instantiate(theKey, transform.position + Firepos, transform.rotation);
         FireposObj.transform.SetParent(transform);
 
-        GameObject obj = ResManager.LoadPrefab("WFXMR_FlameThrower Big");
+        GameObject obj = ResManager.LoadPrefab("getkey_particle");
          GetKeyEff = Instantiate(obj, transform.position, transform.rotation);
         GetKeyEff.transform.SetParent(transform); 
     }
@@ -389,7 +389,7 @@ public class BaseAnimal : MonoBehaviour
 
         //²úÉúÔ¿³×
         GameObject theKey = ResManager.LoadPrefab("Key");
-        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
         GameObject chuxiankey= Instantiate(theKey, transform.position + Firepos, transform.rotation);
         KeyScripts keyScript = chuxiankey.AddComponent<KeyScripts>();
         //keyScript.Init();

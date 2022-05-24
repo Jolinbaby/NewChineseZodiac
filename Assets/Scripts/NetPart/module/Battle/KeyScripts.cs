@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyScripts : MonoBehaviour
 {
     //移动速度
-    public float speed = 5f;
+    public float speed = 10f;
     public float upspeed = 15f;
 
     private Rigidbody rb;
@@ -42,7 +42,7 @@ public class KeyScripts : MonoBehaviour
         //皮肤
         GameObject skinRes = ResManager.LoadPrefab("Key");
         skin = (GameObject)Instantiate(skinRes);
-        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
         skin.transform.parent = this.transform;
         skin.transform.localPosition = Firepos;
         skin.transform.localEulerAngles = Vector3.zero;
@@ -50,7 +50,8 @@ public class KeyScripts : MonoBehaviour
         rigidBody = gameObject.AddComponent<Rigidbody>();
         rigidBody.useGravity = false;
 
-       // skin.gameObject.AddComponent<>
+        
+        // skin.gameObject.AddComponent<>
 
     }
     private void Start()
@@ -58,6 +59,9 @@ public class KeyScripts : MonoBehaviour
         //物理
         rigidBody = gameObject.AddComponent<Rigidbody>();
         rigidBody.useGravity = false;
+        GameObject obj = ResManager.LoadPrefab("getkey_particle");
+        GameObject GetKeyEff = Instantiate(obj, transform.position, transform.rotation);
+        GetKeyEff.transform.SetParent(transform);
     }
     void Update()
     {
