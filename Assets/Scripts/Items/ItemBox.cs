@@ -30,9 +30,13 @@ public class ItemBox : MonoBehaviour
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
+<<<<<<< HEAD
 
         typeNumber = 4;//测试加速buff
 
+=======
+        //typeNumber = 4;//测试加速buff
+>>>>>>> b7ab1c2fc3d9a68688e3a462a63f7f28a07d918a
         itemId = id;
         switch (typeNumber)
         {
