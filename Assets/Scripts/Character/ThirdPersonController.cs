@@ -244,7 +244,7 @@ namespace PlayerControl
 
             float targetSpeed = 0.0f;
 
-            //玩家没有按下冲刺键
+            //玩家没有按下冲刺键或冲刺时间耗尽
             if (!_input.sprint || _sprintTimeDelta <= 0.0f)
             {
                 targetSpeed = MoveSpeed;
