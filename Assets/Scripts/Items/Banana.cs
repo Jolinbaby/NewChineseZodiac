@@ -17,6 +17,8 @@ public class Banana : MonoBehaviour
     public float cutSpeed;
     //效果是否开启
     public bool flag;
+    //是否掉在地上
+    public bool isGrounded;
 
     public void Init()
     {
@@ -38,7 +40,26 @@ public class Banana : MonoBehaviour
 
     void Update()
     {
-        
+        // 下落
+        if (IsOnGround())
+        {
+            transform.position -= transform.up * 2f * Time.deltaTime;
+        }
+    }
+
+    private bool IsOnGround()
+    {
+        LayerMask groundLayer = 1 << 3;
+        CapsuleCollider capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+        float radius = capsuleCollider.radius;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), radius, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /// <summary>
