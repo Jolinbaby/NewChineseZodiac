@@ -250,11 +250,17 @@ namespace PlayerControl
                 targetSpeed = MoveSpeed;
                 _sprintSmoke.SetActive(false);
 
-                //CD结束随时可以冲刺
-                if (_sprintTimeoutDelta <= 0.0f)
+                //体力耗尽且CD结束随时可以冲刺
+                if (_sprintTimeoutDelta <= 0.0f&& _sprintTimeDelta<=0.0f)
                 {
                     _sprintTimeDelta = SprintTime;
                     VgourBar.fillAmount = 1;
+                }
+                //体力未耗尽
+                if (_sprintTimeoutDelta <= 0.0f && _sprintTimeDelta >= 0.0f)
+                {
+                    _sprintTimeDelta += Time.deltaTime;
+                    VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
                 }
                 //在等待CD
                 else if (_sprintTimeoutDelta >= 0.0f)
@@ -273,7 +279,6 @@ namespace PlayerControl
                     //冲刺效果
                     targetSpeed = SprintSpeed;
                     _sprintSmoke.SetActive(true);
-
                     //减少剩余冲刺时间
                     _sprintTimeDelta -= Time.deltaTime;
                     VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
