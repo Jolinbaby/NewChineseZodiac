@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ItemBox : MonoBehaviour
 {
 
-    public enum ItemType { Key, Bomb, Ink, Shield, SpeedUp, JumpUp, Super };
+    public enum ItemType { Key, Bomb, Ink, Shield, SpeedUp, JumpUp, Super, Banana };
 
     public ItemType itemType;
 
@@ -16,9 +17,12 @@ public class ItemBox : MonoBehaviour
 
     public int itemId;
 
+    public bool hasOverlap;
+
     void Start()
     {
         //InitInfo(4, 1);
+        hasOverlap = true;
     }
 
     public void InitInfo(int kind,int id)
@@ -26,7 +30,7 @@ public class ItemBox : MonoBehaviour
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
-        //typeNumber = 4;//测试加速buff
+        typeNumber = 8;//测试加速buff
         itemId = id;
         switch (typeNumber)
         {
@@ -52,6 +56,9 @@ public class ItemBox : MonoBehaviour
             case 7:
                 itemType = ItemType.Super;
                 break;
+            case 8:
+                itemType = ItemType.Banana;
+                break;
 
         }
         // 如果还没有生成钥匙过，那么有10%的几率是钥匙
@@ -65,7 +72,7 @@ public class ItemBox : MonoBehaviour
         // Debug.Log("生成钥匙！位置在" + transform.position);
         // }
         //}
-        FindLand();
+        FindPos();
     }
 
     public void addKey()
@@ -88,19 +95,71 @@ public class ItemBox : MonoBehaviour
     }
     /// <summary>
     /// 通过射线检测地面，确保生成在地面上
+    /// 同时防止重叠
     /// </summary>
     public void FindLand()
     {
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hitInfo;
         float heightAboveGround = 1.0f;
-        if(Physics.Raycast(ray, out hitInfo))
+        float radius = 5.0f;
+        bool flag = true;
+        if (Physics.Raycast(ray, out hitInfo))
         {
             transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + heightAboveGround, hitInfo.point.z);
-            gameObject.SetActive(true);
         }
+        while (flag)
+        {
+            hasOverlap = false;
+            Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(transform.localScale.x, 0.01f, transform.localScale.y));
+            if (colliders.Length > 0)
+            {
+                foreach(Collider nearby in colliders)
+                {
+                    Debug.Log("道具箱碰到了: " + nearby.name);
+                }
+                hasOverlap = true;
+            }
+            //foreach (Collider nearby in colliders)
+            //{
+            //    if (nearby.gameObject.)
+            //    {
+            //        hasOverlap = true;
+            //    }
+            //}
+            if (!hasOverlap)
+            {
+                flag = false;
+            }
+            else
+            {
+                // 重新生成
+
+                Random.InitState(10);//指定seed
+                int x = Random.Range((int)GameManager.Instance.minX,(int)GameManager.Instance.maxX);
+                int z = Random.Range((int)GameManager.Instance.minZ, (int)GameManager.Instance.maxZ);
+                transform.position = new Vector3((float)x, 24f, (float)z);
+                ray = new Ray(transform.position, -transform.up);
+
+                if (Physics.Raycast(ray, out hitInfo))
+                {
+                    
+                    transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + heightAboveGround, hitInfo.point.z);
+                    
+                }
+            }
+        }
+        gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 防止道具箱生成重叠
+    /// </summary>
+    public void FindPos()
+    {
+        
+
+    }
     public void DestorySelf()
     {
         Debug.Log("道具类型为" + itemType);
@@ -197,6 +256,15 @@ public class ItemBox : MonoBehaviour
                 itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
                 itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
                 Debug.Log("是无敌！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+                Debug.Log(imgPath);
+                break;
+            case ItemType.Banana:
+                // 找到文件路径，赋予Panel
+                //string imgPath = Application.dataPath + "Images/ItemsIcon/" + "bomb.png
+                imgPath = "Images/ItemsIcon/" + "banana";
+                itemUI.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+                itemUI.GetComponent<Image>().sprite = Resources.Load(imgPath, typeof(Sprite)) as Sprite;
+                Debug.Log("是香蕉皮！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
                 Debug.Log(imgPath);
                 break;
         }
