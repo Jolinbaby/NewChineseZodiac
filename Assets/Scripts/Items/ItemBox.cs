@@ -30,7 +30,7 @@ public class ItemBox : MonoBehaviour
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
         int typeNumber = kind;
-        typeNumber = 8;//测试加速buff
+        //typeNumber = 8;//测试加速buff
         itemId = id;
         switch (typeNumber)
         {
@@ -72,7 +72,7 @@ public class ItemBox : MonoBehaviour
         // Debug.Log("生成钥匙！位置在" + transform.position);
         // }
         //}
-        FindPos();
+        FindLand();
     }
 
     public void addKey()

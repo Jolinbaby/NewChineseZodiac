@@ -27,7 +27,7 @@ public class JumpUpBuff : MonoBehaviour
 
         GameObject skinRes = ResManager.LoadPrefab("BullBuffPos");
         jumpUpObj = (GameObject)Instantiate(skinRes);
-        jumpUpObj.transform.Find("BuffJumpUP").gameObject.GetComponent<ParticleSystem>().Play();
+        jumpUpObj.transform.Find("BuffJumpUp").gameObject.GetComponent<ParticleSystem>().Play();
         jumpUpObj.transform.parent = this.transform;
         jumpUpObj.transform.parent = this.transform;
         jumpUpObj.transform.localPosition = Vector3.zero;

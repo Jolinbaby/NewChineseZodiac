@@ -89,8 +89,9 @@ public class BaseAnimal : MonoBehaviour
         GameObject bulletObj = new GameObject("bullet");
         //bulletObj.layer = LayerMask.NameToLayer("Bullet");
         Bullet bullet = bulletObj.AddComponent<Bullet>();
-        bullet.Init();
         bullet.animal = this;
+        bullet.Init();
+        
         //Œª÷√
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;
@@ -114,8 +115,9 @@ public class BaseAnimal : MonoBehaviour
         GameObject bombObj = new GameObject("bomb");
         //bulletObj.layer = LayerMask.NameToLayer("Bullet");
         Bomb bomb  = bombObj.AddComponent<Bomb>();
-        bomb.Init();
         bomb.animal = this;
+        bomb.Init();
+        
         //Œª÷√
         bomb.transform.position = transform.position;
         bomb.transform.rotation = transform.rotation;
@@ -130,8 +132,9 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("SpawnShield!!!!!!!!!!!!!!!!!!!!");
         GameObject shieldObj = new GameObject("shield");
         shieldProp = shieldObj.AddComponent<ShieldProp>();
-        shieldProp.Init();
         shieldProp.animal = this;
+        shieldProp.Init();
+        
         //Œª÷√
         shieldProp.transform.position = transform.position;
         shieldProp.transform.transform.parent = this.transform;
@@ -165,8 +168,9 @@ public class BaseAnimal : MonoBehaviour
         GameObject inkObj = new GameObject("ink");
         //bulletObj.layer = LayerMask.NameToLayer("Bullet");
         Ink ink = inkObj.AddComponent<Ink>();
-        ink.Init();
         ink.animal = this;
+        ink.Init();
+        
         //Œª÷√
         ink.transform.position = transform.position;
         ink.transform.rotation = transform.rotation;
@@ -215,8 +219,9 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("Œﬁµ–¿≤!!!!!!!!!!!!!!!!!!!!");
         GameObject superObj = new GameObject("super");
         SuperBuff superBuff = superObj.AddComponent<SuperBuff>();
-        superBuff.Init();
         superBuff.animal = this;
+        superBuff.Init();
+        
         //Œª÷√
         superBuff.transform.position = transform.position;
         superBuff.transform.transform.parent = this.transform;
@@ -231,8 +236,9 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("œ„Ω∂∆§¿≤!!!!!!!!!!!!!!!!!!!!");
         GameObject bananaObj = new GameObject("banana");
         Banana banana = bananaObj.AddComponent<Banana>();
-        banana.Init();
         banana.animal = this;
+        banana.Init();
+        
         //Œª÷√
         banana.transform.position = transform.position;
         banana.transform.transform.parent = this.transform;
