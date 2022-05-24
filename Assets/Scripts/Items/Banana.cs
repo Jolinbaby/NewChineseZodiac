@@ -47,7 +47,7 @@ public class Banana : MonoBehaviour
     /// 也就是香蕉皮刚放下去的3s内不会触发
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!flag)
         {
