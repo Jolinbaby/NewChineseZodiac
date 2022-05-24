@@ -14,7 +14,7 @@ namespace PlayerControl
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
-
+        public bool CanSwim = true;
         public Image VgourBar;
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -272,25 +272,29 @@ namespace PlayerControl
             //玩家按下冲刺键
             else
             {
-
-                //正在冲刺中且还有冲刺时间
-                if (_sprintTimeDelta >= 0.0f)
+                //玩家在陆地上才能冲刺
+                if (Grounded)
                 {
-                    //冲刺效果
-                    targetSpeed = SprintSpeed;
-                    _sprintSmoke.SetActive(true);
-                    //减少剩余冲刺时间
-                    _sprintTimeDelta -= Time.deltaTime;
-                    VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
+                    //正在冲刺中且还有冲刺时间
+                    if (_sprintTimeDelta >= 0.0f)
+                    {
+                        //冲刺效果
+                        targetSpeed = SprintSpeed;
+                        _sprintSmoke.SetActive(true);
+                        //减少剩余冲刺时间
+                        _sprintTimeDelta -= Time.deltaTime;
+                        VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
+                    }
+                    //冲刺时间结束
+                    if (_sprintTimeDelta <= 0.0f)
+                    {
+                        targetSpeed = MoveSpeed;
+                        _sprintSmoke.SetActive(false);
+                        VgourBar.fillAmount = 0;
+                        _sprintTimeoutDelta = SprintTimeout;
+                    }
                 }
-                //冲刺时间结束
-                if (_sprintTimeDelta <= 0.0f)
-                {
-                    targetSpeed = MoveSpeed;
-                    _sprintSmoke.SetActive(false);
-                    VgourBar.fillAmount = 0;
-                    _sprintTimeoutDelta = SprintTimeout;
-                }
+                else targetSpeed = MoveSpeed;
             }
 
 
@@ -300,7 +304,7 @@ namespace PlayerControl
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
-
+            if (!CanSwim && Underwater) targetSpeed = 0.5f * targetSpeed;
             // a reference to the players current horizontal velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 

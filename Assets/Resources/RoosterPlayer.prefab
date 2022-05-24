@@ -139,7 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 8
+  CanSwim: 0
+  VgourBar: {fileID: 0}
   SprintSpeed: 10
+  SprintTime: 3
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 3
@@ -147,6 +150,7 @@ MonoBehaviour:
   JumpTimeout: 0.2
   FallTimeout: 0.15
   IdleTimeout: 2
+  SprintTimeout: 2
   Grounded: 1
   GroundedOffset: -0.54
   GroundedRadius: 0.58
