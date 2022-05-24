@@ -32,7 +32,7 @@ public class ItemBox : MonoBehaviour
         int typeNumber = kind;
 
 
-        typeNumber = 4;//测试加速buff
+        //typeNumber = 4;//测试加速buff
 
         itemId = id;
         switch (typeNumber)
