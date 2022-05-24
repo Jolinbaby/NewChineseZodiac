@@ -102,6 +102,7 @@ public class ItemBox : MonoBehaviour
     /// </summary>
     public void FindLand()
     {
+        Debug.Log("FindLand!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hitInfo;
         float heightAboveGround = 1.0f;

@@ -25,12 +25,6 @@ public class Test : MonoBehaviour
     private bool IsOnGround()
     {
         LayerMask groundLayer = LayerMask.GetMask("Default") | LayerMask.GetMask("Ground");
-        Debug.Log("œ„Ω∂∆§‘⁄µÿ…œ£°!!!!!!!!!!!!!!!!!!!!!!!!!");
-        //LayerMask groundLayer = 1 << 3;
-        Debug.Log("Layer£∫" + groundLayer.ToString());
-        CapsuleCollider capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        float height = capsuleCollider.height;
-        Debug.Log("height:" + height);
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.47f, groundLayer))
         {
             return true;
