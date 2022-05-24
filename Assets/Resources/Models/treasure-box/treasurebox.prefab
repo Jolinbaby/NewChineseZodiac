@@ -829,9 +829,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3503550326051870337}
+  - component: {fileID: 387059956145561499}
   m_Layer: 0
   m_Name: treasurebox
-  m_TagString: Untagged
+  m_TagString: TreasureBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 4311295979567893563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 5358490949224638457}
   - {fileID: 2257330356648792706}
@@ -853,6 +854,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &387059956145561499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311295979567893563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04458952, y: 0.030664066, z: 0.03750595}
+  m_Center: {x: 0.0012348413, y: 0.01524383, z: 0.00044143558}
 --- !u!1 &4503555816159677821
 GameObject:
   m_ObjectHideFlags: 0
