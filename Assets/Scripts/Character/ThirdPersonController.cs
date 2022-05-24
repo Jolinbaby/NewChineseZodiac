@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-
+using UnityEngine.UI;
 
 namespace PlayerControl
 {
@@ -14,8 +14,12 @@ namespace PlayerControl
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
+
+        public Image VgourBar;
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
+        [Tooltip("How long the character can sprint")]
+        public float SprintTime = 3.0f;
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
@@ -35,6 +39,8 @@ namespace PlayerControl
         public float FallTimeout = 0.15f;
         [Tooltip("Time required to change idle animation. Feels more natural")]
         public float IdleTimeout = 2.0f;
+        [Tooltip("Time required to pass before being able to sprint again. Set to 0f to instantly sprint again")]
+        public float SprintTimeout = 2.0f;
 
         [Header("Player Grounded")]
         [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
@@ -81,8 +87,12 @@ namespace PlayerControl
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
+        private float _sprintTimeoutDelta;
         private float _fallTimeoutDelta;
         private float _idleTimeoutDelta;
+
+        //deltatime
+        private float _sprintTimeDelta;
 
         // animation IDs
         private int _animIDSpeed;
@@ -122,12 +132,17 @@ namespace PlayerControl
             _input = GetComponent<PlayerInputs>();
             _playerInput = GetComponent<PlayerInput>();
             _sprintSmoke = this.transform.Find("Player_run_VFX").gameObject;
+            
+            VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();
+            Debug.Log(VgourBar);
             AssignAnimationIDs();
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
             _idleTimeoutDelta = IdleTimeout;
+            _sprintTimeoutDelta = SprintTimeout;
+            _sprintTimeDelta = SprintTime;
         }
 
         private void Update()
@@ -207,7 +222,7 @@ namespace PlayerControl
             if (_idleTimeoutDelta >= 0.0f)
             {
                 _idleTimeoutDelta -= Time.deltaTime;
-                _LastIdleIndex = Mathf.Lerp(_LastIdleIndex, _CurrentIdleIndex, 2f*Time.deltaTime);
+                _LastIdleIndex = Mathf.Lerp(_LastIdleIndex, _CurrentIdleIndex, 2f * Time.deltaTime);
                 _animator.SetFloat(_animIDIdle, _LastIdleIndex);
                 //Debug.Log("IdleIndex=" + _LastIdleIndex.ToString());
             }
@@ -224,15 +239,53 @@ namespace PlayerControl
                 _idleTimeoutDelta = IdleTimeout;
             }
 
+            float targetSpeed = 0.0f;
 
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
-
-            //generate smoke
-            if (_input.sprint) 
-                _sprintSmoke.SetActive(true);
-            else
+            //玩家没有按下冲刺键
+            if (!_input.sprint || _sprintTimeDelta <= 0.0f)
+            {
+                targetSpeed = MoveSpeed;
                 _sprintSmoke.SetActive(false);
+               
+                //CD结束随时可以冲刺
+                if (_sprintTimeoutDelta <= 0.0f)
+                {
+                    _sprintTimeDelta = SprintTime;
+                    VgourBar.fillAmount = 1;
+                } 
+               //在等待CD
+                else if (_sprintTimeoutDelta >= 0.0f)
+                {
+                    _sprintTimeoutDelta -= Time.deltaTime;
+                    VgourBar.fillAmount = 1 - (_sprintTimeoutDelta / SprintTimeout);
+                }
+            }
+            //玩家按下冲刺键
+            else 
+            {
+                
+                //正在冲刺中且还有冲刺时间
+                if (_sprintTimeDelta >= 0.0f)
+                {
+                    //冲刺效果
+                    targetSpeed = SprintSpeed;
+                    _sprintSmoke.SetActive(true);
+
+                    //减少剩余冲刺时间
+                    _sprintTimeDelta -= Time.deltaTime;
+                    VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
+                }
+                //冲刺时间结束
+                if (_sprintTimeDelta <= 0.0f)
+                {
+                    targetSpeed = MoveSpeed;
+                    _sprintSmoke.SetActive(false);
+                    VgourBar.fillAmount = 0;
+                    _sprintTimeoutDelta = SprintTimeout;
+                }
+            }
+           
+
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
