@@ -30,6 +30,10 @@ public class OnlineorNotPanel : BasePanel
     //点击按钮之后W
     public void OnSingleClick()
     {
+        //显示场景中UI
+        Transform SceneUI = GameObject.Find("UI").transform.GetChild(0) ;
+        SceneUI.gameObject.SetActive(true);
+
         GameMain.isOnline = false;
         GameMain.id = "y";
         ////单机功能启动这里
@@ -53,8 +57,6 @@ public class OnlineorNotPanel : BasePanel
         //animalInfo2.y = 20.241f;
         //animalInfo2.z = 10.2672f;
         //BattleManager.GenerateAnimal(animalInfo2);
-
-
 
 
         Close();

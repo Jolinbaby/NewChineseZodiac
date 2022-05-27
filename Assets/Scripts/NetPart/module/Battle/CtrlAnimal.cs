@@ -32,9 +32,9 @@ public class CtrlAnimal : BaseAnimal
     private Animator anim;
     //public bool isGetKey;
 
-    private bool isKeyMDown = false;
-
+    private bool isKeyTabDown = false;
     private bool isKeyCDown = false;
+
 
     private void Awake()
     {
@@ -129,7 +129,7 @@ public class CtrlAnimal : BaseAnimal
         //香蕉皮
         BananaUpdate();
 
-        //显示地图
+        //按M键显示地图
         MaxMapUpdate();
         //是否按下C键角色展示界面
         ShowCharacterUpdate();
@@ -142,15 +142,13 @@ public class CtrlAnimal : BaseAnimal
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (!isKeyCDown)
-            {
-                PanelManager.Open<ShowCharacterPanel>();
-            }
-            else
-            {
-                PanelManager.Close("ShowCharacterPanel");
-            }
-            isKeyCDown = !isKeyCDown;
+            PanelManager.Open<ShowCharacterPanel>();
+            isKeyCDown = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.C) && isKeyCDown)
+        {
+            PanelManager.Close("ShowCharacterPanel");
+            isKeyCDown = false;
         }
 
 
@@ -186,15 +184,15 @@ public class CtrlAnimal : BaseAnimal
             maxmap.SetActive(true);
             minmap.SetActive(false);
             itemBar.SetActive(false);
-            isKeyMDown = true;
+            isKeyTabDown = true;
         }
         
-        if (Input.GetKeyUp(KeyCode.M) && isKeyMDown)
+        if (Input.GetKeyUp(KeyCode.Tab) && isKeyTabDown)
         {
             maxmap.SetActive(false);
             minmap.SetActive(true);
             itemBar.SetActive(true);
-            isKeyMDown = false;
+            isKeyTabDown = false;
         }
     }
 

@@ -91,24 +91,30 @@ public class RoomPanel : BasePanel
         Text idText = trans.Find("Name").GetComponent<Text>();
         Text campText = trans.Find("Camp").GetComponent<Text>();
         Text scoreText = trans.Find("Status").GetComponent<Text>();
+        Image portrait = trans.Find("BgImage").GetComponent<Image>();
         //填充信息
         idText.text = playerInfo.id;
         switch(playerInfo.camp)
         {
             case 1:
                 campText.text = "鸡";
+                portrait.sprite = Resources.Load("UI/rooster.jpg",typeof(Sprite)) as Sprite;
                 break;
             case 2:
                 campText.text = "牛";
+                portrait.sprite = Resources.Load("UI/bull.jpg", typeof(Sprite)) as Sprite;
                 break;
             case 3:
                 campText.text = "蛇";
+                portrait.sprite = Resources.Load("UI/snake.jpg", typeof(Sprite)) as Sprite;
                 break;
             case 4:
                 campText.text = "虎";
+                portrait.sprite = Resources.Load("UI/tiger.jpg", typeof(Sprite)) as Sprite;
                 break;
             case 5:
                 campText.text = "狗";
+                portrait.sprite = Resources.Load("UI/dog.jpg", typeof(Sprite)) as Sprite;
                 break;
         }
         
@@ -161,6 +167,9 @@ public class RoomPanel : BasePanel
         {
             //关闭界面
             Close();
+            //打开场景UI
+            Transform SceneUI = GameObject.Find("UI").transform.GetChild(0);
+            SceneUI.gameObject.SetActive(true);
         }
         //开战失败
         else
