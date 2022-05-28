@@ -5,18 +5,19 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     //移动速度
-    public float speed = 5f;
-    public float upspeed = 7f;
+    public float speed = 10f;
+    public float upspeed = 13f;
 
     private Rigidbody rb;
 
     [Header("发射设置")]
-    public float force = 8.0f;
+    public float force = 10.0f;
     //public Vector3 velocity;
     public float angle=45;//仰角
     [Header("使用效果")]
     public GameObject expPrefab;
     //public float expForce;
+    //攻击范围
     public float radius;
     [Header("效果时长")]
     public float effectTime = 3.0f;
@@ -101,8 +102,8 @@ public class Bomb : MonoBehaviour
         //if (hitanimal != null) 
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("BeBomb");//
 
-        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
-        Instantiate(explode, transform.position + Firepos, transform.rotation);
+        Vector3 Firepos = new Vector3(0, 1.5f, 0f);
+        Instantiate(explode, transform.position + Firepos, explode.transform.rotation);
 
         //摧毁自身
         Destroy(gameObject);

@@ -36,32 +36,33 @@ static class ItemManager
         {
             ThrowItem(throwPos);
         }
-        Image nextItemIcon = GameObject.Find("ItemIcon_2").GetComponent<Image>();
-        Image thirdItemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
-        // 如果下一个panel里有道具，移动：下一个panel的透明度为0
-        if (nextItemIcon.color.a == 1.0f)
-        {
-            //如果第三个道具栏也有道具
-            if (thirdItemIcon.color.a == 1.0f)
-            {
-                thirdItemIcon.color = new Color(255, 255, 255, 0.0f);
-                itemIcon.color = new Color(255, 255, 255, 1.0f);
-                itemIcon.sprite = nextItemIcon.sprite;
-                nextItemIcon.color = new Color(255, 255, 255, 1.0f);
-                nextItemIcon.sprite = thirdItemIcon.sprite;
+        //Image nextItemIcon = GameObject.Find("ItemIcon_2").GetComponent<Image>();
+        //Image thirdItemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
+        //// 如果下一个panel里有道具，移动：下一个panel的透明度为0
+        //if (nextItemIcon.color.a == 1.0f)
+        //{
+        //    //如果第三个道具栏也有道具
+        //    if (thirdItemIcon.color.a == 1.0f)
+        //    {
+        //        thirdItemIcon.color = new Color(255, 255, 255, 0.0f);
+        //        itemIcon.color = new Color(255, 255, 255, 1.0f);
+        //        itemIcon.sprite = nextItemIcon.sprite;
+        //        nextItemIcon.color = new Color(255, 255, 255, 1.0f);
+        //        nextItemIcon.sprite = thirdItemIcon.sprite;
 
-            }
-            else
-            {
-                nextItemIcon.color = new Color(255, 255, 255, 0.0f);
-                itemIcon.color = new Color(255, 255, 255, 1.0f);
-                itemIcon.sprite = nextItemIcon.sprite;
-            }
-        }
-        else
-        {
-            itemIcon.color = new Color(255, 255, 255, 0.0f);
-        }
+        //    }
+        //    else
+        //    {
+        //        nextItemIcon.color = new Color(255, 255, 255, 0.0f);
+        //        itemIcon.color = new Color(255, 255, 255, 1.0f);
+        //        itemIcon.sprite = nextItemIcon.sprite;
+        //    }
+        //}
+        //else
+        //{
+        //    itemIcon.color = new Color(255, 255, 255, 0.0f);
+        //}
+        itemIcon.color = new Color(255, 255, 255, 0.0f);
     }
 
     public static void useItem2(Transform throwPos)
@@ -72,28 +73,30 @@ static class ItemManager
         {
             ThrowItem(throwPos);
         }
-        Image nextItemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
-        // 如果下一个panel里有道具，移动：下一个panel的透明度为0
-        if (nextItemIcon.color.a == 1.0f)
-        {
-            nextItemIcon.color = new Color(255, 255, 255, 0.0f);
-            itemIcon.color = new Color(255, 255, 255, 1.0f);
-            itemIcon.sprite = nextItemIcon.sprite;
-        }
-        else
-        {
-            itemIcon.color = new Color(255, 255, 255, 0.0f);
-        }
+        //Image nextItemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
+        //// 如果下一个panel里有道具，移动：下一个panel的透明度为0
+        //if (nextItemIcon.color.a == 1.0f)
+        //{
+        //    nextItemIcon.color = new Color(255, 255, 255, 0.0f);
+        //    itemIcon.color = new Color(255, 255, 255, 1.0f);
+        //    itemIcon.sprite = nextItemIcon.sprite;
+        //}
+        //else
+        //{
+        //    itemIcon.color = new Color(255, 255, 255, 0.0f);
+        //}
+        itemIcon.color = new Color(255, 255, 255, 0.0f);
     }
 
     public static void useItem3(Transform throwPos)
     {
         itemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
-        //如果有道具才能使用
-        if (itemIcon.color.a == 1.0f)
-        {
-            ThrowItem(throwPos);
-        }
+        ////如果有道具才能使用
+        //if (itemIcon.color.a == 1.0f)
+        //{
+        //    ThrowItem(throwPos);
+        //}
+        //itemIcon.color = new Color(255, 255, 255, 0.0f);
         itemIcon.color = new Color(255, 255, 255, 0.0f);
     }
 

@@ -14,6 +14,8 @@ public class Banana : MonoBehaviour
     //判断是否踩到
     //public bool isSpeedUp;
     //减速大小
+    public float speed;
+    public float upspeed;
     public float cutSpeed;
     //效果是否开启
     public bool flag;
@@ -26,6 +28,9 @@ public class Banana : MonoBehaviour
     {
         flag = false;
         time = 0;
+        upspeed = 2f;
+        speed = 3f;
+        cutSpeed = 0.05f;
         GameObject skinRes = ResManager.LoadPrefab("Banana");
         bananaObj = (GameObject)Instantiate(skinRes);
         bananaObj.transform.parent = this.transform;
@@ -48,7 +53,11 @@ public class Banana : MonoBehaviour
             if (!IsOnGround())
             {
                 Debug.Log("香蕉皮在下落！!!!!!!!!!!!!!!!!!!!!!!!!!");
-                transform.position -= transform.up * 2f * Time.deltaTime;
+                //transform.position -= transform.up * 2f * Time.deltaTime;
+                //向前移动
+                transform.position += transform.forward * speed * Time.deltaTime;
+                transform.position += transform.up * upspeed * Time.deltaTime;
+                upspeed -= cutSpeed;
             }
         }
     }

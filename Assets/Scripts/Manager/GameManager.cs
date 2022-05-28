@@ -75,7 +75,9 @@ public class GameManager : Singleton<GameManager>
         audioSource.clip = gameBGM_1;
         audioSource.Play();
         ItemManager.hasKey = false;
-        RandomBoxSpawn(maxCreateSize / 2);
+        // 初始化道具箱数量, 现在是20个
+        //RandomBoxSpawn(maxCreateSize / 10);
+        RandomBoxSpawn(maxCreateSize / 3);//先弄多一点测试，之后删掉
     }
 
     private void StartGame()

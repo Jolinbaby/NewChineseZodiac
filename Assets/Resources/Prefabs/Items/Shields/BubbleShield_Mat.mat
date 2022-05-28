@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BubbleShield_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: ffe8d4a25895b6e47ad5523ea5b8e18c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b847c80e010a1ab48b76b95e32b29ba0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -128,8 +128,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_027e4586f058443ca29389a6ccbed930: {r: 0, g: 2.7571898, b: 12.844469, a: 0}
-    - Color_cf12b49411d94583a269f83e6981abd1: {r: 0, g: 2.0847044, b: 6.4222345, a: 0}
+    - Color_027e4586f058443ca29389a6ccbed930: {r: 15.530603, g: 9.265754, b: 0, a: 0}
+    - Color_cf12b49411d94583a269f83e6981abd1: {r: 10.151301, g: 8.273566, b: 2.8319666, a: 0}
     - Vector2_6d629b6a76b14f7b9f3bf64e1f22ccd1: {r: 0.4, g: 4.3, b: 0, a: 0}
     - Vector3_a1dc6aec9c4446e7b2ac32a6487c43eb: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_fae618e0aad24534ba5a62afa34a08b6: {r: 0, g: 0, b: 0, a: 0}

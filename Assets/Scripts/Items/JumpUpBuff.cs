@@ -14,7 +14,7 @@ public class JumpUpBuff : MonoBehaviour
     {
         Debug.Log("回到原速");
         isJumpUp = false;
-        animal.GetComponent<PlayerControl.ThirdPersonController>().JumpHeight += addHeight;
+        animal.GetComponent<PlayerControl.ThirdPersonController>().JumpHeight -= addHeight;
         //摧毁自身
         Destroy(jumpUpObj);
     }
@@ -22,7 +22,7 @@ public class JumpUpBuff : MonoBehaviour
     public void Init()
     {
         jumpUpTime = 5.0f;
-        addHeight = 3.0f;
+        addHeight = 6.0f;
         isJumpUp = true;
 
         GameObject skinRes = ResManager.LoadPrefab("BullBuffPos");

@@ -71,7 +71,7 @@ public class Ink : MonoBehaviour
         //if (hitanimal != null) 
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("BeBomb");//
 
-        Vector3 Firepos = new Vector3(0, 1.75f, 2.34f);
+        Vector3 Firepos = new Vector3(0, 1.5f, 0f);
         Instantiate(explode, transform.position + Firepos, transform.rotation);
 
         //´Ý»Ù×ÔÉí

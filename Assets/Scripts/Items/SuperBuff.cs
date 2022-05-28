@@ -11,10 +11,6 @@ public class SuperBuff : MonoBehaviour
 
     public GameObject buffpos;
 
-    private void Start()
-    {
-
-    }
 
     private void DestorySelf()
     {
@@ -40,18 +36,17 @@ public class SuperBuff : MonoBehaviour
         buffsuper.transform.Find("BuffSupperBottom").gameObject.GetComponent<ParticleSystem>().Play();
         //buffsuper.transform.Find("BuffSuperAround").gameObject.GetComponent<ParticleSystem>().Play();
         superObj.transform.parent = this.transform;
-        superObj.transform.parent = this.transform;
         superObj.transform.localPosition = Vector3.zero;
         
         Invoke("DestorySelf", superTime);
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.X))
-    //    {
-    //        Init();
-    //    }
-    //}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Init();
+        }
+    }
 }

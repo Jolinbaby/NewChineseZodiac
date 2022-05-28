@@ -29,8 +29,8 @@ public class ItemBox : MonoBehaviour
     {
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
+        kind = Random.Range(1, 3);
         int typeNumber = kind;
-
 
         //typeNumber = 4;//测试加速buff
 
@@ -96,64 +96,45 @@ public class ItemBox : MonoBehaviour
             return false;
         }
     }
-    /// <summary>
-    /// 通过射线检测地面，确保生成在地面上
-    /// 同时防止重叠
-    /// </summary>
+
     public void FindLand()
     {
-        Debug.Log("FindLand!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        // 防止其生成在房顶or树上
+        LayerMask groundLayer = 1 << 3;
+        LayerMask waterLayer = 1 << 4;
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hitInfo;
-        float heightAboveGround = 1.0f;
-        float radius = 5.0f;
-        bool flag = true;
-        if (Physics.Raycast(ray, out hitInfo))
+        float heightAboveGround = 1.8f;
+        float heightAboveWater = 1.5f;
+        // 发出的射线只与groundLayer产生碰撞
+        if (Physics.Raycast(ray, out hitInfo, 30f, groundLayer))
         {
             transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + heightAboveGround, hitInfo.point.z);
         }
-        while (flag)
+        else
         {
-            hasOverlap = false;
-            Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(transform.localScale.x, 0.01f, transform.localScale.y));
-            if (colliders.Length > 0)
+            // 如果与水面产生碰撞
+            if (Physics.Raycast(ray, out hitInfo, 30f, waterLayer))
             {
-                foreach(Collider nearby in colliders)
-                {
-                    Debug.Log("道具箱碰到了: " + nearby.name);
-                }
-                hasOverlap = true;
-            }
-            //foreach (Collider nearby in colliders)
-            //{
-            //    if (nearby.gameObject.)
-            //    {
-            //        hasOverlap = true;
-            //    }
-            //}
-            if (!hasOverlap)
-            {
-                flag = false;
-            }
-            else
-            {
-                // 重新生成
-
-                Random.InitState(10);//指定seed
-                int x = Random.Range((int)GameManager.Instance.minX,(int)GameManager.Instance.maxX);
-                int z = Random.Range((int)GameManager.Instance.minZ, (int)GameManager.Instance.maxZ);
-                transform.position = new Vector3((float)x, 24f, (float)z);
-                ray = new Ray(transform.position, -transform.up);
-
-                if (Physics.Raycast(ray, out hitInfo))
-                {
-                    
-                    transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + heightAboveGround, hitInfo.point.z);
-                    
-                }
+                transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + heightAboveWater, hitInfo.point.z);
             }
         }
-        gameObject.SetActive(true);
+        // 防止卡在房子或其他碰撞体上
+        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(transform.localScale.x/2, 0.01f, transform.localScale.z/2));
+        if (colliders.Length > 0)
+        {
+            foreach (Collider nearby in colliders)
+            {
+                Debug.Log("道具箱碰到了: " + nearby.name);
+            }
+            hasOverlap = true;
+            Debug.Log("道具箱销毁！ ");
+            Destroy(gameObject);
+
+            //给服务器发送报文
+
+        }
+
     }
 
     /// <summary>
