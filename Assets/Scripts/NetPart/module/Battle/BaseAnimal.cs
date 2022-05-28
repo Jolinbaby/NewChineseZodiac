@@ -367,7 +367,7 @@ public class BaseAnimal : MonoBehaviour
         isGetKey = true;
 
         GameObject theKey = ResManager.LoadPrefab("Key");
-        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
+        Vector3 Firepos = new Vector3(0, 3f, 1f);
         FireposObj = Instantiate(theKey, transform.position + Firepos, transform.rotation);
         FireposObj.transform.SetParent(transform);
 
@@ -389,7 +389,7 @@ public class BaseAnimal : MonoBehaviour
 
         //²úÉúÔ¿³×
         GameObject theKey = ResManager.LoadPrefab("Key");
-        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
+        Vector3 Firepos = new Vector3(0, 3f, 1f);
         GameObject chuxiankey= Instantiate(theKey, transform.position + Firepos, transform.rotation);
         KeyScripts keyScript = chuxiankey.AddComponent<KeyScripts>();
         //keyScript.Init();

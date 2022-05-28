@@ -42,7 +42,7 @@ public class KeyScripts : MonoBehaviour
         //皮肤
         GameObject skinRes = ResManager.LoadPrefab("Key");
         skin = (GameObject)Instantiate(skinRes);
-        Vector3 Firepos = new Vector3(0, 2.75f, 1f);
+        Vector3 Firepos = new Vector3(0, 3f, 1f);
         skin.transform.parent = this.transform;
         skin.transform.localPosition = Firepos;
         skin.transform.localEulerAngles = Vector3.zero;
