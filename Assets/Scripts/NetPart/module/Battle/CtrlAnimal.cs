@@ -460,6 +460,11 @@ public class CtrlAnimal : BaseAnimal
 
     public void BananaUpdate()
     {
+        //≤‚ ‘
+        //if (!Input.GetKey(KeyCode.E))
+        //{
+        //    return;
+        //}
         //∞¥º¸≈–∂œ
         if (ItemManager.isThrowBanana == false)
         {

@@ -32,7 +32,7 @@ public class ItemBox : MonoBehaviour
         kind = Random.Range(1, 3);
         int typeNumber = kind;
 
-        //typeNumber = 4;//≤‚ ‘º”ÀŸbuff
+        typeNumber = 8;//≤‚ ‘œ„Ω∂∆§Õ¨≤Ω
 
         itemId = id;
         switch (typeNumber)

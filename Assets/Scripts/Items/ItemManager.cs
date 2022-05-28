@@ -132,6 +132,10 @@ static class ItemManager
                 Debug.Log("ª§∂‹");
                 isShield = true;
                 break;
+            case "banana":
+                Debug.Log("œ„Ω∂∆§");
+                isThrowBanana = true;
+                break;
             case "baozi":
                 Debug.Log("º”ÀŸ");
                 isSpeedUp = true;

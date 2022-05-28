@@ -187,5 +187,15 @@ public class SyncAnimal : BaseAnimal
             superBuff.transform.position = pos;
             superBuff.transform.eulerAngles = rot;
         }
+
+        else if (mFireid == "BananaAttack")
+        {
+            Banana banana = SpawnBanana();
+            //¸üÐÂ×ø±ê
+            Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
+            Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
+            banana.transform.position = pos;
+            banana.transform.eulerAngles = rot;
+        }
     }
 }

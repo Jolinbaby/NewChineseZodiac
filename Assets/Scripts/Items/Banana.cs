@@ -34,13 +34,16 @@ public class Banana : MonoBehaviour
         GameObject skinRes = ResManager.LoadPrefab("Banana");
         bananaObj = (GameObject)Instantiate(skinRes);
         bananaObj.transform.parent = this.transform;
-        bananaObj.transform.localPosition = Vector3.zero;
+        Vector3 initPos = new Vector3(0,1f,0);
+        //bananaObj.transform.localPosition = Vector3.zero;
+        bananaObj.transform.localPosition = initPos;
 
         Debug.Log("Initœ„Ω∂∆§");
         Invoke("StartEffect", 3f);
     }
     public void StartEffect()
     {
+        Debug.Log("StartEffect()");
         flag = true;
     }
 
@@ -84,6 +87,7 @@ public class Banana : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter");
         if (!flag)
         {
             return;
@@ -99,7 +103,24 @@ public class Banana : MonoBehaviour
         }
         Destroy(gameObject);
     }
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("OnCollisionEnter");
+        if (!flag)
+        {
+            return;
+        }
+        BaseAnimal baseAnimal = other.gameObject.GetComponent<BaseAnimal>();
 
+        if (baseAnimal != null)
+        {
+            SendMsgHit(animal, baseAnimal);
+            Debug.Log("”–ÕÊº“≤»µΩœ„Ω∂∆§");
+            //if (GameMain.isOnline == false)
+            other.gameObject.GetComponent<Animator>().SetTrigger("BeBanana");
+        }
+        Destroy(gameObject);
+    }
     //∑¢ÀÕ…À∫¶–≠“È
     void SendMsgHit(BaseAnimal animal, BaseAnimal hitanimal)
     {

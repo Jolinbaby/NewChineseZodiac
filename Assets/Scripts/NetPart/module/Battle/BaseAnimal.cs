@@ -236,12 +236,18 @@ public class BaseAnimal : MonoBehaviour
         Debug.Log("香蕉皮啦!!!!!!!!!!!!!!!!!!!!");
         GameObject bananaObj = new GameObject("banana");
         Banana banana = bananaObj.AddComponent<Banana>();
+
+        BoxCollider boxCollider = bananaObj.gameObject.AddComponent<BoxCollider>();
+        boxCollider.center = new Vector3(0f, 0f, 0f);
+        boxCollider.size = new Vector3(1f, 2f, 1f);
+        boxCollider.isTrigger = true;
+
         banana.animal = this;
         banana.Init();
         
         //位置
         banana.transform.position = transform.position;
-        banana.transform.transform.parent = this.transform;
+        //banana.transform.transform.parent = this.transform;
         banana.transform.rotation = transform.rotation;
         //更新时间
         lastShieldTime = Time.time;
