@@ -529,7 +529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 12
+  CanSwim: 1
+  VgourBar: {fileID: 0}
   SprintSpeed: 15
+  SprintTime: 3
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 1.8
@@ -537,6 +540,7 @@ MonoBehaviour:
   JumpTimeout: 0.2
   FallTimeout: 0.15
   IdleTimeout: 2
+  SprintTimeout: 2
   Grounded: 1
   GroundedOffset: -0.49
   GroundedRadius: 0.58
@@ -1227,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 6417035788617533178, guid: 9b4fc1fed9b6b104ea2637f3ccab4563, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417035788617533178, guid: 9b4fc1fed9b6b104ea2637f3ccab4563, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6417035788617728258, guid: 9b4fc1fed9b6b104ea2637f3ccab4563, type: 3}
       propertyPath: m_Layer
