@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 437050}
   - component: {fileID: 3305714}
   - component: {fileID: 2313178}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Candy_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447522}
   - component: {fileID: 779268867090636044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Candy_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 404608}
   - component: {fileID: 3368786}
   - component: {fileID: 2373096}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 446070}
   - component: {fileID: 3393486}
   - component: {fileID: 2329166}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 411376}
   - component: {fileID: 3332812}
   - component: {fileID: 2313916}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ColorBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 3336680}
   - component: {fileID: 2385548}
   - component: {fileID: 9597182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

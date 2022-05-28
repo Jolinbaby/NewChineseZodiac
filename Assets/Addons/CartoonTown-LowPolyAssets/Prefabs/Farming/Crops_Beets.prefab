@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3368706}
   - component: {fileID: 2380036}
   - component: {fileID: 24160623802919195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crops_Beets
   m_TagString: Untagged
   m_Icon: {fileID: 0}

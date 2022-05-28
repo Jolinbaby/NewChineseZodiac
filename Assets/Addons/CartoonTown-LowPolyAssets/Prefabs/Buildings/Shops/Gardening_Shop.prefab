@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3375828}
   - component: {fileID: 2328954}
   - component: {fileID: 8450627196631885588}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gardening_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

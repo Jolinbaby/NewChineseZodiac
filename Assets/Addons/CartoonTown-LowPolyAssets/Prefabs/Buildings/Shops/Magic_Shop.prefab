@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 493132}
   - component: {fileID: 3325344}
   - component: {fileID: 2308370}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411950}
   - component: {fileID: 6270647256766866249}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Magic_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 488328}
   - component: {fileID: 3395532}
   - component: {fileID: 2353754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box-R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 445182}
   - component: {fileID: 3348952}
   - component: {fileID: 2337904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 448102}
   - component: {fileID: 3372052}
   - component: {fileID: 2348970}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box-Big-L-Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 421902}
   - component: {fileID: 3399840}
   - component: {fileID: 2347766}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box-Small-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 489464}
   - component: {fileID: 3309502}
   - component: {fileID: 2378808}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Magig_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

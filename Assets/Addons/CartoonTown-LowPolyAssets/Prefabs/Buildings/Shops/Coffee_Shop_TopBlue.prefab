@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 456552}
   - component: {fileID: 3305074}
   - component: {fileID: 2363380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coffee_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 437692}
   - component: {fileID: 2367570255823271252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coffee_Shop_TopBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 496682}
   - component: {fileID: 3396022}
   - component: {fileID: 2379226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plant-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 499238}
   - component: {fileID: 3383470}
   - component: {fileID: 2379674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sign-Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 486410}
   - component: {fileID: 3357086}
   - component: {fileID: 2344346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plant-R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

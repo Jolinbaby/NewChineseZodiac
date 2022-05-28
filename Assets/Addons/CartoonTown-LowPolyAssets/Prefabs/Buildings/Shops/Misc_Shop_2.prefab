@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 430290}
   - component: {fileID: 3367184}
   - component: {fileID: 2357844}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ColorFlags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 466678}
   - component: {fileID: 3321824}
   - component: {fileID: 2376676}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Misc_Shop_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479730}
   - component: {fileID: 7514806850846303852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Misc_Shop_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 492346}
   - component: {fileID: 3382228}
   - component: {fileID: 2348262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plant-Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}

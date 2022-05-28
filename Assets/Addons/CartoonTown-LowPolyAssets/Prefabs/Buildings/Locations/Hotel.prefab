@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3337414}
   - component: {fileID: 2383108}
   - component: {fileID: 5765170282572069661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hotel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

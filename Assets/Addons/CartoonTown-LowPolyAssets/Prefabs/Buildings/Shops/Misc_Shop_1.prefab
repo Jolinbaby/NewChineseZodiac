@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 426314}
   - component: {fileID: 3326064}
   - component: {fileID: 2382872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GarbageCans-Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 456132}
   - component: {fileID: 3372192}
   - component: {fileID: 2387472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ColorFlags.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 3320182}
   - component: {fileID: 2341972}
   - component: {fileID: 4747086653919310148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ColorFlags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 490448}
   - component: {fileID: 3328820}
   - component: {fileID: 2344898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 462396}
   - component: {fileID: 3324274}
   - component: {fileID: 2367432}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GarbageCan-Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 477208}
   - component: {fileID: 3348006}
   - component: {fileID: 2340476}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Striped-Plant-Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468782}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Misc_Shop_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

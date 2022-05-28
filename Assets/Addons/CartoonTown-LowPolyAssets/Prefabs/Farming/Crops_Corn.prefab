@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3316912}
   - component: {fileID: 2328458}
   - component: {fileID: 5365406516262869346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crops_Corn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

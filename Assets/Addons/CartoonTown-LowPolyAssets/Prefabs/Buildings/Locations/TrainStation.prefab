@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472752}
   - component: {fileID: 6724566046304870591}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TrainStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 430746}
   - component: {fileID: 3356476}
   - component: {fileID: 2381466}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 422724}
   - component: {fileID: 3388066}
   - component: {fileID: 2330436}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}

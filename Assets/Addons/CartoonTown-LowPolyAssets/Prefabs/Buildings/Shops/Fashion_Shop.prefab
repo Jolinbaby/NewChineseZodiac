@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406750}
   - component: {fileID: 4026209459862641646}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fashion_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 3346256}
   - component: {fileID: 2369840}
   - component: {fileID: 9501282}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 496292}
   - component: {fileID: 3370630}
   - component: {fileID: 2370764}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shop_Fashion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
