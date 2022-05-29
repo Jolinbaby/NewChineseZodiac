@@ -34,7 +34,7 @@ public class Banana : MonoBehaviour
         GameObject skinRes = ResManager.LoadPrefab("Banana");
         bananaObj = (GameObject)Instantiate(skinRes);
         bananaObj.transform.parent = this.transform;
-        Vector3 initPos = new Vector3(0,1f,0);
+        Vector3 initPos = new Vector3(0,0f,0);
         //bananaObj.transform.localPosition = Vector3.zero;
         bananaObj.transform.localPosition = initPos;
 
@@ -103,24 +103,7 @@ public class Banana : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("OnCollisionEnter");
-        if (!flag)
-        {
-            return;
-        }
-        BaseAnimal baseAnimal = other.gameObject.GetComponent<BaseAnimal>();
 
-        if (baseAnimal != null)
-        {
-            SendMsgHit(animal, baseAnimal);
-            Debug.Log("有玩家踩到香蕉皮");
-            //if (GameMain.isOnline == false)
-            other.gameObject.GetComponent<Animator>().SetTrigger("BeBanana");
-        }
-        Destroy(gameObject);
-    }
     //发送伤害协议
     void SendMsgHit(BaseAnimal animal, BaseAnimal hitanimal)
     {

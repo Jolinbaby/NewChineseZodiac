@@ -244,9 +244,10 @@ public class BaseAnimal : MonoBehaviour
 
         banana.animal = this;
         banana.Init();
-        
+
         //位置
-        banana.transform.position = transform.position;
+        Vector3 vector3 = new Vector3(0f,3f,0f);
+        banana.transform.position = transform.position+vector3;
         //banana.transform.transform.parent = this.transform;
         banana.transform.rotation = transform.rotation;
         //更新时间
