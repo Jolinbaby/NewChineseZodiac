@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class Bullet : MonoBehaviour
 {
     //移动速度
@@ -12,7 +12,14 @@ public class Bullet : MonoBehaviour
     private GameObject skin;
     //物理
     Rigidbody rigidBody;
-
+    //摄像机
+    private Transform aimCameraTransform;
+    //能否达到东西
+    public bool canHit;
+    //目标点
+    private Vector3 target;
+    //只检测一次
+    private bool flag;
     //初始化
     public void Init()
     {
@@ -26,15 +33,44 @@ public class Bullet : MonoBehaviour
         //物理
         rigidBody = gameObject.AddComponent<Rigidbody>();
         rigidBody.useGravity = false;
+        aimCameraTransform = animal.gameObject.transform.Find("PlayerAimCamera").gameObject.transform;
+        canHit = false;
+        flag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //向前移动
-        transform.position += transform.forward * speed * Time.deltaTime;
+        if (!flag && Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+        if (canHit)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        }
     }
 
+    private void Shoot()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(aimCameraTransform.position,aimCameraTransform.forward,out hit, Mathf.Infinity))
+        {
+            Debug.Log("可以射到目标！");
+            target = hit.point;
+            //if (Vector3.Distance(aimCameraTransform.position, target) < 10f)
+            //{
+            //    canHit = true;
+            //}
+        }
+        else
+        {
+            Debug.Log("无法射到目标！");
+            target = aimCameraTransform.position + aimCameraTransform.forward * 20f;
+        }
+        canHit = true;
+        flag = true;
+    }
     //碰撞
     void OnCollisionEnter(Collision collisionInfo)
     {

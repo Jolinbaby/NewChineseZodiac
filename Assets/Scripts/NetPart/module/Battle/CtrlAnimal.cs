@@ -230,7 +230,8 @@ public class CtrlAnimal : BaseAnimal
         //    return;
         //}
         //°´¼üÅÐ¶Ï
-        if (!Input.GetKey(KeyCode.Q))
+        //if (!Input.GetKey(KeyCode.Q))
+        if (!Input.GetMouseButtonDown(1))
         {
             return;
         }
