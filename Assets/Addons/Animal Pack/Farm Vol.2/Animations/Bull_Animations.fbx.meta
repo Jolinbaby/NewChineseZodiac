@@ -128,7 +128,7 @@ ModelImporter:
     second: Roll
   - first:
       74: 7400026
-    second: Bull_Run
+    second: Run
   - first:
       74: 7400028
     second: Sit
@@ -553,7 +553,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Bull_Run
+      name: Run
       takeName: Run
       internalID: 0
       firstFrame: 0
