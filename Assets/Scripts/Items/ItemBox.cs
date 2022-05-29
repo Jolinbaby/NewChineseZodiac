@@ -29,7 +29,7 @@ public class ItemBox : MonoBehaviour
     {
         // 生成时，随机确定自己的类别
         //int typeNumber = Random.Range(1, 4); //取1-3
-        kind = Random.Range(1, 3);
+        //kind = Random.Range(7, 9);
         int typeNumber = kind;
 
         //typeNumber = 5;//测试无敌同步
@@ -137,36 +137,56 @@ public class ItemBox : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// 防止道具箱生成重叠
-    /// </summary>
-    public void FindPos()
-    {
-        
-
-    }
     public void DestorySelf()
     {
         Debug.Log("道具类型为" + itemType);
         Debug.Log("道具id为" + itemId);
-        // 若道具栏未满
-        if (FindItemUI())
+        // 互动道具
+        if (itemType == ItemType.Bomb || itemType == ItemType.Ink || itemType == ItemType.Banana)
         {
-            SoundManager.Instance.OnPickUpAudio();
-            //if(itemType!= ItemType.Bomb)//-----------------------------
+            // 若道具栏未满
+            if (FindItemUI())
+            {
+                SoundManager.Instance.OnPickUpAudio();
+                //if(itemType!= ItemType.Bomb)//-----------------------------
                 DisplayInItemBar();
-            Destroy(gameObject);
-            //向服务端发送报文,表示一下当前捡到了哪个物品
-            MsgPickup msg = new MsgPickup();
-            msg.itemid = itemId;
-            NetManager.Send(msg);
+                Destroy(gameObject);
+                //向服务端发送报文,表示一下当前捡到了哪个物品
+                MsgPickup msg = new MsgPickup();
+                msg.itemid = itemId;
+                NetManager.Send(msg);
+            }
+            else
+            {
+                return;
+            }
         }
+        else if (itemType == ItemType.Shield || itemType == ItemType.SpeedUp || itemType == ItemType.JumpUp || itemType == ItemType.Super)
+        {
+            if (FindBuffUI())
+            {
+                SoundManager.Instance.OnPickUpAudio();
+                //if(itemType!= ItemType.Bomb)//-----------------------------
+                DisplayInItemBar();
+                Destroy(gameObject);
+                //向服务端发送报文,表示一下当前捡到了哪个物品
+                MsgPickup msg = new MsgPickup();
+                msg.itemid = itemId;
+                NetManager.Send(msg);
+            }
+            else
+            {
+                return;
+            }
+        }
+        
     }
 
-    // 检查道具栏是否已满，选择下一个panel
+    // 检查互动道具栏是否已满，选择下一个panel
     private bool FindItemUI()
     {
-        if(GameObject.Find("ItemIcon_1").GetComponent<Image>().color.a == 0.0f)
+        
+        if (GameObject.Find("ItemIcon_1").GetComponent<Image>().color.a == 0.0f)
         {
             itemUI = GameObject.Find("ItemIcon_1");
             return true;
@@ -181,6 +201,20 @@ public class ItemBox : MonoBehaviour
             itemUI = GameObject.Find("ItemIcon_3");
             return true;
         }
+        Debug.Log("互动道具栏已满！");
+        return false;
+    }
+
+    // 检查buff道具栏是否已满，选择下一个panel
+    private bool FindBuffUI()
+    {
+        // 自身Buff
+        if (GameObject.Find("ItemIcon_4").GetComponent<Image>().color.a == 0.0f)
+        {
+            itemUI = GameObject.Find("ItemIcon_4");
+            return true;
+        }
+        Debug.Log("Buff道具栏已满！");
         return false;
     }
     private void DisplayInItemBar()

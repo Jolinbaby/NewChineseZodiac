@@ -92,6 +92,11 @@ public class PlayerController : MonoBehaviour
             {
                 ItemManager.useItem3(throwPos);
             }
+            // 4：使用自身buff
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                ItemManager.useBuff(throwPos);
+            }
         }
         
     }
@@ -108,7 +113,6 @@ public class PlayerController : MonoBehaviour
         // 碰到道具，拾取（显示在UI）
         if (other.gameObject.CompareTag("ItemBox"))
         {
-            SoundManager.Instance.OnPickUpAudio();
             Debug.Log("拾取道具!!!!!!!!!!!!!!!!!");
             // 如果捡到的是钥匙
             ItemBox itemBox = other.gameObject.GetComponent<ItemBox>();

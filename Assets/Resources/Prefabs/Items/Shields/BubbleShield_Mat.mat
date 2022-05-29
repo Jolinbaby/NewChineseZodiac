@@ -90,6 +90,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - FoamOffset_: -5
+    - Gloss_: 0
+    - Metalic_: 0
+    - NormalStrengh_: 2
+    - RippleDissolve_: 3.8
+    - RippleScale_: 10
+    - RippleSpeed_: 1
+    - Transparency_: 0.2
     - Vector1_434d8f6edb7f4e109dc7b47df03c0119: 0.4
     - Vector1_526772f4a438409589cd4dc991e40b3a: 0.32
     - Vector1_53e4b2024ef54323864a72f98f5e1ffa: 0.45
@@ -128,8 +136,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_027e4586f058443ca29389a6ccbed930: {r: 15.530603, g: 9.265754, b: 0, a: 0}
-    - Color_cf12b49411d94583a269f83e6981abd1: {r: 10.151301, g: 8.273566, b: 2.8319666, a: 0}
+    - BaseColor_: {r: 0.2137415, g: 0.6424851, b: 0.745283, a: 0}
+    - Color_027e4586f058443ca29389a6ccbed930: {r: 1.6073164, g: 8.186329, b: 17.80044, a: 0}
+    - Color_cf12b49411d94583a269f83e6981abd1: {r: 1.3817801, g: 6.6412134, b: 12.657789, a: 0}
+    - FoamColor_: {r: 1, g: 1, b: 1, a: 0}
+    - RippleColor_: {r: 0, g: 0.4417239, b: 0.6603774, a: 0}
     - Vector2_6d629b6a76b14f7b9f3bf64e1f22ccd1: {r: 0.4, g: 4.3, b: 0, a: 0}
     - Vector3_a1dc6aec9c4446e7b2ac32a6487c43eb: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_fae618e0aad24534ba5a62afa34a08b6: {r: 0, g: 0, b: 0, a: 0}

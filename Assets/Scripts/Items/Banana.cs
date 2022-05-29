@@ -29,8 +29,8 @@ public class Banana : MonoBehaviour
         flag = false;
         time = 0;
         upspeed = 2f;
-        speed = 3f;
-        cutSpeed = 0.05f;
+        speed = 5f;
+        cutSpeed = 0.1f;
         GameObject skinRes = ResManager.LoadPrefab("Banana");
         bananaObj = (GameObject)Instantiate(skinRes);
         bananaObj.transform.parent = this.transform;
@@ -39,12 +39,6 @@ public class Banana : MonoBehaviour
         bananaObj.transform.localPosition = initPos;
 
         Debug.Log("Init香蕉皮");
-        Invoke("StartEffect", 3f);
-    }
-    public void StartEffect()
-    {
-        Debug.Log("StartEffect()");
-        flag = true;
     }
 
     void Update()
@@ -55,12 +49,17 @@ public class Banana : MonoBehaviour
             // 下落
             if (!IsOnGround())
             {
-                Debug.Log("香蕉皮在下落！!!!!!!!!!!!!!!!!!!!!!!!!!");
+                //Debug.Log("香蕉皮在下落！!!!!!!!!!!!!!!!!!!!!!!!!!");
                 //transform.position -= transform.up * 2f * Time.deltaTime;
                 //向前移动
                 transform.position += transform.forward * speed * Time.deltaTime;
                 transform.position += transform.up * upspeed * Time.deltaTime;
                 upspeed -= cutSpeed;
+            }
+            else
+            {
+                //香蕉落在地上后才开始有效果
+                flag = true;
             }
         }
     }

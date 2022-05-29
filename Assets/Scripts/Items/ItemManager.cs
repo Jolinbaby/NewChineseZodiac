@@ -99,6 +99,17 @@ static class ItemManager
         itemIcon.color = new Color(255, 255, 255, 0.0f);
     }
 
+    public static void useBuff(Transform throwPos)
+    {
+        itemIcon = GameObject.Find("ItemIcon_4").GetComponent<Image>();
+        ////如果有道具才能使用
+        if (itemIcon.color.a == 1.0f)
+        {
+            ThrowItem(throwPos);
+        }
+        itemIcon.color = new Color(255, 255, 255, 0.0f);
+    }
+
     public static void ThrowRock(Transform throwPos)
     {
         Debug.Log("丢石头");
