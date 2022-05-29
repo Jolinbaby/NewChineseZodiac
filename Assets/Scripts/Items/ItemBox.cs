@@ -32,7 +32,7 @@ public class ItemBox : MonoBehaviour
         kind = Random.Range(1, 3);
         int typeNumber = kind;
 
-        typeNumber = 5;//测试无敌同步
+        //typeNumber = 5;//测试无敌同步
 
         itemId = id;
         switch (typeNumber)

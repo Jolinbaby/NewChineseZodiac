@@ -428,7 +428,7 @@ public class NetManager
             lastPingTime = Time.time;
         }
         //¼ì²âPONGÊ±¼ä
-        if (Time.time - lastPongTime > pingInterval * 4)
+        if (Time.time - lastPongTime > pingInterval * 40)
         {
             Close();
         }
