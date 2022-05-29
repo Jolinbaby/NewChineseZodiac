@@ -119,7 +119,7 @@ ModelImporter:
     second: Roll
   - first:
       74: 7400028
-    second: Snake_Run
+    second: Run
   - first:
       74: 7400030
     second: Spin
@@ -556,7 +556,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Snake_Run
+      name: Run
       takeName: Run
       internalID: 0
       firstFrame: 0

@@ -132,9 +132,9 @@ namespace PlayerControl
             _input = GetComponent<PlayerInputs>();
             _playerInput = GetComponent<PlayerInput>();
             _sprintSmoke = this.transform.Find("Player_run_VFX").gameObject;
-
-            VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();
-            Debug.Log(VgourBar);
+            if (GetComponent<CtrlAnimal>())
+                VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();
+            //Debug.Log(VgourBar);
             AssignAnimationIDs();
 
             // reset our timeouts on start
@@ -241,63 +241,76 @@ namespace PlayerControl
                     _CurrentIdleIndex = t;
                 _idleTimeoutDelta = IdleTimeout;
             }
-
             float targetSpeed = 0.0f;
-
-            //玩家没有按下冲刺键或冲刺时间耗尽
-            if (!_input.sprint || _sprintTimeDelta <= 0.0f)
+            //if ctrl animal
+            if (GetComponent<CtrlAnimal>())
             {
-                targetSpeed = MoveSpeed;
-                _sprintSmoke.SetActive(false);
 
-                //体力耗尽且CD结束随时可以冲刺
-                if (_sprintTimeoutDelta <= 0.0f&& _sprintTimeDelta<=0.0f)
+
+                //玩家没有按下冲刺键或冲刺时间耗尽
+                if (!_input.sprint || _sprintTimeDelta <= 0.0f)
                 {
-                    _sprintTimeDelta = SprintTime;
-                    VgourBar.fillAmount = 1;
-                }
-                //体力未耗尽
-                if (_sprintTimeoutDelta <= 0.0f && _sprintTimeDelta >= 0.0f)
-                {
-                    _sprintTimeDelta += Time.deltaTime;
-                    VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
-                }
-                //在等待CD
-                else if (_sprintTimeoutDelta >= 0.0f)
-                {
-                    _sprintTimeoutDelta -= Time.deltaTime;
-                    VgourBar.fillAmount = 1 - (_sprintTimeoutDelta / SprintTimeout);
-                }
-            }
-            //玩家按下冲刺键
-            else
-            {
-                //玩家在陆地上才能冲刺
-                if (Grounded)
-                {
-                    //正在冲刺中且还有冲刺时间
-                    if (_sprintTimeDelta >= 0.0f)
+                    targetSpeed = MoveSpeed;
+                    _sprintSmoke.SetActive(false);
+
+                    //体力耗尽且CD结束随时可以冲刺
+                    if (_sprintTimeoutDelta <= 0.0f && _sprintTimeDelta <= 0.0f)
                     {
-                        //冲刺效果
-                        targetSpeed = SprintSpeed;
-                        _sprintSmoke.SetActive(true);
-                        //减少剩余冲刺时间
-                        _sprintTimeDelta -= Time.deltaTime;
+                        _sprintTimeDelta = SprintTime;
+                        VgourBar.fillAmount = 1;
+                    }
+                    //体力未耗尽
+                    if (_sprintTimeoutDelta <= 0.0f && _sprintTimeDelta >= 0.0f)
+                    {
+                        _sprintTimeDelta += Time.deltaTime;
                         VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
                     }
-                    //冲刺时间结束
-                    if (_sprintTimeDelta <= 0.0f)
+                    //在等待CD
+                    else if (_sprintTimeoutDelta >= 0.0f)
                     {
-                        targetSpeed = MoveSpeed;
-                        _sprintSmoke.SetActive(false);
-                        VgourBar.fillAmount = 0;
-                        _sprintTimeoutDelta = SprintTimeout;
+                        _sprintTimeoutDelta -= Time.deltaTime;
+                        VgourBar.fillAmount = 1 - (_sprintTimeoutDelta / SprintTimeout);
                     }
                 }
-                else targetSpeed = MoveSpeed;
+                //玩家按下冲刺键
+                else
+                {
+                    //玩家在陆地上才能冲刺
+                    if (Grounded)
+                    {
+                        //正在冲刺中且还有冲刺时间
+                        if (_sprintTimeDelta >= 0.0f)
+                        {
+                            //冲刺效果
+                            targetSpeed = SprintSpeed;
+                            _sprintSmoke.SetActive(true);
+                            //减少剩余冲刺时间
+                            _sprintTimeDelta -= Time.deltaTime;
+                            VgourBar.fillAmount = (_sprintTimeDelta / SprintTime);
+                        }
+                        //冲刺时间结束
+                        if (_sprintTimeDelta <= 0.0f)
+                        {
+                            targetSpeed = MoveSpeed;
+                            _sprintSmoke.SetActive(false);
+                            VgourBar.fillAmount = 0;
+                            _sprintTimeoutDelta = SprintTimeout;
+                        }
+                    }
+                    else targetSpeed = MoveSpeed;
+                }
             }
-
-
+            //if sync animal
+            else
+            {
+                targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+                if (animatorInfo.IsName("Run"))
+                    {
+                    _sprintSmoke.SetActive(true);
+                }
+                else
+                    _sprintSmoke.SetActive(false);
+            }
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
