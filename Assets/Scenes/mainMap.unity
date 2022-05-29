@@ -7855,6 +7855,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 82321667}
     m_Modifications:
+    - target: {fileID: 6063302747792643485, guid: 8ec83fc553ee1ad4d815a9d1eef4d760, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063302747792643485, guid: 8ec83fc553ee1ad4d815a9d1eef4d760, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063302747792643485, guid: 8ec83fc553ee1ad4d815a9d1eef4d760, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063302747792643485, guid: 8ec83fc553ee1ad4d815a9d1eef4d760, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8575576735102330646, guid: 8ec83fc553ee1ad4d815a9d1eef4d760, type: 3}
       propertyPath: m_Name
       value: ItemBar
