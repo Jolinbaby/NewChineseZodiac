@@ -92,11 +92,10 @@ static class ItemManager
     {
         itemIcon = GameObject.Find("ItemIcon_3").GetComponent<Image>();
         ////如果有道具才能使用
-        //if (itemIcon.color.a == 1.0f)
-        //{
-        //    ThrowItem(throwPos);
-        //}
-        //itemIcon.color = new Color(255, 255, 255, 0.0f);
+        if (itemIcon.color.a == 1.0f)
+        {
+            ThrowItem(throwPos);
+        }
         itemIcon.color = new Color(255, 255, 255, 0.0f);
     }
 
