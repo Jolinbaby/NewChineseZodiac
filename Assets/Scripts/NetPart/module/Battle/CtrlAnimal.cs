@@ -137,6 +137,8 @@ public class CtrlAnimal : BaseAnimal
         //是否拿到钥匙
         //GetKeyUpdate();
         getoutofworldUpdate();
+
+        SuperUpdate();
     }
     private void ShowCharacterUpdate()
     {
@@ -341,15 +343,15 @@ public class CtrlAnimal : BaseAnimal
         SpeedUpBuff speedUpBuff = StartSpeedUp();
         //发送同步协议
 
-        MsgFire msg = new MsgFire();
-        msg.x = speedUpBuff.transform.position.x;
-        msg.y = speedUpBuff.transform.position.y;
-        msg.z = speedUpBuff.transform.position.z;
-        msg.ex = speedUpBuff.transform.eulerAngles.x;
-        msg.ey = speedUpBuff.transform.eulerAngles.y;
-        msg.ez = speedUpBuff.transform.eulerAngles.z;
-        msg.Fireid = "SpeedUp";
-        NetManager.Send(msg);
+        //MsgFire msg = new MsgFire();
+        //msg.x = speedUpBuff.transform.position.x;
+        //msg.y = speedUpBuff.transform.position.y;
+        //msg.z = speedUpBuff.transform.position.z;
+        //msg.ex = speedUpBuff.transform.eulerAngles.x;
+        //msg.ey = speedUpBuff.transform.eulerAngles.y;
+        //msg.ez = speedUpBuff.transform.eulerAngles.z;
+        //msg.Fireid = "SpeedUp";
+        //NetManager.Send(msg);
 
         ItemManager.isSpeedUp = false;
 
@@ -370,15 +372,15 @@ public class CtrlAnimal : BaseAnimal
         JumpUpBuff jumpUpBuff = StartJumpUp();
         //发送同步协议
 
-        MsgFire msg = new MsgFire();
-        msg.x = jumpUpBuff.transform.position.x;
-        msg.y = jumpUpBuff.transform.position.y;
-        msg.z = jumpUpBuff.transform.position.z;
-        msg.ex = jumpUpBuff.transform.eulerAngles.x;
-        msg.ey = jumpUpBuff.transform.eulerAngles.y;
-        msg.ez = jumpUpBuff.transform.eulerAngles.z;
-        msg.Fireid = "JumpUp";
-        NetManager.Send(msg);
+        //MsgFire msg = new MsgFire();
+        //msg.x = jumpUpBuff.transform.position.x;
+        //msg.y = jumpUpBuff.transform.position.y;
+        //msg.z = jumpUpBuff.transform.position.z;
+        //msg.ex = jumpUpBuff.transform.eulerAngles.x;
+        //msg.ey = jumpUpBuff.transform.eulerAngles.y;
+        //msg.ez = jumpUpBuff.transform.eulerAngles.z;
+        //msg.Fireid = "JumpUp";
+        //NetManager.Send(msg);
 
         ItemManager.isJumpUp = false;
 
@@ -387,6 +389,7 @@ public class CtrlAnimal : BaseAnimal
 
     public void SuperUpdate()
     {
+        //Debug.Log("SuperUpdate()");
         //按键判断
         if (ItemManager.isSuper == false)
         {
