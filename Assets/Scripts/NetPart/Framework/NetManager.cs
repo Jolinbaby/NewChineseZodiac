@@ -430,6 +430,7 @@ public class NetManager
         //¼ì²âPONGÊ±¼ä
         if (Time.time - lastPongTime > pingInterval * 40)
         {
+            Debug.Log("I want to close----(Time.time - lastPongTime > pingInterval * 40");
             Close();
         }
     }

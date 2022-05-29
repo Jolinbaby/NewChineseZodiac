@@ -44,6 +44,7 @@ public class ExitGamePanel: BasePanel
 
     public void OnOkEscClick()
     {
+        Debug.Log("点击退出-----------------");
         NetManager.Close();
         //        //退出游戏
         //        //预处理

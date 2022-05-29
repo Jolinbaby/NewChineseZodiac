@@ -64,7 +64,7 @@ public class ResultPanel : BasePanel
 		//SceneManager.LoadScene(0);
 		//PanelManager.Open<OnlineorNotPanel>();
 		//NetManager.Send(msg);
-
+		Debug.Log("结局已定 退出----------*---*-");
 		NetManager.Close();
 		//        //退出游戏
 		//        //预处理

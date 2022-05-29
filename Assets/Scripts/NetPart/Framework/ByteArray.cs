@@ -95,11 +95,30 @@ public class ByteArray
         readIdx = 0;
     }
 
+    ////读取Int16
+    //public Int16 ReadInt16()
+    //{
+    //    if (length < 2) return 0;
+    //    Int16 ret = BitConverter.ToInt16(bytes, readIdx);
+    //    readIdx += 2;
+    //    CheckAndMoveBytes();
+    //    return ret;
+    //}
+
+    ////读取Int32
+    //public Int32 ReadInt32()
+    //{
+    //    if (length < 4) return 0;
+    //    Int32 ret = BitConverter.ToInt32(bytes, readIdx);
+    //    readIdx += 4;
+    //    CheckAndMoveBytes();
+    //    return ret;
+    //}
     //读取Int16
     public Int16 ReadInt16()
     {
         if (length < 2) return 0;
-        Int16 ret = BitConverter.ToInt16(bytes, readIdx);
+        Int16 ret = (Int16)((bytes[readIdx + 1] << 8) | bytes[readIdx]);
         readIdx += 2;
         CheckAndMoveBytes();
         return ret;
@@ -109,12 +128,14 @@ public class ByteArray
     public Int32 ReadInt32()
     {
         if (length < 4) return 0;
-        Int32 ret = BitConverter.ToInt32(bytes, readIdx);
+        Int32 ret = (Int32)((bytes[readIdx + 3] << 24) |
+                            (bytes[readIdx + 2] << 16) |
+                (bytes[readIdx + 1] << 8) |
+                  bytes[readIdx]);
         readIdx += 4;
         CheckAndMoveBytes();
         return ret;
     }
-
 
 
     //打印缓冲区
