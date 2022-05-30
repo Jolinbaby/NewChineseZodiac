@@ -210,7 +210,16 @@ public class ItemBox : MonoBehaviour
                 return;
             }
         }
-        
+        else if (itemType == ItemType.Key)
+        {
+            SoundManager.Instance.OnPickUpAudio();
+            Destroy(gameObject);
+            //向服务端发送报文,表示一下当前捡到了哪个物品
+            MsgPickup msg = new MsgPickup();
+            msg.itemid = itemId;
+            NetManager.Send(msg);
+        }
+
     }
 
     // 检查互动道具栏是否已满，选择下一个panel
