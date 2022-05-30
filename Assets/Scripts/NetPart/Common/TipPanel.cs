@@ -29,6 +29,13 @@ public class TipPanel : BasePanel
         {
             text.text = (string)args[0];
         }
+        Invoke("hide", 3);
+    }
+
+    void hide()
+    {
+        Debug.Log("ÏûÊ§");
+        Close();
     }
 
     //¹Ø±Õ

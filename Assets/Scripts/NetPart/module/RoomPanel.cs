@@ -98,23 +98,23 @@ public class RoomPanel : BasePanel
         {
             case 1:
                 campText.text = "¼¦";
-                portrait.sprite = Resources.Load("UI/rooster.jpg",typeof(Sprite)) as Sprite;
+                portrait.sprite = Resources.Load("UI/rooster",typeof(Sprite)) as Sprite;
                 break;
             case 2:
                 campText.text = "Å£";
-                portrait.sprite = Resources.Load("UI/bull.jpg", typeof(Sprite)) as Sprite;
+                portrait.sprite = Resources.Load("UI/bull", typeof(Sprite)) as Sprite;
                 break;
             case 3:
                 campText.text = "Éß";
-                portrait.sprite = Resources.Load("UI/snake.jpg", typeof(Sprite)) as Sprite;
+                portrait.sprite = Resources.Load("UI/snake", typeof(Sprite)) as Sprite;
                 break;
             case 4:
                 campText.text = "»¢";
-                portrait.sprite = Resources.Load("UI/tiger.jpg", typeof(Sprite)) as Sprite;
+                portrait.sprite = Resources.Load("UI/tiger", typeof(Sprite)) as Sprite;
                 break;
             case 5:
                 campText.text = "¹·";
-                portrait.sprite = Resources.Load("UI/dog.jpg", typeof(Sprite)) as Sprite;
+                portrait.sprite = Resources.Load("UI/dog", typeof(Sprite)) as Sprite;
                 break;
         }
         
