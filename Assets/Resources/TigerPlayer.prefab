@@ -189,13 +189,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922447805898962221}
-<<<<<<< HEAD
-  m_LocalRotation: {x: -0.034545224, y: 0.08513125, z: -0.0029386259, w: -0.99576646}
-  m_LocalPosition: {x: 1.0295995, y: 2.8600643, z: -0.7667529}
-=======
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
   m_LocalPosition: {x: 0.62666833, y: 3.4312236, z: -1.7569631}
->>>>>>> 026ea0bfeca759f6ee74ddc1c02a0cff8d316433
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 5270203430604913269}
@@ -512,7 +507,7 @@ MonoBehaviour:
     m_Bits: 16
   CinemachineCameraTarget: {fileID: 1642752083918903495}
   TopClamp: 70
-  BottomClamp: -10
+  BottomClamp: 0
   CameraAngleOverride: 0
   LockCameraPosition: 0
 --- !u!114 &1642752085443995949
@@ -910,10 +905,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.25, z: 0.3}
-  ShoulderOffset: {x: -5.73, y: 0.9, z: 3.14}
-  VerticalArmLength: -1.57
-  CameraSide: 0.36
-  CameraDistance: 3.75
+  ShoulderOffset: {x: 1, y: 0, z: 0.94}
+  VerticalArmLength: 0.31
+  CameraSide: 1
+  CameraDistance: 4
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 1
@@ -1452,10 +1447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1642752085443995951}
     m_Modifications:
-    - target: {fileID: 645584094036060155, guid: 602aa8fc701fb42458b0f17b777c9f1c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 645584094036060155, guid: 602aa8fc701fb42458b0f17b777c9f1c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
