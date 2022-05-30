@@ -11,6 +11,10 @@ public class ItemBox : MonoBehaviour
 
     public ItemType itemType;
 
+    private string itemTitle;
+    private string itemHint;
+    private string itemPath;
+
     private GameObject itemUI;
 
     private GameObject keyUI;
@@ -39,28 +43,52 @@ public class ItemBox : MonoBehaviour
         {
             case 1:
                 itemType = ItemType.Bomb;
+                itemTitle = "炸弹";
+                itemHint = "炸晕范围内玩家，使其1.5s内无法行动";
+                itemPath = "Images/ItemsIcon/bomb";
                 break;
             case 2:
                 itemType = ItemType.Ink;
+                itemTitle = "墨汁";
+                itemHint = "溅开墨汁，使范围内玩家5s内无法看清前方";
+                itemPath = "Images/ItemsIcon/ink";
                 break;
             case 3:
                 itemType = ItemType.Shield;
+                itemTitle = "护盾";
+                itemHint = "抵御所有石子及单次道具攻击，5s后消失";
+                itemPath = "Images/ItemsIcon/shield";
                 break;
             case 4:
                 ItemManager.hasKey = true;
                 itemType = ItemType.Key;
+                itemTitle = "钥匙";
+                itemHint = "钥匙可以打开宝箱";
+                itemPath = "Images/ItemsIcon/key";
                 break;
             case 5:
                 itemType = ItemType.SpeedUp;
+                itemTitle = "包子";
+                itemHint = "增加玩家移动速度3s";
+                itemPath = "Images/ItemsIcon/baozi";
                 break;
             case 6:
                 itemType = ItemType.JumpUp;
+                itemTitle = "月饼";
+                itemHint = "增加玩家跳跃高度5s";
+                itemPath = "Images/ItemsIcon/mooncake";
                 break;
             case 7:
                 itemType = ItemType.Super;
+                itemTitle = "星星";
+                itemHint = "进入无敌状态，5s内不受任何道具干扰";
+                itemPath = "Images/ItemsIcon/star";
                 break;
             case 8:
                 itemType = ItemType.Banana;
+                itemTitle = "香蕉";
+                itemHint = "绊倒他人，使其2s内无法行动";
+                itemPath = "Images/ItemsIcon/banana";
                 break;
 
         }
@@ -141,6 +169,9 @@ public class ItemBox : MonoBehaviour
     {
         Debug.Log("道具类型为" + itemType);
         Debug.Log("道具id为" + itemId);
+
+        PanelManager.Open<propTipPanel>(itemHint,itemTitle,itemPath);
+        
         // 互动道具
         if (itemType == ItemType.Bomb || itemType == ItemType.Ink || itemType == ItemType.Banana)
         {

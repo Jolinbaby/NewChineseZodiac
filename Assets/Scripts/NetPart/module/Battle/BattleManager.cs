@@ -127,11 +127,14 @@ public class BattleManager
 
             animalObj.GetComponentInChildren<CharacterController>().gameObject.AddComponent<PlayerController>();
 
+            
+
             //GameObject itemManager= animalObj.GetComponent<PlayerController>().GetComponent<ItemManager>();
             //GameObject itemmanaGameObj = animalObj.GetComponentInChildren<ItemManager>();
             ////itemManager = GameObject.Find("ItemManager");
             ///
 
+            // 生成小地图
             GameObject minimap = GameObject.Find("MiniMapCamera");
             MiniMapController miniMapController = minimap.GetComponent<MiniMapController>();
             miniMapController.Player = animal.transform;

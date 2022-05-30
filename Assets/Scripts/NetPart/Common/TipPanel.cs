@@ -9,6 +9,8 @@ public class TipPanel : BasePanel
     private Text text;
     //确定按钮
     private Button okBtn;
+    //时间
+    private Text time;
 
     //初始化
     public override void OnInit()
@@ -22,6 +24,8 @@ public class TipPanel : BasePanel
         //寻找组件
         text = skin.transform.Find("Text").GetComponent<Text>();
         okBtn = skin.transform.Find("OkBtn").GetComponent<Button>();
+        time = skin.transform.Find("Time").GetComponent<Text>();
+        time.text = "1s后自动关闭";
         //监听
         okBtn.onClick.AddListener(OnOkClick);
         //提示语
@@ -29,7 +33,7 @@ public class TipPanel : BasePanel
         {
             text.text = (string)args[0];
         }
-        Invoke("hide", 3);
+        Invoke("hide", 1f);
     }
 
     void hide()
