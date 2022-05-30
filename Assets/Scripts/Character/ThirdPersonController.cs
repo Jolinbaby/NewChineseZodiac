@@ -109,6 +109,8 @@ namespace PlayerControl
         private PlayerInputs _input;
         private GameObject _mainCamera;
         private GameObject _sprintSmoke;
+        private GameObject _inkDrop;
+        private Animator _inkUI;
 
         private const float _threshold = 0.01f;
 
@@ -132,8 +134,12 @@ namespace PlayerControl
             _input = GetComponent<PlayerInputs>();
             _playerInput = GetComponent<PlayerInput>();
             _sprintSmoke = this.transform.Find("Player_run_VFX").gameObject;
+            _inkDrop = this.transform.Find("Ink_Drop_Particle").gameObject;
             if (GetComponent<CtrlAnimal>())
-                VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();
+            {
+                VgourBar = GameObject.Find("UI_Vigour/green").GetComponent<Image>();  
+            }
+            _inkUI = GameObject.Find("UI_Ink/Image").GetComponent<Animator>();
             //Debug.Log(VgourBar);
             AssignAnimationIDs();
 
@@ -152,6 +158,7 @@ namespace PlayerControl
             GroundedCheck();
             UnderwaterCheck();
             Move();
+            InkCheck();
         }
 
         private void LateUpdate()
@@ -170,7 +177,19 @@ namespace PlayerControl
             _animIDSwim = Animator.StringToHash("Swim");
         }
 
-        private void GroundedCheck()
+        private void InkCheck()
+        {
+            AnimatorStateInfo animatorInfo;
+            animatorInfo = _inkUI.GetCurrentAnimatorStateInfo(0);
+            if (animatorInfo.IsName("inkanim"))
+                _inkDrop.SetActive(true);
+            else
+                _inkDrop.SetActive(false);
+
+
+        }
+
+            private void GroundedCheck()
         {
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);

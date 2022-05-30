@@ -31899,7 +31899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108135969295048375, guid: 0918e026714838046b3e144f6ea723f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0918e026714838046b3e144f6ea723f6, type: 3}
@@ -50752,7 +50752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391963508}
   m_LocalRotation: {x: 0.25639445, y: 0, z: 0, w: 0.9665723}
-  m_LocalPosition: {x: 207.75, y: 159.63182, z: 80.13955}
+  m_LocalPosition: {x: 12.5199995, y: 5.2018323, z: -14.380445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63899,6 +63899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1781044064515006970, guid: 53f6935c8c9a88849a6e9d9b29c79031, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8604443040720553892, guid: 53f6935c8c9a88849a6e9d9b29c79031, type: 3}
       propertyPath: m_Name
       value: SnakePlayer
