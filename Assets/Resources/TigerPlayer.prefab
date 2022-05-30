@@ -307,7 +307,7 @@ Transform:
   m_GameObject: {fileID: 1642752085443995950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 206.7, y: 155.84, z: 83.1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 1642752083918903492}
   - {fileID: 6797095160901106866}
@@ -350,12 +350,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.65
-  m_Radius: 1.18
+  m_Radius: 1.02
   m_SlopeLimit: 50
   m_StepOffset: 0.8
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.32, z: -0.02}
+  m_Center: {x: 0, y: 1.1, z: -0.02}
 --- !u!114 &1642752085443995936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   SprintTime: 3
   RotationSmoothTime: 0.12
   SpeedChangeRate: 15
-  JumpHeight: 3
+  JumpHeight: 5
   Gravity: -21
   JumpTimeout: 0.2
   FallTimeout: 0.15
@@ -1259,15 +1259,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216035593601229788, guid: 0ed213755ef767a4ab6ff668c3c380a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34666952
+      value: 0.40615377
       objectReference: {fileID: 0}
     - target: {fileID: 5216035593601229788, guid: 0ed213755ef767a4ab6ff668c3c380a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4312236
+      value: 3.66218
       objectReference: {fileID: 0}
     - target: {fileID: 5216035593601229788, guid: 0ed213755ef767a4ab6ff668c3c380a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9969635
+      value: -2.2780375
       objectReference: {fileID: 0}
     - target: {fileID: 5216035593601229788, guid: 0ed213755ef767a4ab6ff668c3c380a2, type: 3}
       propertyPath: m_LocalRotation.w

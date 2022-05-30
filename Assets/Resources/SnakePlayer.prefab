@@ -933,14 +933,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b0c309cd2f9e544b272c96e1e4746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 14
+  MoveSpeed: 11
   CanSwim: 1
   VgourBar: {fileID: 0}
-  SprintSpeed: 16
+  SprintSpeed: 13
   SprintTime: 5
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  JumpHeight: 1
+  JumpHeight: 2
   Gravity: -6
   JumpTimeout: 0.2
   FallTimeout: 0.15
