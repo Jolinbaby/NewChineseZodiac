@@ -169,8 +169,6 @@ public class ItemBox : MonoBehaviour
     {
         Debug.Log("道具类型为" + itemType);
         Debug.Log("道具id为" + itemId);
-
-        PanelManager.Open<propTipPanel>(itemHint,itemTitle,itemPath);
         
         // 互动道具
         if (itemType == ItemType.Bomb || itemType == ItemType.Ink || itemType == ItemType.Banana)
@@ -178,6 +176,7 @@ public class ItemBox : MonoBehaviour
             // 若道具栏未满
             if (FindItemUI())
             {
+                PanelManager.Open<propTipPanel>(itemHint, itemTitle, itemPath);
                 SoundManager.Instance.OnPickUpAudio();
                 //if(itemType!= ItemType.Bomb)//-----------------------------
                 DisplayInItemBar();
@@ -196,6 +195,7 @@ public class ItemBox : MonoBehaviour
         {
             if (FindBuffUI())
             {
+                PanelManager.Open<propTipPanel>(itemHint, itemTitle, itemPath);
                 SoundManager.Instance.OnPickUpAudio();
                 //if(itemType!= ItemType.Bomb)//-----------------------------
                 DisplayInItemBar();
@@ -212,6 +212,7 @@ public class ItemBox : MonoBehaviour
         }
         else if (itemType == ItemType.Key)
         {
+            PanelManager.Open<propTipPanel>(itemHint, itemTitle, itemPath);
             SoundManager.Instance.OnPickUpAudio();
             Destroy(gameObject);
             //向服务端发送报文,表示一下当前捡到了哪个物品

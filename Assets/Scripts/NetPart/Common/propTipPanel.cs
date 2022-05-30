@@ -34,7 +34,7 @@ public class propTipPanel : BasePanel
             title.text = (string)args[1];
             icon.sprite = Resources.Load((string)args[2], typeof(Sprite)) as Sprite;
         }
-        Invoke("hide", 2.5f);
+        Invoke("hide", 2f);
     }
 
     void hide()
