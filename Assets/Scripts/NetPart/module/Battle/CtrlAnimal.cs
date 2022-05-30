@@ -243,11 +243,24 @@ public class CtrlAnimal : BaseAnimal
         if (!Input.GetMouseButtonDown(0))
         {
             return;
-        }
 
-       
+        }
+        Vector3 target;
+        aimCameraTransform = GameObject.Find("Main Camera").gameObject.transform;
+        RaycastHit hit;
+        if (Physics.Raycast(aimCameraTransform.position, aimCameraTransform.forward, out hit, Mathf.Infinity))
+        {
+            target = hit.point;
+            Debug.Log("可以射出！" + "目标点位置" + target);
+        }
+        else
+        {
+            target = aimCameraTransform.position + aimCameraTransform.forward * 20f;
+            Debug.Log("前方没有可射击的目标！");
+        }
         //发射
-        Bullet bullet = Fire();
+        Bullet bullet = Fire(target);
+        
         //发送同步协议
         MsgFire msg = new MsgFire();
         msg.x = bullet.transform.position.x;

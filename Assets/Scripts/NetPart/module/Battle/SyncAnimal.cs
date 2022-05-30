@@ -125,12 +125,12 @@ public class SyncAnimal : BaseAnimal
         string mFireid = msg.Fireid;
         if(mFireid== "QAttack")
         {
-            Bullet bullet = Fire();
+            //Bullet bullet = Fire();
             //¸üÐÂ×ø±ê
             Vector3 pos = new Vector3(msg.x, msg.y, msg.z);
             Vector3 rot = new Vector3(msg.ex, msg.ey, msg.ez);
-            bullet.transform.position = pos;
-            bullet.transform.eulerAngles = rot;
+            //bullet.transform.position = pos;
+            //bullet.transform.eulerAngles = rot;
 
         }
         else if (mFireid == "BombAttack")
