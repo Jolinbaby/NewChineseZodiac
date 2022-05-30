@@ -33,7 +33,6 @@ public class SwitchVcam : MonoBehaviour
     {
         aimAction.performed -= _ => StartAim();
         aimAction.canceled -= _ => CancelAim();
-
     }
 
     private void StartAim()
@@ -48,16 +47,5 @@ public class SwitchVcam : MonoBehaviour
         virtualCamera.Priority -= priorityBoostAmount;
         aimCanvas.enabled = false;
         ItemManager.isAim = false;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

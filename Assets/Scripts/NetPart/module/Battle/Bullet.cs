@@ -20,13 +20,17 @@ public class Bullet : MonoBehaviour
     public Vector3 target;
     //只检测一次
     private bool flag;
+    //石头生成位置
+    private Vector3 Firepos;
+    private Vector3 initPos;
     //初始化
     public void Init()
     {
         //皮肤
         GameObject skinRes = ResManager.LoadPrefab("RockToAttack");
         skin = (GameObject)Instantiate(skinRes);
-        Vector3 Firepos = new Vector3(0.7f,1.1f,1.6f);
+        //Firepos = new Vector3(0.7f,1.1f,1.6f);
+        Firepos = Vector3.zero;
         skin.transform.parent = this.transform;
         skin.transform.localPosition = Firepos;
         skin.transform.localEulerAngles = Vector3.zero;
@@ -34,16 +38,18 @@ public class Bullet : MonoBehaviour
         rigidBody = gameObject.AddComponent<Rigidbody>();
         rigidBody.useGravity = false;
         //aimCameraTransform = animal.gameObject.transform.Find("PlayerAimCamera").gameObject.transform;
-        canHit = false;
+        canHit = true;
         //Shoot();
         //target = new Vector3(19.2f, 18f, -13f);//debug
         //Debug.DrawLine(transform.position, target, Color.red);//绘制一条红色的射线  起点-终点
+        //initPos = transform.position + Firepos;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target , speed * Time.deltaTime);
+        //+ (target-transform.position-Firepos)*0.5f
     }
 
     //碰撞
@@ -71,7 +77,7 @@ public class Bullet : MonoBehaviour
         //if (hitanimal != null) 
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
 
-        Vector3 Firepos = new Vector3(0, 0f, 0f);
+        Vector3 Firepos = new Vector3(0f, 0f, 0f);
         GameObject exObj =  Instantiate(explode, transform.position+Firepos, explode.transform.rotation);
 
         //摧毁自身

@@ -74,7 +74,7 @@ public class BaseAnimal : MonoBehaviour
     }
 
     //发射炮弹
-    public Bullet Fire()
+    public Bullet Fire(Vector3 target)
     {
         //已经死亡
         //if (isdie())
@@ -91,17 +91,12 @@ public class BaseAnimal : MonoBehaviour
         //bulletObj.layer = LayerMask.NameToLayer("Bullet");
         Bullet bullet = bulletObj.AddComponent<Bullet>();
         bullet.animal = this;
+        bullet.target = target;
         bullet.Init();
-        aimCameraTransform = GameObject.Find("Main Camera").gameObject.transform;
-        RaycastHit hit;
-        if (Physics.Raycast(aimCameraTransform.position, aimCameraTransform.forward, out hit, Mathf.Infinity))
-        {
-            bullet.target = hit.point;
-            bullet.canHit = true;
-            Debug.Log("可以射出！" + "目标点位置" + bullet.target);
-        }
+        
         //位置
-        bullet.transform.position = transform.position;
+        Vector3 FirePosvector3 = new Vector3(0.7f, 2.0f, 1.6f);
+        bullet.transform.position = transform.position+ FirePosvector3;
         bullet.transform.rotation = transform.rotation;
         //更新时间
         lastFireTime = Time.time;
