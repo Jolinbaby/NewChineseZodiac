@@ -47,6 +47,7 @@ public class BaseAnimal : MonoBehaviour
     public bool isShieldProtect;
     public bool isSuperState;
 
+    public Transform aimCameraTransform;
     public void Start()
     {
 
@@ -91,7 +92,14 @@ public class BaseAnimal : MonoBehaviour
         Bullet bullet = bulletObj.AddComponent<Bullet>();
         bullet.animal = this;
         bullet.Init();
-        
+        aimCameraTransform = GameObject.Find("Main Camera").gameObject.transform;
+        RaycastHit hit;
+        if (Physics.Raycast(aimCameraTransform.position, aimCameraTransform.forward, out hit, Mathf.Infinity))
+        {
+            bullet.target = hit.point;
+            bullet.canHit = true;
+            Debug.Log("可以射出！" + "目标点位置" + bullet.target);
+        }
         //位置
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;

@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     //能否达到东西
     public bool canHit;
     //目标点
-    private Vector3 target;
+    public Vector3 target;
     //只检测一次
     private bool flag;
     //初始化
@@ -26,54 +26,30 @@ public class Bullet : MonoBehaviour
         //皮肤
         GameObject skinRes = ResManager.LoadPrefab("RockToAttack");
         skin = (GameObject)Instantiate(skinRes);
-        Vector3 Firepos = new Vector3(0,1.75f,2.34f);
+        Vector3 Firepos = new Vector3(0.7f,1.1f,1.6f);
         skin.transform.parent = this.transform;
         skin.transform.localPosition = Firepos;
         skin.transform.localEulerAngles = Vector3.zero;
         //物理
         rigidBody = gameObject.AddComponent<Rigidbody>();
         rigidBody.useGravity = false;
-        aimCameraTransform = animal.gameObject.transform.Find("PlayerAimCamera").gameObject.transform;
+        //aimCameraTransform = animal.gameObject.transform.Find("PlayerAimCamera").gameObject.transform;
         canHit = false;
-        flag = false;
+        //Shoot();
+        //target = new Vector3(19.2f, 18f, -13f);//debug
+        //Debug.DrawLine(transform.position, target, Color.red);//绘制一条红色的射线  起点-终点
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!flag && Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-        }
-        if (canHit)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
-    private void Shoot()
-    {
-        RaycastHit hit;
-        if(Physics.Raycast(aimCameraTransform.position,aimCameraTransform.forward,out hit, Mathf.Infinity))
-        {
-            Debug.Log("可以射到目标！");
-            target = hit.point;
-            //if (Vector3.Distance(aimCameraTransform.position, target) < 10f)
-            //{
-            //    canHit = true;
-            //}
-        }
-        else
-        {
-            Debug.Log("无法射到目标！");
-            target = aimCameraTransform.position + aimCameraTransform.forward * 20f;
-        }
-        canHit = true;
-        flag = true;
-    }
     //碰撞
     void OnCollisionEnter(Collision collisionInfo)
     {
+        Debug.Log("石头碰到碰撞体啦！！！！！！！！！！！！！！！！！！！！！！！！！！");
         //打到的动物
         GameObject collObj = collisionInfo.gameObject;
         BaseAnimal hitanimal = collObj.GetComponent<BaseAnimal>();
@@ -96,9 +72,10 @@ public class Bullet : MonoBehaviour
         //collisionInfo.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");//
 
         Vector3 Firepos = new Vector3(0, 0f, 0f);
-        Instantiate(explode, transform.position+Firepos, explode.transform.rotation);
+        GameObject exObj =  Instantiate(explode, transform.position+Firepos, explode.transform.rotation);
 
         //摧毁自身
+        Destroy(exObj, 1f);
         Destroy(gameObject);
     }
 

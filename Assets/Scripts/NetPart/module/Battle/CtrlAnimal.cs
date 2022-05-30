@@ -35,7 +35,7 @@ public class CtrlAnimal : BaseAnimal
     private bool isKeyTabDown = false;
     private bool isKeyCDown = false;
 
-
+    
     private void Awake()
     {
         //getting reference for components on the Player
@@ -231,15 +231,20 @@ public class CtrlAnimal : BaseAnimal
         //}
         //∞¥º¸≈–∂œ
         //if (!Input.GetKey(KeyCode.Q))
-        if (!Input.GetMouseButtonDown(1))
-        {
-            return;
-        }
         //cd «∑Ò≈–∂œ
         if (Time.time - lastFireTime < fireCd)
         {
             return;
         }
+        if (!ItemManager.isAim)
+        {
+            return;
+        }
+        if (!Input.GetMouseButtonDown(0))
+        {
+            return;
+        }
+
        
         //∑¢…‰
         Bullet bullet = Fire();

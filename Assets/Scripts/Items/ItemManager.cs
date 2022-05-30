@@ -14,6 +14,8 @@ static class ItemManager
     public static bool isJumpUp;
     public static bool isSuper;
     public static bool isThrowBanana;
+    //瞄准
+    public static bool isAim;
 
     public static bool isAnimalGetKey;
     // 是否已经有钥匙生成
