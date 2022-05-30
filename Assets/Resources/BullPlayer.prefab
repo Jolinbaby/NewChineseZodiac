@@ -225,8 +225,8 @@ MonoBehaviour:
   MoveSpeed: 8
   CanSwim: 1
   VgourBar: {fileID: 0}
-  SprintSpeed: 12
-  SprintTime: 3
+  SprintSpeed: 16
+  SprintTime: 6
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 2.6
@@ -234,7 +234,7 @@ MonoBehaviour:
   JumpTimeout: 0.2
   FallTimeout: 0.15
   IdleTimeout: 2
-  SprintTimeout: 2
+  SprintTimeout: 3
   Grounded: 1
   GroundedOffset: -0.44
   GroundedRadius: 0.58
