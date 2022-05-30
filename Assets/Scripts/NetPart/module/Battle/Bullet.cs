@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target , speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target+(target-transform.position )*10 , speed * Time.deltaTime);
         //+ (target-transform.position-Firepos)*0.5f
     }
 

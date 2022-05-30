@@ -259,16 +259,16 @@ public class CtrlAnimal : BaseAnimal
             Debug.Log("前方没有可射击的目标！");
         }
         //发射
-        Bullet bullet = Fire(target);
-        
+        Bullet bullet = Fire();
+        myTAR= target;
         //发送同步协议
         MsgFire msg = new MsgFire();
         msg.x = bullet.transform.position.x;
         msg.y = bullet.transform.position.y;
         msg.z = bullet.transform.position.z;
-        msg.ex = bullet.transform.eulerAngles.x;
-        msg.ey = bullet.transform.eulerAngles.y;
-        msg.ez = bullet.transform.eulerAngles.z;
+        msg.ex = myTAR.x;
+        msg.ey = myTAR.y;
+        msg.ez = myTAR.z;
 
         msg.Fireid = "QAttack";
 

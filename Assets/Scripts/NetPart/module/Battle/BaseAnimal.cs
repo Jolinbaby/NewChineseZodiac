@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseAnimal : MonoBehaviour
 {
+    public Vector3 myTAR;
     //动物模型
     private GameObject skin;
 
@@ -74,7 +75,7 @@ public class BaseAnimal : MonoBehaviour
     }
 
     //发射炮弹
-    public Bullet Fire(Vector3 target)
+    public Bullet Fire()
     {
         //已经死亡
         //if (isdie())
@@ -91,7 +92,7 @@ public class BaseAnimal : MonoBehaviour
         //bulletObj.layer = LayerMask.NameToLayer("Bullet");
         Bullet bullet = bulletObj.AddComponent<Bullet>();
         bullet.animal = this;
-        bullet.target = target;
+        bullet.target = myTAR ;
         bullet.Init();
         
         //位置
