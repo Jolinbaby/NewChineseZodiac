@@ -25,7 +25,7 @@ public class TipPanelSmall : BasePanel
         {
             text.text = (string)args[0];
         }
-        Invoke("hide", 1.5f);
+        Invoke("hide", 1f);
     }
 
     void hide()

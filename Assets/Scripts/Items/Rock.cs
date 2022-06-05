@@ -77,8 +77,18 @@ public class Rock : MonoBehaviour
                     other.gameObject.GetComponent<Animator>().SetTrigger("Dizzy");
                     rockStates = RockStates.HitNothing;
                 }
+                else
+                {
+                    Invoke("SelfDestroy", 5);
+                }
                 break;
         }
     }
 
+    void SelfDestroy()
+    {
+        Debug.Log("5s到了");
+        Destroy(gameObject);
+        Debug.Log("5s已经销毁");
+    }
 }

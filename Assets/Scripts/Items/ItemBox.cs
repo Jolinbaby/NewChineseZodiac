@@ -242,6 +242,7 @@ public class ItemBox : MonoBehaviour
             itemUI = GameObject.Find("ItemIcon_3");
             return true;
         }
+        PanelManager.Open<TipPanelSmall>("攻击类道具栏123已满，无法拾取该道具");
         Debug.Log("互动道具栏已满！");
         return false;
     }
@@ -256,6 +257,7 @@ public class ItemBox : MonoBehaviour
             return true;
         }
         Debug.Log("Buff道具栏已满！");
+        PanelManager.Open<TipPanelSmall>("Buff道具栏4已满，无法拾取该道具");
         return false;
     }
     private void DisplayInItemBar()
